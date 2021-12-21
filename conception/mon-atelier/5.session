@@ -1,0 +1,14 @@
+window_sizes 1366 704 320 1042 556 104
+
+diagrams
+  usecasediagram_ref 128005 // atelier
+    833 444 100 A4 168 0
+  active  classdiagram_ref 128133 // class_diagram
+    1042 556 100 A4 0 0
+end
+show_stereotypes
+selected classdiagram_ref 128133 // class_diagram
+open
+  usecaseview_ref 128005 // use_case_view
+end
+end

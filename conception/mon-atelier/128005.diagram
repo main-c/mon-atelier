@@ -1,0 +1,139 @@
+format 224
+
+subject 128005 ""
+  xyzwh 68 196 2000 760 446
+classcanvas 128133 class_ref 128005 // Atelier
+  simpleclassdiagramsettings end
+  xyz -1 399 2000
+end
+usecasecanvas 128389 usecase_ref 128005 // s'inscrire
+  xyzwh 79 240 3005 69 33 label_xy 89 274
+end
+usecasecanvas 128517 usecase_ref 128133 // se connecter
+  xyzwh 142 293 3005 69 33 label_xy 158 328
+end
+usecasecanvas 128645 usecase_ref 128261 // deconnexion
+  xyzwh 74 308 3005 69 33 label_xy 79 336
+end
+usecasecanvas 128773 usecase_ref 128389 // ajouter client
+  xyzwh 283 308 3005 64 32 label_xy 280 340
+end
+usecasecanvas 128901 usecase_ref 128517 // modifier client
+  xyzwh 430 394 3005 64 32 label_xy 425 426
+end
+usecasecanvas 129029 usecase_ref 128645 // ajouter modele
+  xyzwh 388 351 3005 64 32 label_xy 380 383
+end
+usecasecanvas 129157 usecase_ref 128773 // modifier modele
+  xyzwh 233 491 3005 64 32 label_xy 223 523
+end
+usecasecanvas 129285 usecase_ref 128901 // supprimer modele
+  xyzwh 382 292 3010 64 32 label_xy 367 324
+end
+usecasecanvas 129413 usecase_ref 129029 // consulter modeles
+  xyzwh 194 347 3005 64 32 label_xy 178 379
+end
+usecasecanvas 129541 usecase_ref 129157 // publier modele
+  xyzwh 222 263 3010 64 32 label_xy 215 295
+end
+usecasecanvas 129669 usecase_ref 129285 // ajouter article
+  xyzwh 122 473 3005 64 32 label_xy 117 505
+end
+usecasecanvas 129797 usecase_ref 129413 // modifier article
+  xyzwh 271 433 3005 64 32 label_xy 264 465
+end
+usecasecanvas 129925 usecase_ref 129541 // publier article
+  xyzwh 354 427 3005 64 32 label_xy 350 459
+end
+usecasecanvas 130053 usecase_ref 129669 // supprimer article
+  xyzwh 434 479 3005 64 32 label_xy 422 511
+end
+usecasecanvas 130181 usecase_ref 129797 // creer un salon employé
+  xyzwh 73 500 3005 64 32 label_xy 44 532
+end
+usecasecanvas 130309 usecase_ref 129925 // Ajouter un employe
+  xyzwh 204 547 3005 64 32 label_xy 186 579
+end
+usecasecanvas 130437 usecase_ref 130053 // supprimer un employe
+  xyzwh 331 505 3005 64 32 label_xy 306 537
+end
+usecasecanvas 130565 usecase_ref 130181 // modifier les informations d'un employé
+  xyzwh 82 576 3005 64 32 label_xy 14 608
+end
+usecasecanvas 130693 usecase_ref 130309 // consulter tous les ateliers
+  xyzwh 274 593 3010 64 32 label_xy 239 625
+end
+classcanvas 137861 class_ref 128261 // Visiteur
+  simpleclassdiagramsettings end
+  xyz 681 85 2000
+end
+usecasecanvas 137989 usecase_ref 130437 // consulter les atelier
+  xyzwh 728 246 3005 64 32 label_xy 708 278
+end
+usecasecanvas 138117 usecase_ref 130565 // consulter l'ens modele
+  xyzwh 527 227 3005 64 32 label_xy 500 259
+end
+usecasecanvas 138245 usecase_ref 130693 // consulter ens articles
+  xyzwh 746 310 3005 64 32 label_xy 722 342
+end
+usecasecanvas 138373 usecase_ref 130821 // contacter un atelier
+  xyzwh 561 313 3010 64 32 label_xy 540 345
+end
+usecasecanvas 138501 usecase_ref 130949 // faire des recherches
+  xyzwh 640 379 3005 64 32 label_xy 617 411
+end
+note 139397 "syteme"
+  xyzwh 69 194 2005 59 35
+line 130821 ----
+  from ref 128389 z 3006 to ref 128133
+line 131461 ----
+  from ref 129285 z 3011 to ref 128133
+line 132101 ----
+  from ref 128517 z 3006 to ref 128133
+line 132229 ----
+  from ref 129541 z 3011 to ref 128133
+line 133637 ----
+  from ref 129669 z 3006 to ref 128133
+line 133765 ----
+  from ref 130181 z 3006 to ref 128133
+line 134405 ----
+  from ref 129413 z 3006 to ref 128133
+line 134533 ----
+  from ref 128901 z 3006 to ref 128133
+line 134661 ----
+  from ref 128773 z 3006 to ref 128133
+line 135045 ----
+  from ref 129925 z 3006 to ref 128133
+line 135941 ----
+  from ref 129029 z 3006 to ref 128133
+line 136069 ----
+  from ref 130053 z 3006 to ref 128133
+line 136197 ----
+  from ref 129797 z 3006 to ref 128133
+line 136325 ----
+  from ref 129157 z 3006 to ref 128133
+line 136453 ----
+  from ref 130565 z 3006 to ref 128133
+line 136581 ----
+  from ref 130309 z 3006 to ref 128133
+line 136709 ----
+  from ref 130693 z 3011 to point 297 554
+  line 137605 z 3011 to point 219 475
+  line 137477 z 3011 to ref 128133
+line 136837 ----
+  from ref 130437 z 3006 to point 319 482
+  line 137733 z 3006 to ref 128133
+line 137349 ----
+  from ref 128645 z 3006 to ref 128133
+line 138629 ----
+  from ref 138117 z 3006 to ref 137861
+line 138757 ----
+  from ref 138373 z 3011 to ref 137861
+line 138885 ----
+  from ref 138501 z 3006 to ref 137861
+line 139013 ----
+  from ref 137989 z 3011 to point 743 240
+  line 139141 z 3011 to ref 137861
+line 139269 ----
+  from ref 138245 z 3006 to ref 137861
+end
