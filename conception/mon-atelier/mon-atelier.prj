@@ -1,6 +1,6 @@
 format 224
 "mon-atelier"
-  revision 3
+  revision 6
   modified_by 4 "main-c"
 
 
@@ -64,6 +64,238 @@ format 224
     
     activitydiagramsettings
      end
+    objectdiagram 134532 "object"
+      objectdiagramsettings end
+      size A4
+    end
+
+    classinstance 134532 "Eric_couture"
+      type class_ref 128004 // Workshop
+      attributes
+        end
+      relations
+        relation_ref 136068 // work_for
+          classinstance_ref 134916 // Jean
+        relation_ref 136068 // work_for
+          classinstance_ref 135044 // Albert
+        relation_ref 136068 // work_for
+          classinstance_ref 135172 // Edvige
+        relation_ref 128260 // sell
+          classinstance_ref 136580 // rideaux fleuri
+        relation_ref 128260 // sell
+          classinstance_ref 136708 // gant
+        end
+    end
+
+    classinstance 134788 "Eric"
+      type class_ref 141828 // User
+      attributes
+        end
+      relations
+        relation_ref 135684 // belong_to
+          classinstance_ref 134532 // Eric_couture
+        end
+    end
+
+    classinstance 134916 "Jean"
+      type class_ref 134660 // Worker
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 135044 "Albert"
+      type class_ref 134660 // Worker
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 135172 "Edvige"
+      type class_ref 134660 // Worker
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 135300 "habit de noel de ma'a cathy"
+      type class_ref 128132 // Order
+      attributes
+        end
+      relations
+        relation_ref 135556 // add
+          classinstance_ref 134532 // Eric_couture
+        relation_ref 128900 // pass
+          classinstance_ref 135428 // ma'a cathy
+        relation_ref 143620 // is_for
+          classinstance_ref 135684 // robe evasé
+        end
+    end
+
+    classinstance 135428 "ma'a cathy"
+      type class_ref 134788 // Client
+      attributes
+        end
+      relations
+        relation_ref 128644 // have
+          classinstance_ref 135940 // mesure2
+        end
+    end
+
+    classinstance 135684 "robe evasé"
+      type class_ref 148484 // OrderItem
+      attributes
+        end
+      relations
+        relation_ref 143364 // have
+          classinstance_ref 135812 // robe évasé 4
+        end
+    end
+
+    classinstance 135812 "robe évasé 4"
+      type class_ref 135172 // Modele
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 135940 "mesure2"
+      type class_ref 135300 // Mesure
+      attributes
+        end
+      relations
+        relation_ref 143876 // have
+          classinstance_ref 135684 // robe evasé
+        end
+    end
+
+    classinstance 136196 "chemise carrelé"
+      type class_ref 148484 // OrderItem
+      attributes
+        end
+      relations
+        relation_ref 143364 // have
+          classinstance_ref 136324 // chemise
+        end
+    end
+
+    classinstance 136324 "chemise"
+      type class_ref 135172 // Modele
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 136452 "mesure2"
+      type class_ref 135300 // Mesure
+      attributes
+        end
+      relations
+        relation_ref 143876 // have
+          classinstance_ref 136196 // chemise carrelé
+        end
+    end
+
+    classinstance 136580 "rideaux fleuri"
+      type class_ref 134916 // Article
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 136708 "gant"
+      type class_ref 134916 // Article
+      attributes
+        end
+      relations
+        end
+    end
+
+    state 134532 "article_state"
+      stereotype "machine"
+      statediagram 134660 "article"
+	statediagramsettings
+	 end
+	size A4
+      end
+
+      pseudostate 134532 initial "initial"
+	transition 134532 "<transition>"
+	  on state_ref 134660 // en stock
+	  external 
+	end
+      end
+
+      state 134660 "en stock"
+	transition 134660 "[qty==0]"
+	  on state_ref 134788 // epuisé
+	  external 
+	end
+      end
+
+      state 134788 "epuisé"
+	transition 134788 "<transition>"
+	  on pseudostate_ref 134660 // final final
+	  external 
+	end
+      end
+
+      pseudostate 134660 final "final"
+      end
+
+      statediagram 134788 "order"
+	statediagramsettings
+	 end
+	size A4
+      end
+
+      pseudostate 134788 initial ""
+	transition 134916 "initial"
+	  on state_ref 134916 // Non términée
+	  external 
+	end
+      end
+
+      state 134916 "Non términée"
+	transition 135172 "[manque de materiél]"
+	  on state_ref 135172 // En attente de materiel
+	  external 
+	end
+
+	transition 135300 "[date>end_date]"
+	  on state_ref 135428 // delai depassé
+	  external 
+	end
+
+	transition 135428 "<transition>"
+	  on state_ref 135044 // Terminée
+	  external 
+	end
+      end
+
+      state 135044 "Terminée"
+      end
+
+      state 135172 "En attente de materiel"
+	associated_diagram statediagram_ref 134788 // order
+	transition 135044 "achat de materiel"
+	  on state_ref 134916 // Non términée
+	  external 
+	end
+      end
+
+      state 135300 "Non payé"
+      end
+
+      state 135428 "delai depassé"
+      end
+    end
   end
 
   usecaseview 128005 "use_case_view"
@@ -673,8 +905,8 @@ ${docstring}${members}
     end
 
     classdiagram 128133 "class_diagram"
-      classdiagramsettings member_max_width 0 end
-      size A4
+      classdiagramsettings draw_all_relations no member_max_width 0 end
+      size A3
     end
 
     class 128004 "Workshop"
@@ -689,19 +921,6 @@ ${docstring}${members}
       explicit_switch_type ""
       mysql_decl ""
       
-      attribute 128004 "manager_name"
-	private explicit_type ""
-	stereotype "str"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl "${comment}${self}${name} = ${value}
-"
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
       attribute 128132 "name"
 	private explicit_type ""
 	stereotype "str"
@@ -728,30 +947,6 @@ ${docstring}${members}
 	MysqlColumn
       end
 
-      classrelation 128004 // (add)
-	relation 128004 ---- name "add"
-	  a role_name "" multiplicity "*" private
-	    python "${comment}${self}${name} = ${stereotype}()
-"
-	    classrelation_ref 128004 // (add)
-	  b role_name "" multiplicity "1" private
-	    python "${comment}${self}${name} = ${value}
-"
-	    classrelation_ref 128132 // (add)
-      end
-
-      classrelation 128260 // (work_for)
-	relation 128132 ---- name "work_for"
-	  a role_name "" multiplicity "*" private
-	    python "${comment}${self}${name} = ${stereotype}()
-"
-	    classrelation_ref 128260 // (work_for)
-	  b role_name "employer" multiplicity "1" private
-	    python "${comment}${self}${name} = ${value}
-"
-	    classrelation_ref 128388 // employer (work_for)
-      end
-
       classrelation 128516 // (sell)
 	relation 128260 ---- name "sell"
 	  a role_name "" multiplicity "*" private
@@ -763,6 +958,87 @@ ${docstring}${members}
 "
 	    classrelation_ref 128644 // (sell)
       end
+
+      attribute 145028 "phone"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 145156 "whatsapp_phone"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 136836 // add
+	relation_ref 135556 // add
+      end
+
+      attribute 145284 "description"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 137092 // belong_to
+	relation_ref 135684 // belong_to
+      end
+
+      classrelation 137732 // (work_for)
+	relation 136068 o--- name "work_for"
+	  a role_name "" multiplicity "*" private
+	    python "${comment}${self}${name} = ${stereotype}()
+"
+	    classrelation_ref 137732 // (work_for)
+	  b role_name "" multiplicity "1" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 137860 // (work_for)
+      end
+
+      attribute 146180 "logo"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 138756 // (have)
+	relation 136580 o--- name "have"
+	  a role_name "" multiplicity "0..2" private
+	    python "${comment}${self}${name} = ${stereotype}()
+"
+	    classrelation_ref 138756 // (have)
+	  b role_name "" multiplicity "1" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 138884 // (have)
+      end
+
     end
 
     class 128132 "Order"
@@ -778,19 +1054,6 @@ ${docstring}${members}
       mysql_decl ""
       
       associated_diagram classdiagram_ref 128133 // class_diagram
-      attribute 128388 "name"
-	private explicit_type ""
-	stereotype "str"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl "${comment}${self}${name} = ${value}
-"
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
       attribute 135044 "start_date"
 	private explicit_type ""
 	stereotype "date"
@@ -818,7 +1081,7 @@ ${docstring}${members}
       end
 
       attribute 135300 "comment"
-	private explicit_type ""
+	private explicit_type "string"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -843,45 +1106,8 @@ ${docstring}${members}
 	MysqlColumn
       end
 
-      attribute 135556 "cost"
-	private explicit_type ""
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl "${comment}${self}${name} = ${value}
-"
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 135684 "qty"
-	private explicit_type ""
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl "${comment}${self}${name} = ${value}
-"
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
       attribute 135812 "total_cost"
 	private explicit_type ""
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl "${comment}${self}${name} = ${value}
-"
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 135940 "echantillon"
-	private explicit_type ""
-	stereotype "image"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -916,10 +1142,6 @@ ${docstring}${body}
 	
       end
 
-      classrelation 128132 // (add)
-	relation_ref 128004 // add
-      end
-
       classrelation 129540 // (have)
 	relation 128772 ---- name "have"
 	  a role_name "" multiplicity "1" private
@@ -942,6 +1164,30 @@ ${docstring}${body}
 	    python "${comment}${self}${name} = ${stereotype}()
 "
 	    classrelation_ref 129924 // (pass)
+      end
+
+      classrelation 136708 // (add)
+	relation 135556 ---- name "add"
+	  a role_name "" multiplicity "1" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 136708 // (add)
+	  b role_name "" multiplicity "*" private
+	    python "${comment}${self}${name} = ${stereotype}()
+"
+	    classrelation_ref 136836 // add
+      end
+
+      classrelation 146308 // (is_for)
+	relation 143620 ---- name "is_for"
+	  a role_name "" multiplicity "*" private
+	    python "${comment}${self}${name} = ${stereotype}()
+"
+	    classrelation_ref 146308 // (is_for)
+	  b role_name "" multiplicity "1" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 146436 // (is_for)
       end
     end
 
@@ -1054,9 +1300,10 @@ ${docstring}${members}
 	MysqlColumn
       end
 
-      classrelation 128388 // employer (work_for)
-	relation_ref 128132 // work_for
+      classrelation 137860 // (work_for)
+	relation_ref 136068 // work_for
       end
+
     end
 
     class 134788 "Client"
@@ -1134,6 +1381,19 @@ ${docstring}${members}
       classrelation 129924 // (pass)
 	relation_ref 128900 // pass
       end
+
+      attribute 145412 "sexe"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
     end
 
     class 134916 "Article"
@@ -1148,18 +1408,6 @@ ${docstring}${members}
       explicit_switch_type ""
       mysql_decl ""
       
-      attribute 137732 "price"
-	private explicit_type ""
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl "${comment}${self}${name} = ${value}
-"
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
       attribute 137860 "status"
 	private explicit_type ""
 	cpp_decl ""
@@ -1174,24 +1422,16 @@ ${docstring}${members}
 "
       end
 
-      attribute 137988 "name"
-	private explicit_type ""
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl "${comment}${self}${name} = ${value}
-"
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
       classrelation 128644 // (sell)
 	relation_ref 128260 // sell
       end
 
-      classrelation 130180 // (base_on)
-	relation_ref 129028 // base_on
+      classrelation 145668 // <generalisation>
+	relation 143236 ---|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 145668 // <generalisation>
+	  b parent class_ref 148484 // OrderItem
       end
     end
 
@@ -1288,16 +1528,8 @@ ${docstring}${members}
 	relation_ref 128772 // have
       end
 
-      classrelation 130052 // (base_on)
-	relation 129028 ---- name "base_on"
-	  a role_name "" multiplicity "*" private
-	    python "${comment}${self}${name} = ${stereotype}()
-"
-	    classrelation_ref 130052 // (base_on)
-	  b role_name "" multiplicity "1" private
-	    python "${comment}${self}${name} = ${value}
-"
-	    classrelation_ref 130180 // (base_on)
+      classrelation 145924 // (have)
+	relation_ref 143364 // have
       end
     end
 
@@ -1315,6 +1547,201 @@ ${docstring}${members}
       
       classrelation 129412 // (have)
 	relation_ref 128644 // have
+      end
+
+      classrelation 146820 // (have)
+	relation 143876 ---- name "have"
+	  a role_name "" multiplicity "*" private
+	    python "${comment}${self}${name} = ${stereotype}()
+"
+	    classrelation_ref 146820 // (have)
+	  b role_name "" multiplicity "0..1" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 146948 // (have)
+      end
+    end
+
+    class 141828 "User"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 145540 "name"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 145668 "email"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 145796 "phone"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 145924 "password"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 136964 // (belong_to)
+	relation 135684 ---- name "belong_to"
+	  a role_name "" multiplicity "0..1" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 136964 // (belong_to)
+	  b role_name "" multiplicity "1" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 137092 // belong_to
+      end
+    end
+
+    class 141956 "LocationImage"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 138884 // (have)
+	relation_ref 136580 // have
+      end
+
+      attribute 146308 "image"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 148484 "OrderItem"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 152836 "name"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 152964 "cost"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 153092 "echantillon"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 153220 "qty"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 145796 // (have)
+	relation 143364 ---- name "have"
+	  a role_name "" multiplicity "0..1" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 145796 // (have)
+	  b role_name "" multiplicity "*" private
+	    python "${comment}${self}${name} = ${stereotype}()
+"
+	    classrelation_ref 145924 // (have)
+      end
+
+      classrelation 146436 // (is_for)
+	relation_ref 143620 // is_for
+      end
+
+      classrelation 146948 // (have)
+	relation_ref 143876 // have
       end
     end
   end
