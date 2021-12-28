@@ -1,0 +1,54 @@
+format 224
+
+pseudostatecanvas 128004 pseudostate_ref 134788 // initial 
+   xyz 224 46 2000
+end
+statecanvas 128132 state_ref 134916 // Non términée
+  
+  xyzwh 359 93 2000 109 37
+end
+statecanvas 128260 state_ref 135044 // Terminée
+  
+  xyzwh 104 216 2000 83 37
+end
+statecanvas 128388 state_ref 135172 // En attente de materiel
+  
+  xyzwh 329 324 2000 167 37
+end
+statecanvas 128516 state_ref 135300 // Non payé
+  
+  xyzwh 123 340 2005 83 37
+end
+statecanvas 128644 state_ref 135428 // delai depassé
+  
+  xyzwh 692 81 2010 113 37
+end
+transitioncanvas 128772 transition_ref 134916 // initial
+  
+  from ref 128004 z 2001 label "initial" xyz 219 44 3000 to ref 128132
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 128900 transition_ref 135044 // achat de materiel
+  decenter_end 384
+  
+  from ref 128388 z 2001 label "achat de materiel" xyz 308 225 3000 to ref 128132
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129028 transition_ref 135172 // [manque de materiél]
+  decenter_begin 742
+  decenter_end 723
+  
+  from ref 128132 z 2001 label "[manque de materiél]" xyz 387.5 265 3000 to ref 128388
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129284 transition_ref 135300 // [date>end_date]
+  
+  from ref 128132 z 2011 label "[date>end_date]" xyz 510.5 93 3000 to ref 128644
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129412 transition_ref 135428 // <transition>
+  
+  from ref 128132 z 2001 to ref 128260
+  write_horizontally default show_definition default drawing_language default
+end
+end

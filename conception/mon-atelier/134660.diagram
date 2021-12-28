@@ -1,0 +1,32 @@
+format 224
+
+pseudostatecanvas 128004 pseudostate_ref 134532 // initial initial
+   xyz 299.667 77.4785 2000
+end
+statecanvas 128132 state_ref 134660 // en stock
+  
+  xyzwh 285.652 136.834 2000 75 37
+end
+statecanvas 128260 state_ref 134788 // epuisé
+  
+  xyzwh 285.729 257.774 2000 65 37
+end
+pseudostatecanvas 128644 pseudostate_ref 134660 // final final
+   xyz 311.437 338.622 2000
+end
+transitioncanvas 128388 transition_ref 134532 // <transition>
+  
+  from ref 128004 z 2001 to ref 128132
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 128516 transition_ref 134660 // [qty==0]
+  
+  from ref 128132 z 2001 label "[qty==0]" xyz 305 194.5 3000 to ref 128260
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 128772 transition_ref 134788 // <transition>
+  
+  from ref 128260 z 2001 to ref 128644
+  write_horizontally default show_definition default drawing_language default
+end
+end
