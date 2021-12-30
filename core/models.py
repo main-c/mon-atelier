@@ -136,6 +136,7 @@ class OrderItem(models.Model):
 
 class Article(OrderItem, models.Model):
     status = models.CharField(max_length=255, null=False, choices=[("En vente", "En vente"), ("Vendu", "Vendu")], default="En vente")
+    description = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.name + " | " + self.status
