@@ -1,0 +1,24 @@
+.banner{
+	background: #F0EBFF;
+}
+.text_banner{
+	background-color: rgba(68, 51, 105, .75);
+	margin-top: -210px;
+	position: absolute;
+}
+.title{
+	font-weight: 700;
+}
+.titre div{
+	width: 90px;
+	border: 2px solid #FF5566;
+}
+.contact p{
+	color: #443369;
+}
+
+@media screen and (max-width: 500px){
+	.text_banner{
+		margin-top: -170px;
+	}
+}
