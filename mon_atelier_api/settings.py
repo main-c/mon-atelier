@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'core',
     'drf_yasg',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -43,6 +44,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    
+
+}
 
 ROOT_URLCONF = 'mon_atelier_api.urls'
 

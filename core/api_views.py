@@ -11,34 +11,56 @@ from rest_framework.response import Response
 from django.http import JsonResponse, request
 from django.contrib.auth.models import User
 from drf_yasg.utils import swagger_auto_schema
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
 
 
 class CategoryViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
 	UpdateModelMixin, DestroyModelMixin, GenericViewSet):
 
-	serializer_class = CategorySerializer
-	queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    queryset = Category.objects.all()
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter ]
+    filterset_fields = ['name',]
+    search_fields = ['^name']
+    ordering_fields = ['name',]
+
 
 
 class ModeleViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
 	UpdateModelMixin, DestroyModelMixin, GenericViewSet):
 
-	serializer_class = ModeleSerializer
-	queryset = Modele.objects.all()
+    serializer_class = ModeleSerializer
+    queryset = Modele.objects.all()
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter ]
+    filterset_fields = ['name','add_on']
+    search_fields = ['^name']
+    ordering_fields = ['name',]
+
 
 
 class OrderViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
 	UpdateModelMixin, DestroyModelMixin, GenericViewSet):
 
-	serializer_class = OrderSerializer
-	queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    queryset = Order.objects.all()
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter ]
+    filterset_fields = ['name', 'delivery_date', 'state']
+    search_fields = ['^name']
+    ordering_fields = ['name', 'delivery_date', 'state']
+
 
 
 class ArticleViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
 	UpdateModelMixin, DestroyModelMixin, GenericViewSet):
 
-	serializer_class = ArticleSerializer
-	queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+    queryset = Article.objects.all()
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter ]
+    filterset_fields = ['name', 'cost', 'status']
+    search_fields = ['^name']
+    ordering_fields = ['name', 'cost', 'status']
+
 
 
 class MesureViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
@@ -51,28 +73,43 @@ class MesureViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
 class ClientViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
 	UpdateModelMixin, DestroyModelMixin, GenericViewSet):
 
-	serializer_class = ClientSerializer
-	queryset = Client.objects.all()
+    serializer_class = ClientSerializer
+    queryset = Client.objects.all()
+    filterset_fields = ['name', 'cost', 'status']
+    search_fields = ['^name']
+    ordering_fields = ['name', 'cost', 'status']
+
 
 class WorkerViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
 	UpdateModelMixin, DestroyModelMixin, GenericViewSet):
 
-	serializer_class = WorkerSerializer
-	queryset = Worker.objects.all()
+    serializer_class = WorkerSerializer
+    queryset = Worker.objects.all()
+    filterset_fields = ['full_name','status']
+    search_fields = ['$full_name', '$location']
+    ordering_fields = ['full_name', 'since']
 
 
 class OrderItemViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
 	UpdateModelMixin, DestroyModelMixin, GenericViewSet):
 
-	serializer_class = OrderItemSerializer
-	queryset = OrderItem.objects.all()
+    serializer_class = OrderItemSerializer
+    queryset = OrderItem.objects.all()
+    filterset_fields = ['name', 'cost']
+    search_fields = ['^name']
+    ordering_fields = ['name', 'cost']
+
 
 
 class WorkshopViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
 	UpdateModelMixin, DestroyModelMixin, GenericViewSet):
 
-	serializer_class = WorkshopSerializer
-	queryset = Workshop.objects.all()
+    serializer_class = WorkshopSerializer
+    queryset = Workshop.objects.all()
+    filterset_fields = ['name', ]
+    search_fields = ['^name', '$location ']
+    ordering_fields = ['name', 'cost', 'status']
+
 
 class AuthViewSet(GenericViewSet):
 
