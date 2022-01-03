@@ -1,4 +1,5 @@
 import React from 'react';
+import Modele from '../components/Modele'
 import './profilAtelier.css';
 
 
@@ -27,8 +28,8 @@ function ProfilAtelier(){
 					<p className="text-center mb-2 fs-3">Les Modèles</p>
 					<div className="mx-auto"></div>
 				</div>
-				<div className="mt-3 bg-secondary p-5">
-
+				<div className="mt-2 bg-violet p-5">
+					<Modele />
 				</div>
 			</div>
 

@@ -6,6 +6,9 @@
 	margin-top: -210px;
 	position: absolute;
 }
+.bg-violet{
+	background-color: #443369;
+}
 .title{
 	font-weight: 700;
 }
