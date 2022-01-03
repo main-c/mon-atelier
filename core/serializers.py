@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
-from django.db.models import fields
 from rest_framework.authtoken.models import Token
+from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer, Serializer
 from core.models import (Article, Category, Client, LocationImage, 
                             Modele, Order, OrderItem, Worker,
@@ -39,7 +39,7 @@ class OrderSerializer(ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ['id', 'workshop', 'client', 'delivery_date', 'comment', 'total_cost', 'state', 'mesure']
+        fields = ['id', 'workshop', 'client', 'delivery_date', 'comment', 'total_cost', 'state',]
 
     def create(self, validated_data):
         validated_data['total_cost'] = id.get_total_cost()
@@ -63,35 +63,34 @@ class OrderItemSerializer(ModelSerializer):
 
     class Meta:
         model = OrderItem
-        fields = ['id', 'order', 'modele', 'name', 'cost', 'echantillon', 'result', 'quantity']
+        fields = ['id', 'order', 'modele', 'name', 'cost', 'echantillon', 'result', 'quantity', 'mesure']
 
 
 class ArticleSerializer(ModelSerializer):
 
     class Meta:
         model = Article
-        fields = ['id', 'status', 'description', 'order', 'modele', 'name', 'cost', 'echantillon', 'result', 'qty']
+        fields = ['id', 'status', 'description', 'order', 'modele', 'name', 'cost', 'echantillon', 'result', 'quantity']
 
 
 class ProfileSerializer(ModelSerializer):
     class Meta:
         model = User
-        fields = ("first_name", "last_name",  "password", "email", "profile")
+        fields = ("last_name",  "password", "email")
 
 
-class CouturierSerializer(ModelSerializer):
+class WorkshopSerializer(ModelSerializer):
 
-    profile = ProfileSerializer
+    manager = ProfileSerializer()
 
     class Meta:
         model = Workshop
-        fields = ("id", "profile", "name", "location", "phone", "whatsapp_phone", "description", "logo")
+        fields = ("id", "manager", "name", "location", "phone", "whatsapp_phone", "description", "logo")
 
     def create(self, validated_data):
-        profile_data = validated_data.pop("profile")
+        profile_data = validated_data.pop("manager")
         # create user profile
         user = User.objects.create_user(
-            first_name=profile_data["first_name"],
             last_name=profile_data["last_name"],
             email=profile_data["email"],
             password=profile_data["password"],
@@ -111,13 +110,13 @@ class CouturierSerializer(ModelSerializer):
     
 class LoginSerializer(Serializer):
 
-    username = fields.CharField()
-    password = fields.CharField()
+    username = serializers.CharField()
+    password = serializers.CharField()
 
 
 class UserSerializer(ModelSerializer):
 
-    token = fields.SerializerMethodField()
+    token = serializers.SerializerMethodField()
 
     def get_token(self, instance:User):
         return Token.objects.get(user=instance).key

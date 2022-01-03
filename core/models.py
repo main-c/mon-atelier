@@ -2,13 +2,12 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-
 class Workshop(models.Model):
-    name = models.CharField(max_length=255, null=False, blank=True)
-    location = models.CharField(max_length=255, null=False, blank=True)
-    phone = models.CharField(max_length=13, null=False, blank=True)
-    whatsapp_phone = models.CharField(max_length=13, null=False, blank=True)
-    description = models.TextField()
+    name = models.CharField(max_length=255,unique=True)
+    location = models.CharField(max_length=255, null=True, blank=True)
+    phone = models.CharField(max_length=13, unique=True, null=False, blank=True)
+    whatsapp_phone = models.CharField(max_length=13, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
     logo = models.ImageField(blank=True, null=True, upload_to="images/logos/", default='images/logo.png')
     manager = models.OneToOneField(User, models.CASCADE)
 
@@ -39,42 +38,42 @@ class Worker(models.Model):
     def __str__(self):
         return self.full_name
 
-class Mesure(models.Model):
-	
-	largeur_epaule = models.FloatField(blank=True,null=True)
-	epaule_coude = models.FloatField(blank=True,null=True)
-	epaule_poignet = models.FloatField(blank=True,null=True)
-	nuque_poitrine = models.FloatField(blank=True,null=True)
-	nuque_bas_blouse = models.FloatField(blank=True,null=True)
-	tour_biceps = models.FloatField(blank=True,null=True)
-	tour_poignet = models.FloatField(blank=True,null=True)
-	tour_cou = models.FloatField(blank=True,null=True)
-	dessus_proitrine = models.FloatField(blank=True,null=True)
-	poitrine = models.FloatField(blank=True,null=True)
-	taile = models.FloatField(blank=True,null=True)
-	hanche_3 = models.FloatField(blank=True,null=True)
-	hanche_7 = models.FloatField(blank=True,null=True)
-	hanche_9 = models.FloatField(blank=True,null=True)
-	longueur_devant = models.FloatField(blank=True,null=True)
-	longueur_dos = models.FloatField(blank=True,null=True)
-	carrure_devant = models.FloatField(blank=True,null=True)
-	carrure_dos = models.FloatField(blank=True,null=True)
-	epaule_a_l_autre = models.FloatField(blank=True,null=True)
-	tour_fourche = models.FloatField(blank=True,null=True)
-	hauteur_fourche = models.FloatField(blank=True,null=True)
-	tour_cuisse = models.FloatField(blank=True,null=True)
-	laterale_jambe = models.FloatField(blank=True,null=True)
 
+class Mesure(models.Model):
+    largeur_epaule = models.FloatField(blank=True,null=True)
+    epaule_coude = models.FloatField(blank=True,null=True)
+    epaule_poignet = models.FloatField(blank=True,null=True)
+    nuque_poitrine = models.FloatField(blank=True,null=True)
+    nuque_bas_blouse = models.FloatField(blank=True,null=True)
+    tour_biceps = models.FloatField(blank=True,null=True)
+    tour_poignet = models.FloatField(blank=True,null=True)
+    tour_cou = models.FloatField(blank=True,null=True)
+    dessus_proitrine = models.FloatField(blank=True,null=True)
+    poitrine = models.FloatField(blank=True,null=True)
+    taile = models.FloatField(blank=True,null=True)
+    hanche_3 = models.FloatField(blank=True,null=True)
+    hanche_7 = models.FloatField(blank=True,null=True)
+    hanche_9 = models.FloatField(blank=True,null=True)
+    longueur_devant = models.FloatField(blank=True,null=True)
+    longueur_dos = models.FloatField(blank=True,null=True)
+    carrure_devant = models.FloatField(blank=True,null=True)
+    carrure_dos = models.FloatField(blank=True,null=True)
+    epaule_a_l_autre = models.FloatField(blank=True,null=True)
+    tour_fourche = models.FloatField(blank=True,null=True)
+    hauteur_fourche = models.FloatField(blank=True,null=True)
+    tour_cuisse = models.FloatField(blank=True,null=True)
+    laterale_jambe = models.FloatField(blank=True,null=True)
+    
 
 class Client(models.Model):
     SEXE = [('M','Masculin'), ('F','Feminin')]
     TRANCHE = [('En','Enfant'), ('Ado','Adolescent'), ('Adulte','Adulte')]
 
-    name = models.CharField(max_length=255, null=False, blank=True)
+    name = models.CharField(max_length=255, unique=True, null=False, blank=True)
     phone = models.CharField(max_length=13, null=False, blank=True)
     tranche_d_age = models.CharField(max_length=6, choices=TRANCHE)
     sexe = models.CharField(max_length=255, null=False, choices=SEXE)
-    mesure = models.ForeignKey(Mesure, models.CASCADE)
+    mesure = models.OneToOneField(Mesure,  on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -103,7 +102,7 @@ class Order(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=255, null=False, blank=True)
+    name = models.CharField(max_length=255, unique=True, null=False, blank=True)
 
     def __str__(self):
         return self.name
@@ -111,7 +110,7 @@ class Category(models.Model):
 
 class Modele(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, null=False, blank=True)
+    name = models.CharField(max_length=255, unique=True, null=False, blank=True)
     add_on = models.DateTimeField(auto_now=True)
     image = models.ImageField(blank=True, null=False, upload_to="images/modeles")
 
@@ -128,7 +127,7 @@ class OrderItem(models.Model):
     echantillon = models.ImageField(upload_to='images/echantillons')
     result = models.ImageField(upload_to='images/articles')
     quantity = models.IntegerField(null=False, blank=True)
-    mesure = models.ForeignKey(Mesure, models.CASCADE) 
+    mesure = models.OneToOneField(Mesure,  on_delete=models.SET_NULL, null=True, blank=True)
      
     def __str__(self):
         return self.name
