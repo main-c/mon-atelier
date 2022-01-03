@@ -22,7 +22,7 @@ class LocationImage(models.Model):
     location_image_2 = models.ImageField(blank=True, null=True, upload_to="images/locations/")
 
     def __str__(self):
-        return f'image of {self.workshop.name}'
+        return f'images of {self.workshop.name}'
 
 
 class Worker(models.Model):
@@ -96,7 +96,7 @@ class Order(models.Model):
         items = OrderItem.objects.filter(order=self.id)
         if items:
             for item in items:
-                self.total_cost += item.cost
+                self.total_cost += item.get_total_cost()
         else:
             self.total_cost = 0    
         return self.total_cost
@@ -128,9 +128,13 @@ class OrderItem(models.Model):
     echantillon = models.ImageField(upload_to='images/echantillons')
     result = models.ImageField(upload_to='images/articles')
     quantity = models.IntegerField(null=False, blank=True)
-    mesure = models.ForeignKey(Mesure, models.CASCADE)  
+    mesure = models.ForeignKey(Mesure, models.CASCADE) 
+     
     def __str__(self):
         return self.name
+
+    def get_total_cot(self):
+        return self.cost * self.qty
 
 
 
