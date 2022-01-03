@@ -1,7 +1,7 @@
 format 224
 "mon-atelier"
-  revision 7
-  modified_by 5 "edghi"
+  revision 8
+  modified_by 4 "main-c"
 
 
   
@@ -999,7 +999,7 @@ ${docstring}${members}
 	MysqlColumn
       end
 
-      classrelation 137092 // (belong_to)
+      classrelation 137092 // belong_to
 	relation_ref 135684 // belong_to
       end
 
@@ -1315,30 +1315,6 @@ ${docstring}${members}
 	MysqlColumn
       end
 
-      attribute 137476 "age"
-	private explicit_type ""
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl "${comment}${self}${name} = ${value}
-"
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 137604 "location"
-	private explicit_type ""
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl "${comment}${self}${name} = ${value}
-"
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
       classrelation 129284 // (have)
 	relation 128644 ---- name "have"
 	  a role_name "" multiplicity "0..1" private
@@ -1365,6 +1341,20 @@ ${docstring}${members}
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+      end
+
+      attribute 159748 "tranche_d_age"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "[('En','Enfant'), ('Ado','Adolescent'), ('Adulte','Adulte')]
+"
       end
     end
 
@@ -1404,6 +1394,18 @@ ${docstring}${members}
 	    python "${type}"
 	    classrelation_ref 145668 // <generalisation>
 	  b parent class_ref 148484 // OrderItem
+      end
+
+      attribute 159876 "description"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
       end
     end
 
@@ -1603,7 +1605,7 @@ ${docstring}${members}
 	  b role_name "" multiplicity "1" private
 	    python "${comment}${self}${name} = ${value}
 "
-	    classrelation_ref 137092 // (belong_to)
+	    classrelation_ref 137092 // belong_to
       end
     end
 

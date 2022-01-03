@@ -1,20 +1,19 @@
 window_sizes 1366 709 320 1042 558 104
 
 diagrams
-  active  classdiagram_ref 128133 // class_diagram
-    1042 558 71 A3 0 0
   objectdiagram_ref 134532 // object
     833 446 100 A4 24 0
   statediagram_ref 134660 // article
     120 102 137 A4 24 0
   statediagram_ref 134788 // order
     1042 558 100 A4 0 0
+  active  classdiagram_ref 128133 // class_diagram
+    833 446 100 A3 780 0
 end
 show_stereotypes
-selected classdiagram_ref 128133 // class_diagram
+selected attribute_ref 159876 // description
 open
   state_ref 134788 // epuisé
-  class_ref 128004 // Workshop
   class_ref 128132 // Order
   class_ref 134660 // Worker
   class_ref 134788 // Client
