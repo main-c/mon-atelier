@@ -1,35 +1,17 @@
-body{
-    margin: 0;
-    padding: 0;
+.connexion_container{
     background-image: url(../../public/images/bgLogin.png); 
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
 }
 
-section{
-    position: absolute;
-    width: 35% !important;
-    height: 90%;
-    left: 8%;
-    top: 13% ;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10%;
-    padding-left: 0% !important;
-    padding-right: 0% !important;
-    background-color: #443369;
-}
-
-.div1{
-    margin-bottom: 0% !important;
-    width: 100%;
-    padding: 7% 7% 7% 7%;
-    text-align: center;
-}
-
-img{
+.img{
     width: 15%;
     height: 15%;
+}
+
+.section{
+    border-radius: 8%;
 }
 
 .div2{
@@ -58,11 +40,6 @@ input{
     margin-bottom: 2%;
 }
 
-.div3{
-    padding: 8% 10% 10% 10%; 
-    text-align: center;
-}
-
 .div3 button{
     border: none;
     color: #443369;
@@ -77,16 +54,32 @@ input{
     top: -20px;
 }
 
-button:hover{
+.div3 button:hover{
     background-color: #8f42e8;
     color: white;
 }
 
-a{
+.div3 a{
     color: white;
     text-decoration: none;
 }
 
-a:hover{
+.div3 a:hover{
     color: #8f42e8;
+}
+
+@media screen and (min-width: 500px){
+
+    .section{
+        width: 35% !important;
+        height: 90%;
+        left: 8%;
+        top: 13% ;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10%;
+        padding-left: 0% !important;
+        padding-right: 0% !important;
+        background-color: #443369;
+    }
+
 }

@@ -45,14 +45,14 @@ class Connexion extends React.Component{
 
 	render(){
 		return(
-
-			<section className="container">
-					<form action=" ">
-						<div class="col-md-12 div1">
-							<img src="logo.png" alt="logo_MonAtelier"/>
-							<h1 className="text-white mt-5">Connexion</h1>
-						</div>
-						<div className="div2 col-md-12">
+			<div className="container-fluid connexion_container py-5 ps-lg-5">
+				<section className="section">
+					<div class="div1 text-center py-2">
+						<img src="logo.png" className="img" alt="logo_MonAtelier"/>
+						<h1 className="text-white mt-2">Connexion</h1>
+					</div>
+					<div className="div2">
+						<form action="">
 							<div className="user">
 								<input type="text" name="user" id="user" placeholder="Nom d'utilisateur" onchange={this.handleChange} required/>
 								<span className="focus-border container"></span>
@@ -68,13 +68,14 @@ class Connexion extends React.Component{
 								</div>
 								<span className="focus-border"></span>
 							</div>
-						</div>
-						<div class="col-md-12 div3">
-							<button>connexion</button>
-							<p className="para">Pas encore connecte?<strong><a href="inscrip.html">s'inscrire</a></strong></p>
-						</div>
-					</form>
-			</section>
+						</form>
+					</div>
+					<div class="text-center py-2 div3">
+						<button className="fw-bold my-3">connexion</button>
+						<p className="para">Pas encore connecté ? <strong><a href="#">s'inscrire</a></strong></p>
+					</div>
+				</section>
+			</div>
 		);
 	}
 }

@@ -1,6 +1,4 @@
 import React from 'react';
-import Navigation from '../App.js';
-
 
 
 function Home(){
