@@ -6,6 +6,7 @@ import Connexion from './core/Connexion';
 import Home from './core/Home';
 import ProfilAtelier from './core/ProfilAtelier';
 import Categories from './core/Categories';
+import ArticlesCategorie from './core/ArticlesCategorie';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/login" element={<Connexion/>} />
           <Route path="/profil" element={<ProfilAtelier/>} />
           <Route path="/categories" element={<Categories/>} />
+          <Route path="/categorie/articles" element={<ArticlesCategorie/>} />
         </Routes>
 
       </BrowserRouter>
