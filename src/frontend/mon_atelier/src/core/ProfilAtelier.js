@@ -1,4 +1,5 @@
 import React from 'react';
+import Modele from '../components/Modele'
 import './profilAtelier.css';
 
 
@@ -22,13 +23,13 @@ function ProfilAtelier(){
 
 			</div>
 
-			<div className="container-fluid mb-5 px-0">
+			<div className="container-fluid my-5 px-0">
 				<div className="titre mt-5">
-					<p className="text-center mb-2 fs-3">Les Modèles</p>
+					<p className="text-center mb-2 fs-3">LES MODÈLES</p>
 					<div className="mx-auto"></div>
 				</div>
-				<div className="mt-3 bg-secondary p-5">
-
+				<div className="mt-5 bg-violet p-5">
+					<Modele />
 				</div>
 			</div>
 
