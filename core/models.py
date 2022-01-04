@@ -26,13 +26,13 @@ class LocationImage(models.Model):
 
 class Worker(models.Model):
     workshop = models.ForeignKey(Workshop, on_delete=models.CASCADE)
-    full_name = models.CharField(max_length=255, null=False, blank=True)
-    phone = models.CharField(max_length=13, null=False, blank=True)
+    full_name = models.CharField(max_length=255, unique=True, null=False, blank=True)
+    phone = models.CharField(max_length=13, unique = True, null=False, blank=True)
     salary = models.CharField(max_length=255, null=False, blank=True, default='NA')
-    no_cni = models.CharField(max_length=255, null=False, blank=True)
+    no_cni = models.CharField(max_length=255, unique = True,  null=False, blank=True)
     # L'age n'est pas necessaire
     location = models.CharField(max_length=255, null=True, blank=True)
-    cv = models.FileField(upload_to='worker_cv', null=True, blank=True)
+    cv = models.FileField(upload_to='worker_cv',  null=True, blank=True)
     since = models.DateField(auto_now=True)
 
     def __str__(self):
@@ -84,7 +84,7 @@ class Order(models.Model):
     workshop = models.ForeignKey(Workshop, on_delete=models.CASCADE)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     delivery_date = models.DateField(auto_now_add=False, auto_now=False, blank=True)
-    comment = models.TextField()
+    comment = models.TextField(null=True, blank=True)
     total_cost = models.IntegerField(default = 0, null=False, blank=True)
     state = models.CharField(max_length=100, choices=STATE)
 

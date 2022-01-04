@@ -32,9 +32,9 @@ class ModeleViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
 
     serializer_class = ModeleSerializer
     queryset = Modele.objects.all()
-    filter_backends = [DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter ]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter,]
     filterset_fields = ['name','add_on']
-    search_fields = ['^name']
+    search_fields = ['^name',]
     ordering_fields = ['name',]
 
 
@@ -45,10 +45,9 @@ class OrderViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
     serializer_class = OrderSerializer
     queryset = Order.objects.all()
     filter_backends = [DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter ]
-    filterset_fields = ['name', 'delivery_date', 'state']
-    search_fields = ['^name']
-    ordering_fields = ['name', 'delivery_date', 'state']
-
+    filterset_fields = ['total_cost', 'delivery_date', 'state']
+    search_fields = ['^client__name', '^workshop__name']
+    ordering_fields = ['total_cost', 'delivery_date', 'state']
 
 
 class ArticleViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
@@ -75,9 +74,10 @@ class ClientViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
 
     serializer_class = ClientSerializer
     queryset = Client.objects.all()
-    filterset_fields = ['name', 'cost', 'status']
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter ]
+    filterset_fields = ['name', 'tranche_d_age', 'sexe']
     search_fields = ['^name']
-    ordering_fields = ['name', 'cost', 'status']
+    ordering_fields = ['name', 'tranche_d_age', 'sexe']
 
 
 class WorkerViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
@@ -85,7 +85,8 @@ class WorkerViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
 
     serializer_class = WorkerSerializer
     queryset = Worker.objects.all()
-    filterset_fields = ['full_name','status']
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter ]
+    filterset_fields = ['full_name','workshop']
     search_fields = ['$full_name', '$location']
     ordering_fields = ['full_name', 'since']
 
@@ -95,8 +96,9 @@ class OrderItemViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
 
     serializer_class = OrderItemSerializer
     queryset = OrderItem.objects.all()
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter ]
     filterset_fields = ['name', 'cost']
-    search_fields = ['^name']
+    search_fields = ['$name',]
     ordering_fields = ['name', 'cost']
 
 
@@ -106,6 +108,7 @@ class WorkshopViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
 
     serializer_class = WorkshopSerializer
     queryset = Workshop.objects.all()
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter ]
     filterset_fields = ['name', ]
     search_fields = ['^name', '$location ']
     ordering_fields = ['name', 'cost', 'status']
@@ -113,28 +116,28 @@ class WorkshopViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
 
 class AuthViewSet(GenericViewSet):
 
-	@swagger_auto_schema(
-		request_body=LoginSerializer(),
-		operation_description="Il faut passer le username et le password et le password doit avoir 6 characteres")
-	@action(methods=['POST'], detail=True)
-	
-	def signin(self, request, *args, **kwargs):
-		
-		seria = LoginSerializer(data=self.request.data)
-		seria.is_valid(raise_exception=True)
+    @swagger_auto_schema(
+        request_body=LoginSerializer(),
+        operation_description="Il faut passer le username et le password et le password doit avoir 6 characteres")
+        
+    @action(methods=['POST'], detail=True)
+    def signin(self, request, *args, **kwargs):
+        
+        seria = LoginSerializer(data=self.request.data)
+        seria.is_valid(raise_exception=True)
 
-		username = seria.validated_data.get('username')
-		password = seria.validated_data.get('password')
+        username = seria.validated_data.get('username')
+        password = seria.validated_data.get('password')
 
-		user = User.objects.filter(username=username).first()
-		if not user:
-			raise ValueError("Username/password not found")
+        user = User.objects.filter(username=username).first()
+        if not user:
+            raise ValueError("Username/password not found")
 
-		if not user.check_password(password):
-			raise ValueError("Username/password not found")
+        if not user.check_password(password):
+            raise ValueError("Username/password not found")
 
-		token = Token.objects.get_or_create(user=user)[0]
-		print(f"token {token.key}")
-		return JsonResponse(UserSerializer(user).data)
+        token = Token.objects.get_or_create(user=user)[0]
+        print(f"token {token.key}")
+        return JsonResponse(UserSerializer(user).data)
 
 

@@ -39,12 +39,9 @@ class OrderSerializer(ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ['id', 'workshop', 'client', 'delivery_date', 'comment', 'total_cost', 'state',]
+        fields = ['id', 'workshop', 'client', 'delivery_date', 'comment', 'state',]
 
-    def create(self, validated_data):
-        validated_data['total_cost'] = id.get_total_cost()
-        return Order.objects.create(**validated_data)
-
+    
 class CategorySerializer(ModelSerializer):
 
     class Meta:
@@ -92,6 +89,7 @@ class WorkshopSerializer(ModelSerializer):
         # create user profile
         user = User.objects.create_user(
             last_name=profile_data["last_name"],
+            username=profile_data["email"],
             email=profile_data["email"],
             password=profile_data["password"],
         )
