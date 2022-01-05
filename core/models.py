@@ -113,7 +113,7 @@ class Modele(models.Model):
     name = models.CharField(max_length=255, unique=True, null=False, blank=True)
     add_on = models.DateTimeField(auto_now=True)
     image = models.ImageField(blank=True, null=False, upload_to="images/modeles")
-
+    
     def __str__(self):
         return self.name
 
