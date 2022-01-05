@@ -113,7 +113,7 @@ class Modele(models.Model):
     name = models.CharField(max_length=255, unique=True, null=False, blank=True)
     add_on = models.DateTimeField(auto_now=True)
     image = models.ImageField(blank=True, null=False, upload_to="images/modeles")
-    
+
     def __str__(self):
         return self.name
 
@@ -140,6 +140,7 @@ class OrderItem(models.Model):
 class Article(OrderItem, models.Model):
     status = models.CharField(max_length=255, null=False, choices=[("En vente", "En vente"), ("Vendu", "Vendu")], default="En vente")
     description = models.TextField(null=True, blank=True)
-
+    workshop = models.ForeignKey(Workshop, on_delete=models.CASCADE)
+    
     def __str__(self):
         return self.name + " | " + self.status

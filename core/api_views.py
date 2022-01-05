@@ -63,7 +63,7 @@ class ArticleViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
     filter_backends = [DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter ]
-    filterset_fields = ['workshop__name', 'mesure', 'modele__name', 'order__name']
+    filterset_fields = ['workshop__name', 'mesure', 'modele__name', 'order']
     search_fields = ['^name']
     ordering_fields = ['name', 'cost', 'status']
 
@@ -104,7 +104,7 @@ class OrderItemViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
     serializer_class = OrderItemSerializer
     queryset = OrderItem.objects.all()
     filter_backends = [DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter ]
-    filterset_fields = ['workshop__name', 'mesure', 'modele__name', 'order__name']
+    filterset_fields = ['mesure', 'modele__name', 'order']
     search_fields = ['$name',]
     ordering_fields = ['name', 'cost']
 
@@ -116,7 +116,7 @@ class WorkshopViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
     serializer_class = WorkshopSerializer
     queryset = Workshop.objects.all()
     filter_backends = [DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter ]
-    filterset_fields = ['name', 'manager__full_name']
+    filterset_fields = ['name', 'manager__last_name']
     search_fields = ['^name', '$location ']
     ordering_fields = ['name', 'cost', 'status']
 
