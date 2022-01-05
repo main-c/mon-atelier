@@ -7,6 +7,7 @@ import Home from './core/Home';
 import ProfilAtelier from './core/ProfilAtelier';
 import Categories from './core/Categories';
 import ArticlesCategorie from './core/ArticlesCategorie';
+import DetailArticle from './core/DetailArticle';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
@@ -25,6 +26,7 @@ function App() {
           <Route path="/profil" element={<ProfilAtelier/>} />
           <Route path="/categories" element={<Categories/>} />
           <Route path="/categorie/articles" element={<ArticlesCategorie/>} />
+          <Route path="/detail_article" element={<DetailArticle/>} />
         </Routes>
 
       </BrowserRouter>
