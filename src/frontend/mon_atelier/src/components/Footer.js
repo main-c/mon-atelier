@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 
 class Footer extends React.Component{
@@ -37,9 +38,11 @@ class Footer extends React.Component{
 			                    vos commandes et même la possibilité d’améliorer votre visibilité. <br />
 								Enregistrez-vous.</p><br />
 								<div>
-									<a href="#" style={{color: '#443369', backgroundColor:'white'}} className=" font-weight-normal h6 d-inline-block p-2 rounded-pill mb-2 me-2">S'inscire</a>
-			                     	<span>OU</span>
-			                     	<a href="#" style={{color: 'white'}} className=" font-weight-normal h6 d-inline-block p-2 border ms-2 border-2 border-white rounded-pill mb-2 me-2">Se connecter</a>
+									<Router>
+										<Link to="/signup" style={{color: '#443369', backgroundColor:'white'}} className=" font-weight-normal h6 d-inline-block p-2 rounded-pill mb-2 me-2">S'inscire</Link>
+			                     		<span>OU</span>
+			                     		<Link to="/login" style={{color: 'white'}} className=" font-weight-normal h6 d-inline-block p-2 border ms-2 border-2 border-white rounded-pill mb-2 me-2">Se connecter</Link>
+									</Router>
 								</div>        
 			            	</div>
         				</div>

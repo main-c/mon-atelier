@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 import './inscription.css';
 
 
@@ -67,20 +69,23 @@ class Inscription extends React.Component{
 						<div className="bg-white py-5">
 							<div className="row">
 								<div className="col-lg-6">
-									<div className="user w-100">
-										<input type="text" className="inp_ins" name="user_name" id="user" placeholder="Nom complet" onchange={this.handleChange} required/>
+									<div className="user w-100 mt-4">
+										<p className="text-dark fs-5 ms-4 mb-0">Nom complet</p>
+										<input type="text" className="inp_ins text-violet px-3 pb-2 px-4" name="user_name" id="user" onchange={this.handleChange} required/>
 										<span className="focus-bord larg"></span>
 									</div>
-									<div className="user w-100">
-										<input type="text" className="inp_ins" name="user_atel" id="atel" placeholder="Nom de l'atelier" onchange={this.handleChange} required/>
+									<div className="user w-100 mt-4">
+										<p className="text-dark fs-5 ms-4 mb-0">Nom de l'atelier</p>
+										<input type="text" className="inp_ins text-violet px-3 pb-2 px-4" name="user_atel" id="atel" onchange={this.handleChange} required/>
 										<span className="focus-bord larg"></span>
 									</div>
-									<div className="pass w-100">
+									<div className="pass w-100 mt-4">
 										<div id="eye">
 											<div>
-												<input className='input' spellCheck={false} type={this.state1.type} className="inp_ins " name="user_pass" id="pass" placeholder="Mot de passe" onchange={this.handleChange} required/>
+												<p className="text-dark fs-5 ms-4 mb-0">Mot de passe</p>
+												<input className='input' spellCheck={false} type={this.state1.type} className="inp_ins text-violet px-3 pb-2 px-4" name="user_pass" id="pass" onchange={this.handleChange} required/>
 											</div>
-											<div>
+											<div className="text-violet me-4">
 												<i className={`${this.state1.icon} icon`} id="i" aria-hidden='true' onClick={this.changeType}></i>
 											</div>
 										</div>
@@ -88,12 +93,14 @@ class Inscription extends React.Component{
 									</div>
 								</div>
 								<div className="col-lg-6">
-									<div className="w-100">
-										<input type="email" className="inp_ins" name="user_mail" id="mail" placeholder="Adresse mail" onchange={this.handleChange} required/>
+									<div className="w-100 mt-4">
+										<p className="text-dark fs-5 ms-4 mb-0">E-mail</p>
+										<input type="email" className="inp_ins text-violet px-3 pb-2 px-4" name="user_mail" id="mail" onchange={this.handleChange} required/>
 										<span className="focus-bord"></span>
 									</div>
-									<div className="w-100">
-										<input type="tel" className="inp_ins" name="number_user" id="num_user" placeholder="Telephone" onchange={this.handleChange} required/>
+									<div className="w-100 mt-4">
+										<p className="text-dark fs-5 ms-4 mb-0">Téléphone</p>
+										<input type="tel" className="inp_ins text-violet px-3 pb-2 px-4" name="number_user" id="num_user" onchange={this.handleChange} required/>
 										<span className="focus-bord"></span>
 									</div>
 								</div>
@@ -102,7 +109,7 @@ class Inscription extends React.Component{
 						<div className="sect3 p-3 text-center">
 							<button className="fw-bold mt-3">S'inscrire</button>
 							{/* <input type="submit" className="bouton" value="S'inscrire"></input> */}
-							<p className="mt-2 text-center">Déjà inscris ? <strong><a href="#">se connecter</a></strong></p>
+							<p className="mt-2 text-center">Déjà inscris ? <strong><Link to="/login">se connecter</Link></strong></p>
 						</div>
 					</form>
 				</section>
