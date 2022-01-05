@@ -6,6 +6,12 @@
 	margin-top: -210px;
 	position: absolute;
 }
+.text-violet{
+	color: #443369;
+}
+.bg-green{
+	background-color: #ECF9F0;
+}
 .bg-violet{
 	background-color: #443369;
 }
