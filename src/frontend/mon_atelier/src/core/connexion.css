@@ -1,5 +1,5 @@
 .connexion_container{
-    background-image: url(../../public/images/bgLogin.png); 
+    background-image: url(../../public/images/bgLogin.jpg); 
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
@@ -23,8 +23,6 @@
 input{
     outline: none;
     border: none;
-    font-size: 1.5rem;
-    padding: 8% !important;
     width: 100%;
 }
 

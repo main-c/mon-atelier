@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 class Home extends React.Component{
@@ -8,21 +9,21 @@ class Home extends React.Component{
 			
 			<div className="Integration">
 			
-				<div className="pt-lg-5" style={{ backgroundImage: 'url(images/banner.png)', 
+				<div className="pt-lg-5" style={{ backgroundImage: 'url(images/banner.jpg)', 
 				height:'90vh', width:'99vw', backgroundSize:'cover'}}>
 
 					<h1 className="text-violet ps-5 fw-bold fs-1 mb-0 pt-5">MonAtelier,</h1>
-					<p className="pt-lg-3 ps-5 fs-4" style={{fontWeight:'lightner'}}>
+					<p className="pt-lg-3 ps-5 fs-4 mb-5" style={{fontWeight:'lightner'}}>
 						l’outil idéal pour tous vos besoins de 
 						<br/>couture
 					</p>
-					<p className='pt-5 mt-3'><a href="" className="border-0 rounded-1 text-light fs-3 fw-bold text-center pt-2 pb-2 ps-3 pe-3 ms-5" style={{background:'#443369'}}>voir les modèles</a></p>
+					<Link to="/profil" className="border-0 rounded-1 text-light fs-5 text-center pt-2 pb-2 ps-3 pe-3 ms-5" style={{background:'#443369'}}>voir les modèles</Link>
 
 				</div>
 
 				<div className="container px-auto pt-5">
 
-					<p className='fw-bold text-center mt-5 fs-3'>CATEGORIES</p>
+					<p className='fw-bold text-center mt-5 fs-3' id="categories">CATEGORIES</p>
 					<div className="mx-auto" style={{height:'4px', width:'100px', background:'#FF5566'}}></div>
 					<div className="row pt-3 mx-auto">
 
@@ -179,7 +180,7 @@ class Home extends React.Component{
 					</div>
 				</div>
 
-				<div className="container-fluid">
+				<div className="container-fluid" id="a_propos">
 					<p className='fw-bold text-center mb-0 mt-5 fs-3'>A PROPOS</p>
 					<div className="mx-auto" style={{height:'4px', width:'100px', background:'#FF5566'}}></div>
 
@@ -201,7 +202,7 @@ class Home extends React.Component{
 					</div>
 				</div>
 
-				<div className="container-fluid mb-5">
+				<div className="container-fluid mb-5" id="contact">
 					<div className='fw-bold text-center mt-5 mt-lg-0 fs-3'>CONTACT</div>
 					<div className="mx-auto mb-5" style={{height:'4px', width:'100px', background:'#FF5566'}}></div>
 					
