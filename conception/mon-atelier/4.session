@@ -8,7 +8,7 @@ diagrams
   statediagram_ref 134788 // order
     1042 558 100 A4 0 0
   active  classdiagram_ref 128133 // class_diagram
-    1042 558 100 A3 336 0
+    1042 558 100 A3 156 0
 end
 show_stereotypes
 selected usecaseview_ref 128005 // use_case_view
