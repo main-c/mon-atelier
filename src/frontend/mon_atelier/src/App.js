@@ -25,7 +25,7 @@ function App() {
           <Route path="/login" element={<Connexion/>} />
           <Route path="/profil" element={<ProfilAtelier/>} />
           <Route path="/categories" element={<Categories/>} />
-          <Route path="/categorie/articles" element={<ArticlesCategorie/>} />
+          <Route path="/articles" element={<ArticlesCategorie/>} />
           <Route path="/detail_article" element={<DetailArticle/>} />
         </Routes>
 
