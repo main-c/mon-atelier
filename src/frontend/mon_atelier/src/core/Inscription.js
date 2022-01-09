@@ -14,7 +14,8 @@ class Inscription extends React.Component{
 			pass: "",
 			descr: "",
 			mail: "",
-			num_user: ""
+			num_user: "",
+			isPasswordShown: false
 		}
 		this.handleChange = this.handleChange.bind(this) 
 	}
@@ -27,36 +28,19 @@ class Inscription extends React.Component{
 	}
 
 	handleLogin(e){
-		alert("bonsoir")
-		console.log("bonsoir")
 		e.preventDefault()
-		
-
 	}
 
 	//visibilite
 
-	state1 = {
-		icon: 'fa fa-eye',
-		type: 'password'
-	}
-
-	changeType = () => {
-		const { type } = this.state1
-		if (type === 'password') {
-			this.setState1({
-				icon: 'fa fa-eye-slash',
-				type: 'text'
-			})
-		} else {
-			this.setState1({
-				icon: 'fa fa-eye',
-				type: 'password'
-			})
-		}
+	togglePasswordShownVisibility = () => {
+		const {isPasswordShown} = this.state;
+		this.setState({isPasswordShown: !isPasswordShown});
 	}
 
 	render(){
+
+		const{isPasswordShown} = this.state;
 
 		return(
 			<div className="container-fluid body mt-0 py-3">
@@ -83,10 +67,10 @@ class Inscription extends React.Component{
 										<div id="eye">
 											<div>
 												<p className="text-dark fs-5 ms-4 mb-0">Mot de passe</p>
-												<input className='input' spellCheck={false} type={this.state1.type} className="inp_ins text-violet px-3 pb-2 px-4" name="user_pass" id="pass" onchange={this.handleChange} required/>
+												<input className='input' type={(isPasswordShown) ? "text" : "password"} className="inp_ins text-violet px-3 pb-2 px-4" name="user_pass" id="pass" onchange={this.handleChange} required/>
 											</div>
 											<div className="text-violet me-4">
-												<i className={`${this.state1.icon} icon`} id="i" aria-hidden='true' onClick={this.changeType}></i>
+												<i className={`fa ${isPasswordShown ? "fa-eye":"fa-eye-slash"} icon`} id="i" aria-hidden='true' onClick={this.togglePasswordShownVisibility}></i>
 											</div>
 										</div>
 										<span className="focus-bord larg"></span>

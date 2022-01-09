@@ -20,6 +20,11 @@
     background: #FFFFFF;
 }
 
+.icon-eye{
+    margin-left: 140px;
+    margin-top: 38px;
+}
+
 input{
     outline: none;
     border: none;

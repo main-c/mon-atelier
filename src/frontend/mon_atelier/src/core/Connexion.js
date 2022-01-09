@@ -11,7 +11,8 @@ class Connexion extends React.Component{
 		super(props)
 		this.state = {
 			user: "",
-			pass: ""
+			pass: "",
+			isPasswordShown: false
 		}
 		this.handleChange = this.handleChange.bind(this) 
 	}
@@ -24,28 +25,18 @@ class Connexion extends React.Component{
 	}
 
 
-	state1 = {
-		icon: 'fa fa-eye',
-		type: 'password'
-	}
+	//visibilite
 
-	changeType = () => {
-		const { type } = this.state1
-		if (type === 'password') {
-			this.setState1({
-				icon: 'fa fa-eye-slash',
-				type: 'text'
-			})
-		} else {
-			this.setState1({
-				icon: 'fa fa-eye',
-				type: 'password'
-			})
-		}
+	togglePasswordShownVisibility = () => {
+		const {isPasswordShown} = this.state;
+		this.setState({isPasswordShown: !isPasswordShown});
 	}
 
 
 	render(){
+
+		const{isPasswordShown} = this.state;
+
 		return(
 			<div className="container-fluid connexion_container py-5 ps-lg-5">
 				<section className="section">
@@ -64,10 +55,10 @@ class Connexion extends React.Component{
 								<div id="eye">
 									<div>
 										<p className="text-dark fs-5 ms-4 mb-0">Mot de passe</p>
-										<input spellCheck={false} type={this.state1.type}  name="pass" id="pass"  className="text-violet px-3 pb-2 px-4" onchange={this.handleChange} required/>
+										<input type={(isPasswordShown) ? "text" : "password"}  name="pass" id="pass"  className="text-violet px-3 pb-2 px-4" onchange={this.handleChange} required/>
 									</div>
-									<div>
-										<i className={`${this.state1.icon} icon`} aria-hidden='true' onClick={this.changeType}></i>
+									<div className="text-violet me-4">
+										<i className={`fa ${isPasswordShown ? "fa-eye":"fa-eye-slash"} icon-eye`} aria-hidden='true' onClick={this.togglePasswordShownVisibility}></i>
 									</div>
 								</div>
 								<span className="focus-border"></span>
