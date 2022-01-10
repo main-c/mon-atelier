@@ -25,62 +25,60 @@ class Home extends React.Component{
 
 					<p className='fw-bold text-center mt-5 fs-3' id="categories">CATEGORIES</p>
 					<div className="mx-auto" style={{height:'4px', width:'100px', background:'#FF5566'}}></div>
-					<div className="row pt-3 mx-auto">
+					<div className="row pt-3 mx-auto categories">
 
 						<div className="col-lg-4 mx-auto mb-3 mt-3 p-0 d-flex border rounded" style={{height:'100px', width:'350px'}}>
 						    <img src="images/matoul.jpg" className="rounded-start" height="100px" alt="..." />
 						    <div className="my-auto">
-						        <h5 className="text-violet fs-4 ms-5">Catégorie 1</h5>
+						        <a href="" className="text-violet fs-4 ms-5">Catégorie 1</a>
 						    </div>
 						</div>
 						<div className="col-lg-4 mx-auto mb-3 mt-3 p-0 d-flex border rounded" style={{height:'100px', width:'350px'}}>
 						    <img src="images/matoul.jpg" className="rounded-start" height="100px" alt="..." />
 						    <div className="my-auto">
-						        <h5 className="text-violet fs-4 ms-5">Catégorie 1</h5>
+						        <a href="" className="text-violet fs-4 ms-5">Catégorie 1</a>
 						    </div>
 						</div>
 						<div className="col-lg-4 mx-auto mb-3 mt-3 p-0 d-flex border rounded" style={{height:'100px', width:'350px'}}>
 						    <img src="images/matoul.jpg" className="rounded-start" height="100px" alt="..." />
 						    <div className="my-auto">
-						        <h5 className="text-violet fs-4 ms-5">Catégorie 1</h5>
+						        <a href="" className="text-violet fs-4 ms-5">Catégorie 1</a>
 						    </div>
 						</div>
 						<div className="col-lg-4 mx-auto mb-3 mt-3 p-0 d-flex border rounded" style={{height:'100px', width:'350px'}}>
 						    <img src="images/matoul.jpg" className="rounded-start" height="100px" alt="..." />
 						    <div className="my-auto">
-						        <h5 className="text-violet fs-4 ms-5">Catégorie 1</h5>
+						        <a href="" className="text-violet fs-4 ms-5">Catégorie 1</a>
 						    </div>
 						</div>
 						<div className="col-lg-4 mx-auto mb-3 mt-3 p-0 d-flex border rounded" style={{height:'100px', width:'350px'}}>
 						    <img src="images/matoul.jpg" className="rounded-start" height="100px" alt="..." />
 						    <div className="my-auto">
-						        <h5 className="text-violet fs-4 ms-5">Catégorie 1</h5>
+						        <a href="" className="text-violet fs-4 ms-5">Catégorie 1</a>
 						    </div>
 						</div>
 						<div className="col-lg-4 mx-auto mb-3 mt-3 p-0 d-flex border rounded" style={{height:'100px', width:'350px'}}>
 						    <img src="images/matoul.jpg" className="rounded-start" height="100px" alt="..." />
 						    <div className="my-auto">
-						        <h5 className="text-violet fs-4 ms-5">Catégorie 1</h5>
+						        <a href="" className="text-violet fs-4 ms-5">Catégorie 1</a>
 						    </div>
 						</div>
 
 					</div>
 				</div>
-				<div className="container-fluid">
+				<div className="container-fluid px-0 pb-lg-5">
 					<div className='fw-bold text-center mt-5 fs-3'>NOS ARTICLES</div>
 					<div className="mx-auto mb-5" style={{height:'4px', width:'100px', background:'#FF5566'}}></div>
 
-					<div className="row pt-3 mx-auto">
+					<div className="row pt-3 mx-auto bg-violet py-5">
 
-						<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "18rem"}}>
-							<img src="images/banner1.jpg" className="card-img-top p-0" alt="..." style={{width:'100%'}}  />
+						<div className="col-lg-3 card p-0 mt-3 mx-auto border-0 articles" style={{width: "18rem"}}>
+							<img src="images/banner1.jpg" className="card-img-top p-0 imag" alt="..." style={{width:'100%'}}  />
 							<div className="card-body ps-2">
 								<h5 className="card-title">Habillemnt de femme</h5>
 								<p className="card-text">200 000XAF <br /><span>ajouté le 22 dec 2021</span></p>
 								<div className="d-flex">
-									<div>
-										<img src="images/logo.png" className="card-img-top p-0" alt="..." style={{width:'50px', height:'5Opx'}}  />
-									</div>
+									<img src="images/logo.png" className="card-img-top p-0" alt="..." style={{width:'50px', height:'5Opx'}}  />
 									<div className="ms-2 mt-3">Kim_atelier</div>
 								</div>
 							</div>
@@ -180,7 +178,7 @@ class Home extends React.Component{
 					</div>
 				</div>
 
-				<div className="container-fluid" id="a_propos">
+				<div className="container-fluid" id="a_propos mb-lg-5">
 					<p className='fw-bold text-center mb-0 mt-5 fs-3'>A PROPOS</p>
 					<div className="mx-auto" style={{height:'4px', width:'100px', background:'#FF5566'}}></div>
 
