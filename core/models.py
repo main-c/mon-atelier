@@ -110,7 +110,7 @@ class Category(models.Model):
 
 class Modele(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, unique=True, null=False, blank=True)
+    name = models.CharField(max_length=255, unique=True, null=True, blank=True)
     add_on = models.DateTimeField(auto_now=True)
     image = models.ImageField(blank=True, null=False, upload_to="images/modeles")
 
