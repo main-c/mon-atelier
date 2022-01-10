@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 import './connexion.css';
 
 
@@ -45,22 +47,24 @@ class Connexion extends React.Component{
 
 	render(){
 		return(
-
-			<section className="container">
-					<form action=" ">
-						<div class="col-md-12 div1">
-							<img src="logo.png" alt="logo_MonAtelier"/>
-							<h1 className="text-white mt-5">Connexion</h1>
-						</div>
-						<div className="div2 col-md-12">
-							<div className="user">
-								<input type="text" name="user" id="user" placeholder="Nom d'utilisateur" onchange={this.handleChange} required/>
+			<div className="container-fluid connexion_container py-5 ps-lg-5">
+				<section className="section">
+					<div class="div1 text-center py-2">
+						<img src="logo.png" className="img" alt="logo_MonAtelier"/>
+						<h1 className="text-white mt-2">Connexion</h1>
+					</div>
+					<div className="div2">
+						<form action="">
+							<div className="user pt-5">
+								<p className="text-dark fs-5 ms-4 mb-0">Email ou Téléphone</p>
+								<input type="text" name="user" id="user" className="text-violet px-3 pb-2 px-4" onchange={this.handleChange} required/>
 								<span className="focus-border container"></span>
 							</div>
-							<div className="pass">
+							<div className="pass mt-4">
 								<div id="eye">
 									<div>
-										<input spellCheck={false} type={this.state1.type}  name="pass" id="pass" placeholder="Mot de passe" onchange={this.handleChange} required/>
+										<p className="text-dark fs-5 ms-4 mb-0">Mot de passe</p>
+										<input spellCheck={false} type={this.state1.type}  name="pass" id="pass"  className="text-violet px-3 pb-2 px-4" onchange={this.handleChange} required/>
 									</div>
 									<div>
 										<i className={`${this.state1.icon} icon`} aria-hidden='true' onClick={this.changeType}></i>
@@ -68,13 +72,14 @@ class Connexion extends React.Component{
 								</div>
 								<span className="focus-border"></span>
 							</div>
-						</div>
-						<div class="col-md-12 div3">
-							<button>connexion</button>
-							<p className="para">Pas encore connecte?<strong><a href="inscrip.html">s'inscrire</a></strong></p>
-						</div>
-					</form>
-			</section>
+						</form>
+					</div>
+					<div class="text-center py-2 div3">
+						<button className="fw-bold my-3">connexion</button>
+						<p className="para">Pas encore connecté ? <strong><Link to="/signup">s'inscrire</Link></strong></p>
+					</div>
+				</section>
+			</div>
 		);
 	}
 }

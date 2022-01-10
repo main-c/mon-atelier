@@ -1,49 +1,17 @@
-body{
-    margin: 0;
-    padding: 0;
-    background-image: url(../../public/images/bgLogin.png); 
+.body{
+    background-image: url(../../public/images/bgSignup.jpg); 
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.sect_ins{
-    position: absolute;
-    height: 85vh;
-    width: 600px !important;
-    left: 8%;
-    top: 6% ;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 15% ;
-    padding-left: 0% ;
-    padding-right: 0% ;
-    background-color: #443369;
-    color: white;
-}
-
-.sect1{
-    margin-bottom: 0% !important;
-    width: 100%;
-    padding: 5%;
-    height: 100%;
-    text-align: center;
-}
-
-img{
+.img{
     width: 15%;
     height: 15%;
 }
 
-.sect2{
-    width: 100%;
-    height: 300px;
-    background: #FFFFFF;
-}
-
-inp_ins{
+.inp_ins{
     outline: none;
     border: none;
-    font-size: 1.3rem !important;
-    width: 92%;
 }
 
 .focus-bord{
@@ -66,41 +34,35 @@ inp_ins{
     display: flex;
 }
 
-i{
-    margin-top: 38px;
-    margin-right: 30px;
+#i{
+    margin-top: 35px;
     cursor: pointer;
 }
-
-.div3{
-    padding: 8% 10% 10% 10%;
-    text-align: center;
-
-}
-
-.sect3 .bouton{
+.sect3 button{
     border: none;
     color: #443369;
     background-color: white;
-    width: 30%;
+    width: 38%;
     height: 50px;
-    padding: 0 !important;
-    top: 25px !important;
-    left: 200px !important;
-    border-radius: 20px;
-    position: relative;
+    border-radius: 23px;
+    position: relative; 
 }
 
-.bouton:hover{
+.sect3 button:hover{
     background-color: #8f42e8;
     color: white;
 }
 
-a{
-    color: white;
-    text-decoration: none;
-}
-
-a:hover{
-    color: #8f42e8;
+@media screen and (min-width: 500px){
+    .sect_ins{
+        width: 600px !important;
+        left: 8%;
+        top: 6% ;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 8% ;
+        padding-left: 0% ;
+        padding-right: 0% ;
+        background-color: #443369;
+        color: white;
+    }
 }
