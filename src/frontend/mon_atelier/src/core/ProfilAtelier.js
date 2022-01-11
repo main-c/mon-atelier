@@ -1,6 +1,9 @@
 import React from 'react';
-import Modele from '../components/Modele'
+import Modele from '../components/Modele';
 import './profilAtelier.css';
+
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 
 function ProfilAtelier(){
@@ -9,6 +12,8 @@ function ProfilAtelier(){
 	return(
 
 		<div>
+			<Navigation />
+
 			<div className="container-fluid banner p-0" >
 
 				<img src="images/profil_atelier.jpg" alt="" width="100%" height="600px" />
@@ -66,6 +71,9 @@ function ProfilAtelier(){
 				<img src="images/banner1.jpg" alt="" className="img-fluid" width="40%" />
 				<img src="images/banner2.jpg" alt="" className="img-fluid" width="40%" />
 			</div>
+
+
+			<Footer />
 		</div>
 
 	);
