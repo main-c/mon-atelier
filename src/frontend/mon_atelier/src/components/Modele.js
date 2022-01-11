@@ -1,98 +1,50 @@
 import React from 'react';
+import axios from 'axios';
+
 import './modele.css';
 
 
-function Modele(){
+class Modele extends React.Component{
+
+	state = {
+		modeles: []
+	}
+
+	componentDidMount(){
+		axios.get("https://api-mon-atelier.herokuapp.com/api/v1/modeles/")
+		.then(res => {
+			const modeles = res.data.results;
+			this.setState({ modeles });
+		})
+		.then((res) => this.setState({ modeles: res.data.results }))
+	    .catch((err) => console.log(err));
+	}
 
 
-	return(
+	render(){
+		return(
 
-		<div className="container-fluid">
-			<div className="row">
-				<div className="column">
-					<div className="imgDiv">
-						<img src="images/img1.jpg" alt="" className="img-fluid" />
-						<div className="fadedbox">
-							<div className="text text-start fs-5">Je suis la robe qu'une femme a cousu</div>
-						</div>
-					</div>
-					<div className="imgDiv">
-						<img src="images/img4.jpg" alt="" className="img-fluid" />
-						<div className="fadedbox">
-							<div className="text text-start fs-5">Je suis la robe qu'une femme a cousu</div>
-						</div>
-					</div>
-					<div className="imgDiv">
-						<img src="images/img3.jpg" alt="" className="img-fluid" />
-						<div className="fadedbox">
-							<div className="text text-start fs-5">Je suis la robe qu'une femme a cousu</div>
-						</div>
-					</div>
-				</div>
-				<div className="column">
-					<div className="imgDiv">
-						<img src="images/img2.jpg" alt="" className="img-fluid" />
-						<div className="fadedbox">
-							<div className="text text-start fs-5">Je suis la robe qu'une femme a cousu</div>
-						</div>
-					</div>
-					<div className="imgDiv">
-						<img src="images/img3.jpg" alt="" className="img-fluid" />
-						<div className="fadedbox">
-							<div className="text text-start fs-5">Je suis la robe qu'une femme a cousu</div>
-						</div>
-					</div>
-					<div className="imgDiv">
-						<img src="images/img1.jpg" alt="" className="img-fluid" />
-						<div className="fadedbox">
-							<div className="text text-start fs-5">Je suis la robe qu'une femme a cousu</div>
-						</div>
-					</div>
-				</div>
-				<div className="column">
-					<div className="imgDiv">
-						<img src="images/img3.jpg" alt="" className="img-fluid" />
-						<div className="fadedbox">
-							<div className="text text-start fs-5">Je suis la robe qu'une femme a cousu</div>
-						</div>
-					</div>
-					<div className="imgDiv">
-						<img src="images/img2.jpg" alt="" className="img-fluid" />
-						<div className="fadedbox">
-							<div className="text text-start fs-5">Je suis la robe qu'une femme a cousu</div>
-						</div>
-					</div>
-					<div className="imgDiv">
-						<img src="images/img4.jpg" alt="" className="img-fluid" />
-						<div className="fadedbox">
-							<div className="text text-start fs-5">Je suis la robe qu'une femme a cousu</div>
-						</div>
-					</div>
-				</div>
-				<div className="column">
-					<div className="imgDiv">
-						<img src="images/img4.jpg" alt="" className="img-fluid" />
-						<div className="fadedbox">
-							<div className="text text-start fs-5">Je suis la robe qu'une femme a cousu</div>
-						</div>
-					</div>
-					<div className="imgDiv">
-						<img src="images/img1.jpg" alt="" className="img-fluid" />
-						<div className="fadedbox">
-							<div className="text text-start fs-5">Je suis la robe qu'une femme a cousu</div>
-						</div>
-					</div>
-					<div className="imgDiv">
-						<img src="images/img2.jpg" alt="" className="img-fluid" />
-						<div className="fadedbox">
-							<div className="text text-start fs-5">Je suis la robe qu'une femme a cousu</div>
-						</div>
-					</div>
+			<div className="container-fluid">
+				<div className="row">
+
+					{ this.state.modeles.map(modele => {
+						return(
+							<div className="column">
+								<div className="imgDiv">
+									<img src={modele.image} alt="" className="img-fluid" />
+									<div className="fadedbox">
+										<div className="text text-start fs-5">{modele.name}</div>
+									</div>
+								</div>
+							</div>
+						);
+					})}
+
 				</div>
 			</div>
-		</div>
 
-	);
+		);
+	}
 }
 
 export default Modele;
