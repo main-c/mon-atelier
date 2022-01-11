@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-
 import './inscription.css';
-
+import axios from 'axios';
 
 
 class Inscription extends React.Component{
@@ -12,7 +11,6 @@ class Inscription extends React.Component{
 		this.state = {
 			user: "",
 			pass: "",
-			descr: "",
 			mail: "",
 			num_user: "",
 			isPasswordShown: false
@@ -20,17 +18,36 @@ class Inscription extends React.Component{
 		this.handleChange = this.handleChange.bind(this) 
 	}
 
-	handleChange(e){
-		const name = e.target.name
+	handleChange(event){
+		const name = event.target.name
 		this.setState({
-			[name]: e.target.value
+			[name]: event.target.value
 		})
 	}
 
-	handleLogin(e){
-		e.preventDefault()
+	handleSubmit = event => {
+		event.preventDefault();
+	
+		const user = {
+			user_name: this.state.user_name,
+			user_Atel: this.state.user_Atel,
+			user_pass: this.state.user_pass,
+			user_mail: this.state.user_mail,
+			number_user: this.state.number_user
+		  };
+	
+		axios.post(`https://api-mon-atelier.herokuapp.com/api/v1/`,{ user}).then(res => {
+			console.log(res);
+			console.log(res.data);
+		})
+		
+		/* axios.delete(`https://jsonplaceholder.typicode.com/users/${this.state.nom}`)
+		.then(res => {
+		console.log(res);
+		console.log(res.data);
+		})  */
 	}
-
+	
 	//visibilite
 
 	togglePasswordShownVisibility = () => {
@@ -49,7 +66,7 @@ class Inscription extends React.Component{
 						<img src="logo.png" className="img" alt="logo_MonAtelier"/>
 						<p className="text-white fs-3">Inscription</p>
 					</div>
-					<form action="" id="sign_up_form" onSubmit={this.handleLogin}>
+					<form action="" id="sign_up_form" onSubmit={this.handleSubmit}>
 						<div className="bg-white py-5">
 							<div className="row">
 								<div className="col-lg-6">

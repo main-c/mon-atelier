@@ -10,9 +10,6 @@ import ArticlesCategorie from './core/ArticlesCategorie';
 import DetailArticle from './core/DetailArticle';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import PersonList from './components/PersonList';
-import PersonAdd from './components/PersonAdd';
-import PersonRemove from './components/PersonRemove';
 
 function App() {
   return (
@@ -32,13 +29,6 @@ function App() {
         </Routes>
         
       </BrowserRouter>
-
-      <div ClassName="App">
-          <PersonAdd/>
-          <PersonList/>
-          <PersonRemove/>
-        </div>
-
 
       <Footer />
 
