@@ -33,34 +33,36 @@ function Navigation(){
 
 	return(
 
-		<Router>
-			<nav>
+		<nav>
 
+			<Link to="/">
 				<div className="d-flex">
 					<img src="logo.png" className="logo ms-2 pt-1" alt="" width="60px" />
 					<p className="logo text-light ms-1 mb-0 mt-auto">MonAtelier</p>
 				</div>
-				{toggleMenu && (
+			</Link>
+			{toggleMenu && (
 
-					<ul className="liste m-0 p-0 d-flex">
+				<ul className="liste m-0 p-0 d-flex">
+					<Link to="/">
 						<div className="d-flex ms-4">
 							<img src="logo.png" className="div_logo" alt="" width="60px" />
 							<p className="div_logo text-light ms-1 mb-0 mt-auto">MonAtelier</p>
 						</div>
-						<div className="d-lg-flex mx-lg-auto conteneur">
-							<li className="items pe-5"><Link to="/">Accueil</Link></li>
-							<li className="items pe-5"><a href="#categories">Catégories</a></li>
-							<li className="items pe-5"><Link to="/detail_article">Articles</Link></li>
-							<li className="items pe-5"><a href="#a_propos">A Propos</a></li>
-							<li className="items pe-5"><a href="#contact">Contact</a></li>
-						</div>
-					</ul>
+					</Link>
+					<div className="d-lg-flex mx-lg-auto conteneur">
+						<li className="items pe-5"><Link to="/">Accueil</Link></li>
+						<li className="items pe-5"><a href="/#categories">Catégories</a></li>
+						<li className="items pe-5"><Link to="/detail_article">Articles</Link></li>
+						<li className="items pe-5"><a href="/#a_propos">A Propos</a></li>
+						<li className="items pe-5"><a href="/#contact">Contact</a></li>
+					</div>
+				</ul>
 
-				)}
-				
-				<button onClick={toogleNavSmallScreen} className="btn"><i className="fa fa-bars"></i></button>	
-			</nav>
-		</Router>
+			)}
+			
+			<button onClick={toogleNavSmallScreen} className="btn"><i className="fa fa-bars"></i></button>	
+		</nav>
 	);
 }
 
