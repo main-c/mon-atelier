@@ -31,3 +31,17 @@
 		margin-top: -170px;
 	}
 }
+
+/* Home page */
+
+.categories .col-lg-4:hover{
+	background-color: #f0ebff;
+	cursor: pointer;
+	transition: .7s ease-in-out;
+}
+.categories .col-lg-4 a:hover{
+	color: #443369;
+}
+.articles .imag:hover{
+	width: 90%;
+}
