@@ -11,7 +11,7 @@ function ProfilAtelier(){
 		<div>
 			<div className="container-fluid banner p-0" >
 
-				<img src="images/profil_atelier.jpg" alt="" width="100%" height="500px" />
+				<img src="images/profil_atelier.jpg" alt="" width="100%" height="600px" />
 
 				<div className="p-3 py-lg-5 text_banner text-light w-100">
 					<p className="fs-1 title">Jugalux Atelier</p>
