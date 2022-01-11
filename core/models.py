@@ -122,7 +122,7 @@ class Modele(models.Model):
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     modele = models.ForeignKey(Modele, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, null=False, blank=True)
+    name = models.CharField(max_length=255, unique=True null=False, blank=True)
     cost = models.IntegerField(null=False, blank=True)
     echantillon = models.ImageField(upload_to='images/echantillons')
     result = models.ImageField(upload_to='images/articles')
