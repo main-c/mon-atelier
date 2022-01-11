@@ -1,5 +1,6 @@
 import React from 'react';
 import './layout.css';
+import { Link } from "react-router-dom";
 
 
 class Layout extends React.Component{
@@ -12,10 +13,12 @@ class Layout extends React.Component{
 		        {/* Sidebar */}
 		        <nav id="sidebar">
 		            <div className="sidebar-header">
-		                <div className="d-flex justify-content-start">
-							<img src="logo.png" alt="logo_MonAtelier" width="80px" />
-							<h5 className="text-white mt-5 ms-1">MonAtelier</h5>
-						</div>
+		            	<Link to="/">
+			                <div className="d-flex justify-content-start">
+								<img src="logo.png" alt="logo_MonAtelier" width="80px" />
+								<h5 className="text-white mt-5 ms-1">MonAtelier</h5>
+							</div>
+						</Link>
 		            </div>
 
 		            <ul className="list-unstyled components">
