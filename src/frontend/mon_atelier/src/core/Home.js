@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+
 
 class Home extends React.Component{
 
@@ -8,7 +11,8 @@ class Home extends React.Component{
 		return(
 			
 			<div className="Integration">
-			
+				<Navigation />
+				
 				<div className="pt-lg-5" style={{ backgroundImage: 'url(images/banner.jpg)', 
 				height:'90vh', width:'99vw', backgroundSize:'cover'}}>
 
@@ -267,6 +271,8 @@ class Home extends React.Component{
 					</div>
 
 				</div>
+
+				<Footer />
 			</div>
 
 		);

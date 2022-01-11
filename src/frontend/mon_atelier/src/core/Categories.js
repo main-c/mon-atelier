@@ -1,5 +1,7 @@
 import React from 'react';
 import './profilAtelier.css';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 function Categories(){
 
@@ -7,6 +9,7 @@ function Categories(){
 	return(
 
 		<div>
+			<Navigation />
 			<div className="container-fluid banner p-0" >
 
 				<img src="images/categorie_banner.jpg" alt="" width="100%" height="500px" />
@@ -59,6 +62,8 @@ function Categories(){
 					</div>
 				</div>
 			</div>
+
+			<Footer />
 		</div>
 
 	);
