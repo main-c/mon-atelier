@@ -63,7 +63,7 @@ class ArticleViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
     filter_backends = [DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter ]
-    filterset_fields = ['workshop__name', 'mesure', 'modele__name', 'order']
+    filterset_fields = ['workshop__name', 'mesure', 'modele__name', 'modele__categorie__name']
     search_fields = ['^name']
     ordering_fields = ['name', 'cost', 'status']
 
