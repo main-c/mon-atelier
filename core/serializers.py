@@ -25,7 +25,7 @@ class ClientSerializer(ModelSerializer):
 
     class Meta:
         model = Client
-        fields = ['id', 'name', 'phone', 'tranche_d_age', 'sexe']
+        fields = ['id', 'name', 'phone', 'tranche_d_age', 'sexe', 'mesure']
 
 
 class MesureSerializer(ModelSerializer):
