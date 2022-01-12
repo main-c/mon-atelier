@@ -1,8 +1,9 @@
 .connexion_container{
-    background-image: url(../../public/images/paysage.jpg); 
+    background-image: url(../../public/images/paysage.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    height: 100vh;
 }
 
 .img{
