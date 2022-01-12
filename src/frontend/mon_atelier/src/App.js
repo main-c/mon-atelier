@@ -7,9 +7,11 @@ import ProfilAtelier from './core/ProfilAtelier';
 import Categories from './core/Categories';
 import ArticlesCategorie from './core/ArticlesCategorie';
 import DetailArticle from './core/DetailArticle';
-import Profil from './dashboard/Profil';
+import Commande from './dashboard/Commande';
 import Modele from './dashboard/Modele';
 import Client from './dashboard/Client';
+import Account from './dashboard/Account';
+import Dashboard from './dashboard/Dashboard';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
@@ -30,10 +32,11 @@ function App() {
           <Route path="/articles" element={<ArticlesCategorie/>} />
           <Route path="/detail_article" element={<DetailArticle/>} />
 
-          <Route path="/dashboard" element={<Profil/>} />
-          <Route path="/dashboard_profil" element={<Profil/>} />
+          <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="/commande" element={<Commande/>} />
           <Route path="/dashboard_modele" element={<Modele/>} />
           <Route path="/dashboard_client" element={<Client/>} />
+          <Route path="/account" element={<Account/>} />
         </Routes>
 
       </BrowserRouter>

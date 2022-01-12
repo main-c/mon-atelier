@@ -99,12 +99,14 @@ class Inscription extends React.Component{
 
 
 		return(
-			<div className="container-fluid body mt-0 py-3">
-				<section className="ms-lg-5 my-4 sect_ins" >
-					<div className="d-flex justify-content-center py-3">
-						<img src="logo.png" className="img" alt="logo_MonAtelier"/>
-						<h3 className="text-white mt-5 ms-1">Inscription</h3>
-					</div>
+			<div className="container-fluid body mt-0 py-1 d-flex justify-content-center">
+				<section className="ms-lg-5 my-4 my-lg-1 sect_ins" >
+					<Link to="/">
+						<div className="d-flex justify-content-center py-3">
+							<img src="logo.png" className="img" alt="logo_MonAtelier"/>
+							<h3 className="text-white mt-5 ms-1">Inscription</h3>
+						</div>
+					</Link>
 					<form method="GET" action="#" id="sign_up_form" onSubmit={this.handleSubmit}>
 						<div className="bg-white py-5">
 							<div className="row">

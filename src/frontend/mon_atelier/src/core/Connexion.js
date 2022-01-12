@@ -47,12 +47,14 @@ class Connexion extends React.Component{
 
 	render(){
 		return(
-			<div className="container-fluid connexion_container py-5 ps-lg-5">
+			<div className="container-fluid connexion_container py-5 d-flex justify-content-center">
 				<section className="section">
-					<div class="d-flex justify-content-center py-3">
-						<img src="logo.png" className="img" alt="logo_MonAtelier"/>
-						<h3 className="text-white mt-4 ms-1">Connexion</h3>
-					</div>
+					<Link to="/">
+						<div class="d-flex justify-content-center py-3">
+							<img src="logo.png" className="img" alt="logo_MonAtelier"/>
+							<h3 className="text-white mt-4 ms-1">Connexion</h3>
+						</div>
+					</Link>
 					<div className="div2">
 						<form action="">
 							<div className="user pt-5">

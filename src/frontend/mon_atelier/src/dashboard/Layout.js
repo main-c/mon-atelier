@@ -23,7 +23,7 @@ function Layout(props){
 	            <ul className="list-unstyled components">
 	                
 	                <li className="active">
-	                    <Link to="/dashboard_profil">Profil</Link>
+	                    <Link to="/dashboard">Dashboard</Link>
 	                </li>
 
 	                <li>
@@ -31,15 +31,7 @@ function Layout(props){
 	                </li>
 
 	                <li>
-	                    <a href="#commandeSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">Commandes</a>
-	                    <ul className="collapse list-unstyled" id="commandeSubmenu">
-	                        <li>
-	                            <a href="#">Liste commandes</a>
-	                        </li>
-	                        <li>
-	                            <a href="#">Ajout commande</a>
-	                        </li>
-	                    </ul>
+	                    <Link to="/commande">Commandes</Link>
 	                </li>
 	                
 	                <li>
@@ -54,13 +46,13 @@ function Layout(props){
 	                    </ul>
 	                </li>
 	                <li>
-	                    <Link to="/dashboard_client">Client</Link>
+	                    <Link to="/dashboard_client">Clients</Link>
 	                </li>
 	            </ul>
 
 	            <ul className="list-unstyled bottom">
 	                <li>
-	                    <Link to="/dashboard_profil" className="account">Account</Link>
+	                    <Link to="/account" className="account">Account</Link>
 	                </li>
 	                <li>
 	                    <Link to="/" className="logout">Logout</Link>
@@ -85,7 +77,7 @@ function Layout(props){
 	                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
 	                        <ul className="nav navbar-nav ms-auto">
 	                            <li className="nav-item active">
-	                                <Link className="nav-link text-primary" to="/dashboard_profil">Account</Link>
+	                                <Link className="nav-link text-primary" to="/account">Account</Link>
 	                            </li>
 	                            <li className="nav-item">
 	                                <Link className="nav-link text-danger" to="/">Logout</Link>
