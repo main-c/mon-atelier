@@ -13,7 +13,10 @@ class Footer extends React.Component{
 			            <div className="row d-flex align-items-center">
 			                <div className="col-lg-4 ps-lg-5 mt-5">
 			                    <div>
-			                       <a href="#"><img src="images/logo.png" className="card-img-top mx-auto p-0 me-3 rounded-pill" alt="..." style={{width:'100px', height:'100px'}} /> <span className="text-white fs-3 fw-bold">MonAtelier</span></a>
+			                        <Link to="/">
+			                       		<img src="images/logo.png" className="card-img-top mx-auto p-0 me-3 rounded-pill" alt="..." style={{width:'100px', height:'100px'}} />
+			                       		<span className="text-white fs-3 fw-bold">MonAtelier</span>
+			                       	</Link>
 			                    </div>
 			                    <div className="w-75 mt-3">
 			                         MonAtelier est une application web de couture dont l’objectif 
@@ -24,11 +27,11 @@ class Footer extends React.Component{
 			                <div className="col-lg-3 mt-5 text-start">
 			                	<span className="text-white fs-5 fw-bold">Liens rapides</span>
 			                    <div className="d-grid mt-2">
-			                    	<a href="" className="mt-1">Accueil</a>
-			                    	<a href="" className="mt-1">Catégories</a>
-			                    	<a href="" className="mt-1">Modèles</a>
-			                    	<a href="" className="mt-1">A Propos</a>
-			                    	<a href="" className="mt-1">Contact</a>
+			                    	<Link to="/" className="mt-1">Accueil</Link>
+			                    	<a href="/#categories" className="mt-1">Catégories</a>
+			                    	<Link to="/detail_article" className="mt-1">Article</Link>
+			                    	<a href="/#a_propos" className="mt-1">A Propos</a>
+			                    	<a href="/#contact" className="mt-1">Contact</a>
 			                    </div>
 			                </div>
 			                <div className="col-lg-4 mt-5 text-start">
