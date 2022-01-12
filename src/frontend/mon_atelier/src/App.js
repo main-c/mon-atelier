@@ -29,6 +29,8 @@ function App() {
           <Route path="/categories" element={<Categories/>} />
           <Route path="/articles" element={<ArticlesCategorie/>} />
           <Route path="/detail_article" element={<DetailArticle/>} />
+
+          <Route path="/dashboard" element={<Profil/>} />
           <Route path="/dashboard_profil" element={<Profil/>} />
           <Route path="/dashboard_modele" element={<Modele/>} />
           <Route path="/dashboard_client" element={<Client/>} />
