@@ -1,4 +1,6 @@
-# MonAtelier
+<img style="display: block; margin-left: auto; margin-right: auto" src="https://github.com/main-c/mon-atelier/blob/main/src/frontend/mon_atelier/public/logo.png" alt="exemple de texte alternatif"/>
+
+<h1>Mon Atelier</h1>
 
 ## MonAtelier est une application web de couture dont l’objectif principal est de numériser l’organisation des activités des couturiers. 
 
