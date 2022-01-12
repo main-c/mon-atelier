@@ -67,7 +67,7 @@ class ArticleSerializer(ModelSerializer):
 
     class Meta:
         model = Article
-        fields = ['id', 'status', 'description', 'order', 'modele', 'name', 'cost', 'echantillon', 'result', 'quantity']
+        fields = ['id', 'status', 'description', 'modele', 'workshop', 'name', 'cost', 'echantillon', 'result', 'quantity', 'mesure']
 
 
 class ProfileSerializer(ModelSerializer):
@@ -96,15 +96,26 @@ class WorkshopSerializer(ModelSerializer):
         # create a workswhop instance using the user profile already created
         couturier = Workshop.objects.create(
             manager=user,
-            name=validated_data["name"],
-            description=validated_data["description"],
-            location=validated_data["location"],
-            phone=validated_data["phone"],
-            logo=validated_data["logo"],
-            whatsapp_phone=validated_data["whatsapp_phone"],
-
+            **validated_data
         )
         return couturier
+
+    def update(self, instance, validated_data):
+        profile_data = validated_data.pop("manager")
+        user = User.objects.get(username=profile_data['email'])
+        user.last_name=profile_data["last_name"],
+        user.username = profile_data['email']
+        user.email=profile_data["email"]
+        user.set_password(profile_data['password'])
+        user.save()
+
+        instance.manager = user
+        for (key, value) in validated_data.items():
+            setattr(instance, key, value)
+        
+        return instance
+
+
     
 class LoginSerializer(Serializer):
 
