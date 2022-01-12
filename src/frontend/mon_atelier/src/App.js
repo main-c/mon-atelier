@@ -7,8 +7,9 @@ import ProfilAtelier from './core/ProfilAtelier';
 import Categories from './core/Categories';
 import ArticlesCategorie from './core/ArticlesCategorie';
 import DetailArticle from './core/DetailArticle';
-import HomeTest from './core/HomeTest'
-import Layout from './dashboard/Layout';
+import Profil from './dashboard/Profil';
+import Modele from './dashboard/Modele';
+import Client from './dashboard/Client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
@@ -24,12 +25,15 @@ function App() {
           <Route exact path="/" element={<Home/>} />
           <Route path="/signup" element={<Inscription/>} />
           <Route path="/login" element={<Connexion/>} />
-          <Route path="/profil" element={<ProfilAtelier/>} />
+          <Route path="/profil_atelier" element={<ProfilAtelier/>} />
           <Route path="/categories" element={<Categories/>} />
           <Route path="/articles" element={<ArticlesCategorie/>} />
           <Route path="/detail_article" element={<DetailArticle/>} />
-          <Route path="/layout" element={<Layout/>} />
-          <Route path="/test" element={<HomeTest/>}  />
+
+          <Route path="/dashboard" element={<Profil/>} />
+          <Route path="/dashboard_profil" element={<Profil/>} />
+          <Route path="/dashboard_modele" element={<Modele/>} />
+          <Route path="/dashboard_client" element={<Client/>} />
         </Routes>
 
       </BrowserRouter>
