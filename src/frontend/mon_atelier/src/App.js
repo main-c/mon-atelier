@@ -7,6 +7,7 @@ import ProfilAtelier from './core/ProfilAtelier';
 import Categories from './core/Categories';
 import ArticlesCategorie from './core/ArticlesCategorie';
 import DetailArticle from './core/DetailArticle';
+import HomeTest from './core/HomeTest'
 import Layout from './dashboard/Layout';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/articles" element={<ArticlesCategorie/>} />
           <Route path="/detail_article" element={<DetailArticle/>} />
           <Route path="/layout" element={<Layout/>} />
+          <Route path="/test" element={<HomeTest/>}  />
         </Routes>
 
       </BrowserRouter>
