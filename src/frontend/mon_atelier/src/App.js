@@ -7,7 +7,8 @@ import Home from './core/Home';
 import ProfilAtelier from './core/ProfilAtelier';
 import Categories from './core/Categories';
 import ArticlesCategorie from './core/ArticlesCategorie';
-import DetailArticle from './core/DetailArticle';
+import DetailArticle from './core/DetailArticle'
+import Post from './core/post';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
@@ -27,10 +28,12 @@ function App() {
           <Route path="/categories" element={<Categories/>} />
           <Route path="/articles" element={<ArticlesCategorie/>} />
           <Route path="/detail_article" element={<DetailArticle/>} />
+          <Route path="/post/:id" component={Post} />
         </Routes>
 
       </BrowserRouter>
       <Footer />
+      <Post />
 
     </div>
   );
