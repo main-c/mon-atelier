@@ -21,7 +21,7 @@ class Home extends React.Component{
 						l’outil idéal pour tous vos besoins de 
 						<br/>couture
 					</p>
-					<Link to="/profil" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les modèles</Link>
+					<Link to="/profil_atelier" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les modèles</Link>
 
 				</div>
 
