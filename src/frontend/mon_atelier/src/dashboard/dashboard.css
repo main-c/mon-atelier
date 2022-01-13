@@ -1,3 +1,39 @@
+/* Dashboard Component */
+.bg-violet2{
+	background: #8f42e8;
+}
+
+.underline{
+	border-bottom: 3px solid #8f42e8;
+	width: 40px;
+	transition: .6s ease-in-out;
+}
+
+.underline:hover{
+	width: 150px;
+	transition: .6s ease-in-out;
+}
+
+.stats{
+	transition: .4s ease-in-out;
+}
+.stats:hover{
+	border-left: 5px solid #443369 !important;
+	color: #443369 !important;
+	background: #f0ebff;
+	transition: .4s ease-in-out;
+}
+
+.command{
+	transition: .4s ease-in-out;
+}
+.command:hover{
+	background: #f0ebff;
+	transition: .4s ease-in-out;
+}
+
+/* Account Component */
+
 .bg_brofil{
 	background-image: url(../../public/images/bg_profil.jpg);
 	height: 300px;
@@ -9,3 +45,4 @@
 	margin-top: -100px;
 	opacity: .9;
 }
+
