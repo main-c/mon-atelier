@@ -10,8 +10,6 @@ class Inscription extends React.Component{
 
 	constructor(props) {
 		super(props);
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleChange = this.handleChange.bind(this);
 
 		this.state = {
 		    last_name: "",
@@ -44,53 +42,6 @@ class Inscription extends React.Component{
 	    });
 	};
 
-/*
-	handleSubmit = event => {
-	    event.preventDefault();
-
-	    const workshop = {
-	      name: this.state.name,
-	      last_name: this.state.last_name,
-	      password: this.state.password,
-	      email: this.state.email,
-	      phone: this.state.phone
-	    };
-
-	    axios({
-	    	method: "post",
-	    	url: "https://api-mon-atelier.herokuapp.com/api/v1/workshops/",
-	    	data: workshop
-	    })
-	    .then(function(response){
-	    	console.log(response);
-	    })
-	    .catch(function(error){
-	    	console.log(error);
-	    });
-	}
-*/
-
-	//visibilite
-
-	state1 = {
-		icon: 'fa fa-eye',
-		type: 'password'
-	}
-
-	changeType = () => {
-		const { type } = this.state1
-		if (type === 'password') {
-			this.setState1({
-				icon: 'fa fa-eye-slash',
-				type: 'text'
-			})
-		} else {
-			this.setState1({
-				icon: 'fa fa-eye',
-				type: 'password'
-			})
-		}
-	}
 
 
 	render(){
@@ -133,7 +84,7 @@ class Inscription extends React.Component{
 									alt="hide/show"
 									onClick={()=> this.setState({showPass: !this.state.showPass})}
 								>
-								{this.state.showPass ? '🙉' : '🙈'}</span>
+								{this.state.showPass ? '<i className='fa-eye' ></i>' : '🙈'}</span>
 									</div>
 								</div>
 								<span className="focus-border"></span>
