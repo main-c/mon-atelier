@@ -25,6 +25,7 @@ input{
     outline: none;
     border: none;
     width: 100%;
+    font-size: 17px;
 }
 
 .focus-border{
@@ -82,4 +83,10 @@ input{
         opacity: .9;
     }
 
+}
+
+.bouton{
+    font-size: 20px;
+    cursor: pointer;
+    padding-top: 10px;
 }
