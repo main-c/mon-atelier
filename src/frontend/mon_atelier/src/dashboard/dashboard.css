@@ -1,0 +1,83 @@
+/* Dashboard Component */
+.bg-violet2{
+	background: #8f42e8;
+}
+.border-violet3{
+	border: 2px solid #f8f5fa;
+}
+
+.underline{
+	border-bottom: 3px solid #8f42e8;
+	width: 40px;
+	transition: .6s ease-in-out;
+}
+
+.underline:hover{
+	width: 150px;
+	transition: .6s ease-in-out;
+}
+
+.stats{
+	transition: .4s ease-in-out;
+}
+.stats:hover{
+	border-left: 5px solid #443369 !important;
+	color: #443369 !important;
+	background: #f8f5fa;
+	transition: .4s ease-in-out;
+}
+
+.command{
+	transition: .4s ease-in-out;
+}
+.command:hover{
+	background: #f8f5fa;
+	transition: .4s ease-in-out;
+}
+
+.inputCommand{
+	transition: .5s ease-in-out;
+}
+.inputCommand:focus{
+	color: black;
+	border: 2px solid #e4b5e6;
+	transition: .5s ease-in-out;
+}
+
+textarea{
+	outline: none;
+}
+
+
+/* Command component */
+
+.card_command{
+	background: #fff;
+	transition: .4s ease-in-out;
+}
+.card_command:hover{
+	background: #f8f5fa;
+	cursor: pointer;
+	transition: .4s ease-in-out;
+}
+
+@media screen and (min-width: 500px){
+	.card_command{
+		width: 31%;
+	}
+}
+
+/* Account Component */
+
+.bg_brofil{
+	background-image: url(../../public/images/bg_profil.jpg);
+	height: 300px;
+	background-size: cover;
+	background-position: center;
+}
+
+.account_container .row{
+	margin-top: -100px;
+	opacity: .9;
+}
+

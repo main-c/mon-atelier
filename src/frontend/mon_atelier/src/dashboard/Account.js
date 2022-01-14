@@ -1,13 +1,13 @@
 import React from 'react';
 import Layout from './Layout.js';
-import './profil.css';
+import './dashboard.css';
 
 
-function Profil(){
+function Account(){
 
-	const profil = (
+	const account = (
 
-		<div className="profil_container">
+		<div className="account_container">
 
 			<div className="container-fluid bg_brofil px-0"></div>
 
@@ -32,7 +32,7 @@ function Profil(){
 
 	return(
 		
-		<Layout content={profil} />
+		<Layout content={account} />
 	);
 }
-export default Profil;
+export default Account;
