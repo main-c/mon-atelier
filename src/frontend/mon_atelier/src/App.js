@@ -12,6 +12,7 @@ import Modele from './dashboard/Modele';
 import Client from './dashboard/Client';
 import Account from './dashboard/Account';
 import Dashboard from './dashboard/Dashboard';
+import DetailCommand from './dashboard/DetailCommand';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
@@ -37,6 +38,7 @@ function App() {
           <Route path="/dashboard_modele" element={<Modele/>} />
           <Route path="/dashboard_client" element={<Client/>} />
           <Route path="/account" element={<Account/>} />
+          <Route path="/detail_commande" element={<DetailCommand/>} />
         </Routes>
 
       </BrowserRouter>
