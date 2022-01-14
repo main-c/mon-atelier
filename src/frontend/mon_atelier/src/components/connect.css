@@ -1,0 +1,20 @@
+html{
+
+}
+.Hider{
+	background: silver;
+	display: flex;
+}
+.btn{
+	cursor: pointer;
+	width: 30px;
+	height: 20px;
+	background: teal;
+	font-size: 15px;
+	padding-top: 30vh;
+}
+input{
+	background: green;
+	display: flex;
+	padding-top: 30vh;
+}

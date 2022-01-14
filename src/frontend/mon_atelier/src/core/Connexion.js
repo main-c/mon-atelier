@@ -1,87 +1,60 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, {component} from 'react';
 
-import './connexion.css';
+import ReactDOM from 'react-dom'
 
-
-
-class Connexion extends React.Component{
-
-	constructor(props){
-		super(props)
-		this.state = {
-			user: "",
-			pass: ""
-		}
-		this.handleChange = this.handleChange.bind(this) 
-	}
-
-	handleChange(e){
-		const name = e.target.name
-		this.setState({
-			[name]: e.target.value
-		})
-	}
+import zxcvbn from 'zxcvbn'
 
 
-	state1 = {
-		icon: 'fa fa-eye',
-		type: 'password'
-	}
+class Connect extends React.Component {
 
-	changeType = () => {
-		const { type } = this.state1
-		if (type === 'password') {
-			this.setState1({
-				icon: 'fa fa-eye-slash',
-				type: 'text'
-			})
-		} else {
-			this.setState1({
-				icon: 'fa fa-eye',
-				type: 'password'
-			})
-		}
-	}
+  constructor(props){
+    super(props);
+    this.state = {
+      type: 'password',
+      score: 'null'
+    }
+    this.showHide = this.showHide.bind(this);
+    this.passwordStrength = this.passwordStrength.bind(this);
+  }
+  
+  showHide(e){
+    e.preventDefault();
+    e.stopPropagation();
+    this.setState({
+      type: this.state.type === 'password' ? 'text' : 'password'
+    })  
+  }
+  
+  passwordStrength(e){
+    if(e.target.value === ''){
+      this.setState({
+        score: 'null'
+      })
+    }
+    else{
+      var pw = zxcvbn(e.target.value);
+      this.setState({
+        score: pw.score
+      });      
+    }
 
-
-	render(){
-		return(
-			<div className="container-fluid connexion_container py-5 ps-lg-5">
-				<section className="section">
-					<div class="d-flex justify-content-center py-3">
-						<img src="logo.png" className="img" alt="logo_MonAtelier"/>
-						<h3 className="text-white mt-4 ms-1">Connexion</h3>
-					</div>
-					<div className="div2">
-						<form action="">
-							<div className="user pt-5">
-								<p className="text-dark fs-5 ms-4 mb-0">Email ou Téléphone</p>
-								<input type="text" name="user" id="user" placeholder="..." className="text-violet px-3 pb-2 px-4" onchange={this.handleChange} required/>
-								<span className="focus-border container"></span>
-							</div>
-							<div className="pass mt-4">
-								<div id="eye">
-									<div>
-										<p className="text-dark fs-5 ms-4 mb-0">Mot de passe</p>
-										<input spellCheck={false} type={this.state1.type}  name="pass" placeholder="..." id="pass"  className="text-violet px-3 pb-2 px-4" onchange={this.handleChange} required/>
-									</div>
-									<div>
-										<i className={`${this.state1.icon} icon`} aria-hidden='true' onClick={this.changeType}></i>
-									</div>
-								</div>
-								<span className="focus-border"></span>
-							</div>
-						</form>
-					</div>
-					<div class="text-center py-2 div3">
-						<button className="fw-bold my-3">connexion</button>
-						<p className="para text-white">Pas encore connecté ? <strong><Link to="/signup">s'inscrire</Link></strong></p>
-					</div>
-				</section>
-			</div>
-		);
-	}
+  }
+  
+  render(){
+    return(
+      <label className="password">Password
+      <div>
+        <input type={this.state.type} className="password__input" onChange={this.passwordStrength}/>
+        <input type="checkbox" checked={this.state.isChecked} className="password__show" onChange={this.showHide} /><span>{this.state.type === 'password' ? 'Show' : 'Hide'}</span>
+        <span className="password__strength" data-score={this.state.score} />
+        </div>
+      </label>
+    )
+  }
 }
+ReactDOM.render(<Connect/>, document.getElementById('react'));
 
-export default Connexion;
+export default Connect;
+
+
+
