@@ -1,89 +1,98 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import axios from 'axios'
 
 import './connexion.css';
 
 
 
-class Connexion extends React.Component{
+export default class Connexion extends React.Component{
 
-	constructor(props){
-		super(props)
-		this.state = {
-			user: "",
-			pass: ""
+		constructor(props){
+			super(props)
+			this.state = {
+				id: "",
+				name: "",
+				showPass : false,
+			}
+			this.handleChange = this.handleChange.bind(this) 
 		}
-		this.handleChange = this.handleChange.bind(this) 
-	}
 
-	handleChange(e){
-		const name = e.target.name
-		this.setState({
-			[name]: e.target.value
+		handleChange = (e)=>{
+			this.setState({
+				[e.target.name]: e.target.value
+			})
+		}
+
+		handleSubmit = (e) =>{
+			e.preventDefault()
+			console.log(this.state)
+			axios.post("https://api-mon-atelier.herokuapp.com/api/v1/categories/", this.state)
+			.then(response => {
+			console.log(response)
 		})
-	}
 
-
-	state1 = {
-		icon: 'fa fa-eye',
-		type: 'password'
-	}
-
-	changeType = () => {
-		const { type } = this.state1
-		if (type === 'password') {
-			this.setState1({
-				icon: 'fa fa-eye-slash',
-				type: 'text'
-			})
-		} else {
-			this.setState1({
-				icon: 'fa fa-eye',
-				type: 'password'
-			})
+		.then((response) => this.setState({articles: response.data.results}))
+		.catch((err) => console.log(err));
 		}
-	}
 
 
 	render(){
+		const {id,name} = this.state
 		return(
-			<div className="container-fluid connexion_container py-5 d-flex justify-content-center">
+			<div className="container-fluid connexion_container py-5 ps-lg-5">
 				<section className="section">
-					<Link to="/">
-						<div class="d-flex justify-content-center py-3">
-							<img src="logo.png" className="img" alt="logo_MonAtelier"/>
-							<h3 className="text-white mt-4 ms-1">Connexion</h3>
-						</div>
-					</Link>
+					<div class="d-flex justify-content-center py-3">
+						<img src="logo.png" className="img" alt="logo_MonAtelier" alt="retour à l'acceuil" />
+						<h3 className="text-white mt-4 ms-1">Connexion</h3>
+					</div>
 					<div className="div2">
-						<form action="">
+						<form action="" onSubmit={this.handleSubmit}>
 							<div className="user pt-5">
 								<p className="text-dark fs-5 ms-4 mb-0">Email ou Téléphone</p>
-								<input type="text" name="user" id="user" placeholder="..." className="text-violet px-3 pb-2 px-4" onchange={this.handleChange} required/>
+								<input 
+									type="text" 
+									name="id" 
+									value={id}
+									onChange = {this.handleChange}
+									id="id" placeholder="..." 
+									className="text-violet px-3 pb-2 px-4" 
+									required/>
 								<span className="focus-border container"></span>
 							</div>
 							<div className="pass mt-4">
 								<div id="eye">
 									<div>
 										<p className="text-dark fs-5 ms-4 mb-0">Mot de passe</p>
-										<input spellCheck={false} type={this.state1.type}  name="pass" placeholder="..." id="pass"  className="text-violet px-3 pb-2 px-4" onchange={this.handleChange} required/>
+										<input 
+										type={this.state.showPass ? "text" : "password" }
+										name="name" 
+										value={name}
+										onChange = {this.handleChange}
+										name="name" placeholder="..." id="pass"  
+										className="text-violet px-3 pb-2 px-4"
+										required/>
 									</div>
-									<div>
-										<i className={`${this.state1.icon} icon`} aria-hidden='true' onClick={this.changeType}></i>
+									<div><br />
+									<span
+									className="bouton"
+									alt="hide/show"
+									onClick={()=> this.setState({showPass: !this.state.showPass})}
+								>
+								{this.state.showPass ? '🙉' : '🙈'}</span>
 									</div>
 								</div>
 								<span className="focus-border"></span>
 							</div>
-						</form>
-					</div>
+
 					<div class="text-center py-2 div3">
-						<button className="fw-bold my-3">connexion</button>
+						<button className="fw-bold my-3" type="submit">connexion</button>
 						<p className="para text-white">Pas encore connecté ? <strong><Link to="/signup">s'inscrire</Link></strong></p>
+					</div>
+						</form>
 					</div>
 				</section>
 			</div>
 		);
 	}
 }
-
-export default Connexion;

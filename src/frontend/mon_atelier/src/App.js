@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 
 import Inscription from './core/Inscription';
 import Connexion from './core/Connexion';
@@ -23,6 +23,7 @@ function App() {
 
       
       <BrowserRouter>
+      <Suspense fallback={<div>Loading...</div>}>
 
         <Routes>
           <Route exact path="/" element={<Home/>} />
@@ -30,7 +31,7 @@ function App() {
           <Route path="/login" element={<Connexion/>} />
           <Route path="/profil_atelier" element={<ProfilAtelier/>} />
           <Route path="/categories" element={<Categories/>} />
-          <Route path="/articles" element={<ArticlesCategorie/>} />
+          <Route path="/articles/:idCategory" element={<ArticlesCategorie/>} />
           <Route path="/detail_article" element={<DetailArticle/>} />
 
           <Route path="/dashboard" element={<Dashboard/>} />
@@ -40,7 +41,7 @@ function App() {
           <Route path="/account" element={<Account/>} />
           <Route path="/detail_commande" element={<DetailCommand/>} />
         </Routes>
-
+        </Suspense>
       </BrowserRouter>
       
 

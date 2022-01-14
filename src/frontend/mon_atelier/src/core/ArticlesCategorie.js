@@ -1,10 +1,15 @@
 import React from 'react';
+import {useParams} from 'react-router-dom';
+
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
-class ArticlesCategorie extends React.Component{
+export default function ArticlesCategorie (){
+		const {id} = useParams()
 
-	render(){
+		console.log(id)
+
+
 		return(
 
 			<div className="m-0">
@@ -154,7 +159,4 @@ class ArticlesCategorie extends React.Component{
 			</div>
 
 		);
-	}
 }
-
-export default ArticlesCategorie;

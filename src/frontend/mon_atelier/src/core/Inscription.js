@@ -121,18 +121,23 @@ class Inscription extends React.Component{
 										<input type="text" className="inp_ins text-violet px-3 pb-2 px-4" placeholder="..." name="name" id="atel" onChange={this.handleChange} required/>
 										<span className="focus-bord larg"></span>
 									</div>
-									<div className="pass w-100 mt-4">
-										<div id="eye">
-											<div>
-												<p className="text-dark fs-5 ms-4 mb-0">Mot de passe</p>
-												<input className='input' spellCheck={false} type={this.state1.type}  placeholder="..." className="inp_ins text-violet px-3 pb-2 px-4" name="password" id="pass" onChange={this.handleChange} required/>
-											</div>
-											<div className="text-violet me-4">
-												<i className={`${this.state1.icon} icon`} id="i" aria-hidden='true' onClick={this.changeType}></i>
-											</div>
-										</div>
-										<span className="focus-bord larg"></span>
+							<div className="pass w-100 mt-4">
+								<div id="eye">
+									<div>
+										<p className="text-dark fs-5 ms-4 mb-0">Mot de passe</p>
+										<input type={this.state.showPass ? "text" : "password" }  name="pass" placeholder="..." id="pass"  className="text-violet px-3 pb-2 px-4" onchange={this.handleChange} required/>
 									</div>
+									<div><br />
+									<span
+									className="bouton"
+									alt="hide/show"
+									onClick={()=> this.setState({showPass: !this.state.showPass})}
+								>
+								{this.state.showPass ? '🙉' : '🙈'}</span>
+									</div>
+								</div>
+								<span className="focus-border"></span>
+							</div>
 								</div>
 								<div className="col-lg-6">
 									<div className="w-100 mt-4">
