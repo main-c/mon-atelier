@@ -4,11 +4,12 @@ import {useParams} from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import Articles from '../components/Article'
+import Categories from '../components/categories.js'
 
 export default function ArticlesCategorie (){
-		const {id} = useParams()
+		const {nameCat} = useParams()
 
-		console.log(id)
+		console.log(nameCat)
 
 
 		return(
@@ -18,11 +19,11 @@ export default function ArticlesCategorie (){
 
 				<div className="container-fluid py-5 bg-light">
 
-					<p className="fs-4 ms-lg-5 fw-bold text-violet">Nom catégorie</p>
+					<p className="fs-4 ms-lg-5 fw-bold text-violet">{nameCat}</p>
 
 
 					<div className="row px-lg-5">
-							<Articles />
+							<Categories />
 
 						</div>
 				</div>
