@@ -26,13 +26,13 @@ class LocationImage(models.Model):
 
 class Worker(models.Model):
     workshop = models.ForeignKey(Workshop, on_delete=models.CASCADE)
-    full_name = models.CharField(max_length=255, null=False, blank=True)
-    phone = models.CharField(max_length=13, null=False, blank=True)
+    full_name = models.CharField(max_length=255, unique=True, null=False, blank=True)
+    phone = models.CharField(max_length=13, unique = True, null=False, blank=True)
     salary = models.CharField(max_length=255, null=False, blank=True, default='NA')
-    no_cni = models.CharField(max_length=255, null=False, blank=True)
+    no_cni = models.CharField(max_length=255, unique = True,  null=False, blank=True)
     # L'age n'est pas necessaire
     location = models.CharField(max_length=255, null=True, blank=True)
-    cv = models.FileField(upload_to='worker_cv', null=True, blank=True)
+    cv = models.FileField(upload_to='worker_cv',  null=True, blank=True)
     since = models.DateField(auto_now=True)
 
     def __str__(self):
@@ -84,7 +84,7 @@ class Order(models.Model):
     workshop = models.ForeignKey(Workshop, on_delete=models.CASCADE)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     delivery_date = models.DateField(auto_now_add=False, auto_now=False, blank=True)
-    comment = models.TextField()
+    comment = models.TextField(null=True, blank=True)
     total_cost = models.IntegerField(default = 0, null=False, blank=True)
     state = models.CharField(max_length=100, choices=STATE)
 
@@ -110,7 +110,7 @@ class Category(models.Model):
 
 class Modele(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, unique=True, null=False, blank=True)
+    name = models.CharField(max_length=255, null=True, blank=True)
     add_on = models.DateTimeField(auto_now=True)
     image = models.ImageField(blank=True, null=False, upload_to="images/modeles")
 
@@ -120,9 +120,9 @@ class Modele(models.Model):
 
 
 class OrderItem(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.SET_NULL,  null=True, blank=True,)
     modele = models.ForeignKey(Modele, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, null=False, blank=True)
+    name = models.CharField(max_length=255, null=True, blank=True)
     cost = models.IntegerField(null=False, blank=True)
     echantillon = models.ImageField(upload_to='images/echantillons')
     result = models.ImageField(upload_to='images/articles')
@@ -140,6 +140,7 @@ class OrderItem(models.Model):
 class Article(OrderItem, models.Model):
     status = models.CharField(max_length=255, null=False, choices=[("En vente", "En vente"), ("Vendu", "Vendu")], default="En vente")
     description = models.TextField(null=True, blank=True)
-
+    workshop = models.ForeignKey(Workshop, on_delete=models.CASCADE)
+    
     def __str__(self):
         return self.name + " | " + self.status

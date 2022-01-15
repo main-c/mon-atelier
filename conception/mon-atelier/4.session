@@ -8,20 +8,10 @@ diagrams
   statediagram_ref 134788 // order
     1042 558 100 A4 0 0
   active  classdiagram_ref 128133 // class_diagram
-    833 446 100 A3 780 0
+    1042 558 100 A3 156 0
 end
 show_stereotypes
-selected attribute_ref 159876 // description
+selected usecaseview_ref 128005 // use_case_view
 open
-  state_ref 134788 // epuisé
-  class_ref 128132 // Order
-  class_ref 134660 // Worker
-  class_ref 134788 // Client
-  class_ref 134916 // Article
-  class_ref 135044 // Category
-  class_ref 135172 // Modele
-  class_ref 141828 // User
-  class_ref 141956 // LocationImage
-  class_ref 148484 // OrderItem
 end
 end
