@@ -62,7 +62,14 @@
     transform: translateY(0px);
     -webkit-transform: translateY(0px);
 }
-
+.moreCat:hover{
+  transition: 0.3s ease;
+  background-color: #FFF !important;
+  color: #443369 !important;
+  box-shadow: 0 5px 0 #443369;
+  border: 1px solid #443369;
+  font-weight: bold;
+}
 
 
 

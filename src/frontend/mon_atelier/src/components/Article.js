@@ -10,7 +10,7 @@ export default function Article() {
 	const {nameCat} = useParams()
 	
 	useEffect(() => {
-		axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/articles/?modele__category__name=${nameCat}`)
+		axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/articles/?workshop__name=&mesure=&modele__name=&modele__category__name=${nameCat}`)
 		.then(res => {
 			console.log(res.data)
 			setArticles(res.data.results)
@@ -22,7 +22,6 @@ export default function Article() {
 
 		return(
 
-		
 				<div className="container-fluid px-0 pb-lg-5">
 					<div className='fw-bold text-center mt-5 fs-3'>NOS ARTICLES</div>
 					<div className="mx-auto mb-5" style={{height:'4px', width:'100px', background:'#FF5566'}}></div>

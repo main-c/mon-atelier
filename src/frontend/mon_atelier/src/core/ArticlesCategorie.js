@@ -23,7 +23,7 @@ export default function ArticlesCategorie (){
 
 
 					<div className="row px-lg-5">
-							<Categories />
+							<Articles />
 
 						</div>
 				</div>

@@ -23,13 +23,7 @@ function Categories(){
 				</div>
 			</div>
 
-			<div className="container-fluid my-5 px-0">
-				<div className="titre mt-5">
-					<p className="text-center mb-2 fs-3">TOUTES NOS CATÉGORIES</p>
-					<div className="mx-auto"></div>
-				</div>
-				<ArticlesCategorie />
-			</div>
+			<ArticlesCategorie />
 
 			<Footer />
 		</div>

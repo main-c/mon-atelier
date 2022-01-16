@@ -47,6 +47,9 @@ render(){
 
 
 					</div>
+					<div className="mx-auto text-center mt-5">
+						<Link to="/categories"  className="mx-auto text-center text-decoration-none fs-5 rounded-1 ps-4 pe-4 p-2 bg-violet text-white moreCat">voir plus</Link>
+					</div>
 				</div>
 		);
 }
