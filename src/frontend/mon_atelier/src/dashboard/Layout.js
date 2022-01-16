@@ -31,6 +31,10 @@ function Layout(props){
 	                </li>
 
 	                <li>
+	                    <Link to="/dashboard_article">Articles</Link>
+	                </li>
+
+	                <li>
 	                    <Link to="/commande">Commandes</Link>
 	                </li>
 	                
@@ -77,10 +81,14 @@ function Layout(props){
 	                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
 	                        <ul className="nav navbar-nav ms-auto">
 	                            <li className="nav-item active">
-	                                <Link className="nav-link text-primary" to="/account">Account</Link>
+	                                <Link className="nav-link bg-light rounded-circle" to="/account">
+	                                	<i className="fa fs-5 text-violet mx-1 fa-user"></i>
+	                                </Link>
 	                            </li>
 	                            <li className="nav-item">
-	                                <Link className="nav-link text-danger" to="/">Logout</Link>
+	                                <Link className="nav-link text-light mx-lg-3" to="/">
+	                                	<i className="fa fs-5 my-auto fa-sign-out"></i>
+	                                </Link>
 	                            </li>
 	                        </ul>
 	                    </div>

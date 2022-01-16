@@ -15,10 +15,8 @@ function Commande(){
 				</div>
 			</div>
 
-			<div className="d-flex justify-content-between">
-				<div className="underline mb-5 mt-lg-3 mt-5 pt-lg-3">
-					<h4 className="text-violet">Commandes</h4>
-				</div>
+			<div className="d-flex justify-content-end mb-5">
+				
 				<div className="mt-5 pt-lg-0 pt-2">
 					<a href="#newCommand" className="text-light text-center bg-violet2 p-2 rounded">Nouvelle commande</a>
 				</div>
@@ -31,10 +29,6 @@ function Commande(){
 						<Link to="/detail_commande" className="text-dark">
 							<h3>Kimmy Black</h3>
 							<p className="text-secondary">18 Janvier 2020</p>
-							<p className="fs-5">
-								Pour sa soirée de mariage prévue le 16 février 2022, le client voudrait un veston blue nuit,
-								une robe de soirée dorée, et deux robettes pour enfants.
-							</p>
 							<hr className="mb-1" />
 							<i className="text-violet">En conception</i>
 						</Link>
@@ -43,10 +37,6 @@ function Commande(){
 						<Link to="/detail_commande" className="text-dark">
 							<h3>Kimmy Black</h3>
 							<p className="text-secondary">18 Janvier 2020</p>
-							<p className="fs-5">
-								Pour sa soirée de mariage prévue le 16 février 2022, le client voudrait un veston blue nuit,
-								une robe de soirée dorée, et deux robettes pour enfants.
-							</p>
 							<hr className="mb-1" />
 							<i className="text-violet">Terminé</i>
 						</Link>
@@ -55,10 +45,6 @@ function Commande(){
 						<Link to="/detail_commande" className="text-dark">
 							<h3>Kimmy Black</h3>
 							<p className="text-secondary">18 Janvier 2020</p>
-							<p className="fs-5">
-								Pour sa soirée de mariage prévue le 16 février 2022, le client voudrait un veston blue nuit,
-								une robe de soirée dorée, et deux robettes pour enfants.
-							</p>
 							<hr className="mb-1" />
 							<i className="text-violet">En conception</i>
 						</Link>
@@ -67,10 +53,6 @@ function Commande(){
 						<Link to="/detail_commande" className="text-dark">
 							<h3>Kimmy Black</h3>
 							<p className="text-secondary">18 Janvier 2020</p>
-							<p className="fs-5">
-								Pour sa soirée de mariage prévue le 16 février 2022, le client voudrait un veston blue nuit,
-								une robe de soirée dorée, et deux robettes pour enfants.
-							</p>
 							<hr className="mb-1" />
 							<i className="text-violet">Terminé</i>
 						</Link>
@@ -78,24 +60,14 @@ function Commande(){
 					<div className="col-lg-4 p-3 my-3 mx-auto shadow-sm rounded card_command">
 						<Link to="/detail_commande" className="text-dark">
 							<h3>Kimmy Black</h3>
-							<p className="text-secondary">18 Janvier 2020</p>
-							<p className="fs-5">
-								Pour sa soirée de mariage prévue le 16 février 2022, le client voudrait un veston blue nuit,
-								une robe de soirée dorée, et deux robettes pour enfants.
-							</p>
-							<hr className="mb-1" />
+							<p className="text-secondary">18 Janvier 2020</p>							<hr className="mb-1" />
 							<i className="text-violet">En attente de Materiel</i>
 						</Link>
 					</div>
 					<div className="col-lg-4 p-3 my-3 mx-auto shadow-sm rounded card_command">
 						<Link to="/detail_commande" className="text-dark">
 							<h3>Kimmy Black</h3>
-							<p className="text-secondary">18 Janvier 2020</p>
-							<p className="fs-5">
-								Pour sa soirée de mariage prévue le 16 février 2022, le client voudrait un veston blue nuit,
-								une robe de soirée dorée, et deux robettes pour enfants.
-							</p>
-							<hr className="mb-1" />
+							<p className="text-secondary">18 Janvier 2020</p>							<hr className="mb-1" />
 							<i className="text-violet">En conception</i>
 						</Link>
 					</div>

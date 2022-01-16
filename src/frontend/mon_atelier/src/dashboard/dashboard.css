@@ -53,6 +53,7 @@ textarea{
 
 .card_command{
 	background: #fff;
+	border-bottom: 3px solid #e4b5e6;
 	transition: .4s ease-in-out;
 }
 .card_command:hover{
@@ -80,4 +81,6 @@ textarea{
 	margin-top: -100px;
 	opacity: .9;
 }
+
+/* DetailClient Component */
 
