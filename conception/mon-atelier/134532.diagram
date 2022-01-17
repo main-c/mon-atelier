@@ -1,98 +1,98 @@
 format 224
 
 classinstancecanvas 128004 classinstance_ref 134532 // Eric_couture
-  xyz 191.715 151.557 2000
+  xyz 191 151 2000
 end
 classinstancecanvas 128260 classinstance_ref 134788 // Eric
-  xyz 89.8114 173.55 2005
+  xyz 89 173 2005
 end
 classinstancecanvas 128388 classinstance_ref 134916 // Jean
-  xyz 302.745 54.0497 2005
+  xyz 443 40 2005
 end
 classinstancecanvas 128516 classinstance_ref 135044 // Albert
-  xyz 89.732 13.2965 2005
+  xyz 18 26 2005
 end
 classinstancecanvas 128644 classinstance_ref 135172 // Edvige
-  xyz 193.148 27.783 2005
+  xyz 213 19 2005
 end
 classinstancecanvas 129284 classinstance_ref 135300 // habit de noel de ma'a cathy
-  xyz 201 276 3005
+  xyz 286 254 3005
 end
 classinstancecanvas 129540 classinstance_ref 135428 // ma'a cathy
-  xyz 3 278 3011
+  xyz 25 253 3011
 end
 classinstancecanvas 130436 classinstance_ref 135684 // robe evasé
-  xyz 165 359 3017
+  xyz 292 364 3017
 end
 classinstancecanvas 130692 classinstance_ref 135812 // robe évasé 4
-  xyz 176 477 3023
+  xyz 214 476 3023
 end
 classinstancecanvas 131076 classinstance_ref 135940 // mesure2
   xyz 12 363 3017
 end
 classinstancecanvas 131844 classinstance_ref 136196 // chemise carrelé
-  xyz 339 363 3023
+  xyz 544 364 3023
 end
 classinstancecanvas 132228 classinstance_ref 136324 // chemise
-  xyz 336 477 3029
+  xyz 469 476 3029
 end
 classinstancecanvas 132996 classinstance_ref 136452 // mesure2
-  xyz 486 476 3035
+  xyz 680 477 3035
 end
 classinstancecanvas 133380 classinstance_ref 136580 // rideaux fleuri
   xyz 645 77 2000
 end
 classinstancecanvas 134148 classinstance_ref 136708 // gant
-  xyz 649 132 3011
+  xyz 660 177 3011
 end
 objectlinkcanvas 128772 rel relation_ref 136068 // work_for
   decenter_end 540
-  from ref 128004 z 2006 label "work_for" italic max_width 255 xyz 275.5 86.5 3000 to ref 128388
+  from ref 128004 z 2006 label "work_for" italic max_width 255 xyz 352.5 79 2006 to ref 128388
   no_role_a no_role_b
 objectlinkcanvas 128900 rel relation_ref 136068 // work_for
-  from ref 128004 z 2006 label "work_for" italic max_width 255 xyz 203 103 3000 to ref 128516
+  from ref 128004 z 2006 label "work_for" italic max_width 255 xyz 167 109.5 2006 to ref 128516
   no_role_a no_role_b
 objectlinkcanvas 129028 rel relation_ref 136068 // work_for
   decenter_end 291
-  from ref 128004 z 2006 label "work_for" italic max_width 255 xyz 247 97.5 3000 to ref 128644
+  from ref 128004 z 2006 label "work_for" italic max_width 255 xyz 258 93 2006 to ref 128644
   no_role_a no_role_b
 objectlinkcanvas 129156 rel relation_ref 135684 // belong_to
-  from ref 128260 z 2006 label "belong_to" italic max_width 255 xyz 62 150 3000 to ref 128004
+  from ref 128260 z 2006 label "belong_to" italic max_width 255 xyz 62 150 2006 to ref 128004
   no_role_a no_role_b
 objectlinkcanvas 129412 rel relation_ref 135556 // add
-  from ref 129284 z 3006 label "add" italic max_width 255 xyz 274.5 209 3000 to ref 128004
+  from ref 129284 z 3006 label "add" italic max_width 255 xyz 318.5 198 3006 to ref 128004
   no_role_a no_role_b
 objectlinkcanvas 130052 rel relation_ref 128900 // pass
-  from ref 129284 z 3012 label "pass" italic max_width 255 xyz 143.5 272 3000 to ref 129540
+  from ref 129284 z 3012 label "pass" italic max_width 255 xyz 196.5 248.5 3012 to ref 129540
   no_role_a no_role_b
 objectlinkcanvas 130564 rel relation_ref 143620 // is_for
   decenter_begin 194
-  from ref 129284 z 3018 label "is_for" italic max_width 255 xyz 222 312.5 3000 to ref 130436
+  from ref 129284 z 3018 label "is_for" italic max_width 255 xyz 325.5 303.5 3018 to ref 130436
   no_role_a no_role_b
 objectlinkcanvas 130820 rel relation_ref 143364 // have
   decenter_end 451
-  from ref 130436 z 3024 label "have" italic max_width 255 xyz 224 413.5 3000 to ref 130692
+  from ref 130436 z 3024 label "have" italic max_width 255 xyz 301 415 3024 to ref 130692
   no_role_a no_role_b
 objectlinkcanvas 131204 rel relation_ref 128644 // have
   decenter_end 449
-  from ref 129540 z 3018 label "have" italic max_width 255 xyz 47.5 315.5 3000 to ref 131076
+  from ref 129540 z 3018 label "have" italic max_width 255 xyz 56.5 302.5 3018 to ref 131076
   no_role_a no_role_b
 objectlinkcanvas 131588 rel relation_ref 143876 // have
-  from ref 131076 z 3018 label "have" italic max_width 255 xyz 130 356.5 3000 to ref 130436
+  from ref 131076 z 3018 label "have" italic max_width 255 xyz 193.5 358.5 3018 to ref 130436
   no_role_a no_role_b
 objectlinkcanvas 132100 norel
   from ref 129284 z 3024 to ref 131844
   no_role_a no_role_b
 objectlinkcanvas 132868 rel relation_ref 143364 // have
-  from ref 131844 z 3030 label "have" italic max_width 255 xyz 392.5 415 3000 to ref 132228
+  from ref 131844 z 3030 label "have" italic max_width 255 xyz 560 415 3030 to ref 132228
   no_role_a no_role_b
 objectlinkcanvas 133124 rel relation_ref 143876 // have
-  from ref 132996 z 3036 label "have" italic max_width 255 xyz 469.5 414.5 3000 to ref 131844
+  from ref 132996 z 3036 label "have" italic max_width 255 xyz 669 415 3036 to ref 131844
   no_role_a no_role_b
 objectlinkcanvas 133892 rel relation_ref 128260 // sell
-  from ref 128004 z 2001 label "sell" italic max_width 255 xyz 476 108 3000 to ref 133380
+  from ref 128004 z 2001 label "sell" italic max_width 255 xyz 476 108 2001 to ref 133380
   no_role_a no_role_b
 objectlinkcanvas 134276 rel relation_ref 128260 // sell
-  from ref 128004 z 3012 label "sell" italic max_width 255 xyz 485 135 3000 to ref 134148
+  from ref 128004 z 3012 label "sell" italic max_width 255 xyz 490.5 159.5 3012 to ref 134148
   no_role_a no_role_b
 end

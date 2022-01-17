@@ -1,5 +1,9 @@
 import React from 'react';
+import Modele from '../components/Modele';
 import './profilAtelier.css';
+
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 
 function ProfilAtelier(){
@@ -8,9 +12,11 @@ function ProfilAtelier(){
 	return(
 
 		<div>
+			<Navigation />
+
 			<div className="container-fluid banner p-0" >
 
-				<img src="images/profil_atelier.jpg" alt="" width="100%" height="500px" />
+				<img src="images/profil_atelier.jpg" alt="" width="100%" height="600px" />
 
 				<div className="p-3 py-lg-5 text_banner text-light w-100">
 					<p className="fs-1 title">Jugalux Atelier</p>
@@ -22,13 +28,13 @@ function ProfilAtelier(){
 
 			</div>
 
-			<div className="container-fluid mb-5 px-0">
+			<div className="container-fluid my-5 px-0">
 				<div className="titre mt-5">
-					<p className="text-center mb-2 fs-3">Les Modèles</p>
+					<p className="text-center mb-2 fs-3">LES MODÈLES</p>
 					<div className="mx-auto"></div>
 				</div>
-				<div className="mt-3 bg-secondary p-5">
-
+				<div className="mt-5 bg-violet p-5">
+					<Modele />
 				</div>
 			</div>
 
@@ -65,6 +71,9 @@ function ProfilAtelier(){
 				<img src="images/banner1.jpg" alt="" className="img-fluid" width="40%" />
 				<img src="images/banner2.jpg" alt="" className="img-fluid" width="40%" />
 			</div>
+
+
+			<Footer />
 		</div>
 
 	);

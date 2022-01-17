@@ -1,0 +1,70 @@
+.body{
+    background-image: url(../../public/images/bg_login.jpg); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.img{
+    width: 15%;
+    height: 15%;
+}
+
+.inp_ins{
+    outline: none;
+    border: none;
+}
+
+.focus-bord{
+    width: 80%;
+    height: 2px;
+    background-color: #443369;
+    margin-left: 8%;
+    display: flex;
+}
+
+.larg{
+    width: 85% !important;
+}
+
+.pass{
+    margin-bottom: 5%;
+}
+
+#eye{
+    display: flex;
+}
+
+#i{
+    margin-top: 35px;
+    cursor: pointer;
+}
+.sect3 button{
+    border: none;
+    color: #443369;
+    background-color: white;
+    width: 38%;
+    height: 50px;
+    border-radius: 23px;
+    position: relative; 
+}
+
+.sect3 button:hover{
+    background-color: #8f42e8;
+    color: white;
+}
+
+@media screen and (min-width: 500px){
+    .sect_ins{
+        width: 600px !important;
+        left: 8%;
+        top: 6% ;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 8% ;
+        padding-left: 0% ;
+        padding-right: 0% ;
+        background-color: #443369;
+        opacity: .9;
+        color: white;
+    }
+}

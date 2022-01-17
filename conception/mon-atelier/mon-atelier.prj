@@ -1,6 +1,6 @@
 format 224
 "mon-atelier"
-  revision 6
+  revision 9
   modified_by 4 "main-c"
 
 
@@ -1039,6 +1039,9 @@ ${docstring}${members}
 	    classrelation_ref 138884 // (have)
       end
 
+      classrelation 153604 // (design)
+	relation_ref 150404 // design
+      end
     end
 
     class 128132 "Order"
@@ -1054,19 +1057,6 @@ ${docstring}${members}
       mysql_decl ""
       
       associated_diagram classdiagram_ref 128133 // class_diagram
-      attribute 135044 "start_date"
-	private explicit_type ""
-	stereotype "date"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl "${comment}${self}${name} = ${value}
-"
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
       attribute 135172 "end_date"
 	private explicit_type ""
 	stereotype "date"
@@ -1092,18 +1082,6 @@ ${docstring}${members}
 	MysqlColumn
 	comment "il s'agit d'une note pour une commmande
 "
-      end
-
-      attribute 135428 "prioty"
-	private explicit_type ""
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl "${comment}${self}${name} = ${value}
-"
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
       end
 
       attribute 135812 "total_cost"
@@ -1303,7 +1281,6 @@ ${docstring}${members}
       classrelation 137860 // (work_for)
 	relation_ref 136068 // work_for
       end
-
     end
 
     class 134788 "Client"
@@ -1331,30 +1308,6 @@ ${docstring}${members}
       end
 
       attribute 137348 "phone"
-	private explicit_type ""
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl "${comment}${self}${name} = ${value}
-"
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 137476 "age"
-	private explicit_type ""
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl "${comment}${self}${name} = ${value}
-"
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 137604 "location"
 	private explicit_type ""
 	cpp_decl ""
 	java_decl ""
@@ -1394,6 +1347,19 @@ ${docstring}${members}
 	MysqlColumn
       end
 
+      attribute 159748 "tranche_d_age"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "[('En','Enfant'), ('Ado','Adolescent'), ('Adulte','Adulte')]
+"
+      end
     end
 
     class 134916 "Article"
@@ -1432,6 +1398,18 @@ ${docstring}${members}
 	    python "${type}"
 	    classrelation_ref 145668 // <generalisation>
 	  b parent class_ref 148484 // OrderItem
+      end
+
+      attribute 159876 "description"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
       end
     end
 
@@ -1528,8 +1506,20 @@ ${docstring}${members}
 	relation_ref 128772 // have
       end
 
-      classrelation 145924 // (have)
+      classrelation 145924 // have
 	relation_ref 143364 // have
+      end
+
+      classrelation 153476 // (design)
+	relation 150404 ---- name "design"
+	  a role_name "" multiplicity "1" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 153476 // (design)
+	  b role_name "" multiplicity "*" private
+	    python "${comment}${self}${name} = ${stereotype}()
+"
+	    classrelation_ref 153604 // (design)
       end
     end
 
@@ -1624,7 +1614,7 @@ ${docstring}${members}
 
       classrelation 136964 // (belong_to)
 	relation 135684 ---- name "belong_to"
-	  a role_name "" multiplicity "0..1" private
+	  a role_name "" multiplicity "1" private
 	    python "${comment}${self}${name} = ${value}
 "
 	    classrelation_ref 136964 // (belong_to)
@@ -1733,7 +1723,7 @@ ${docstring}${members}
 	  b role_name "" multiplicity "*" private
 	    python "${comment}${self}${name} = ${stereotype}()
 "
-	    classrelation_ref 145924 // (have)
+	    classrelation_ref 145924 // have
       end
 
       classrelation 146436 // (is_for)
