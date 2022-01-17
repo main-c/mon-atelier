@@ -30,7 +30,7 @@ const Slide = ({ children }) => {
       if (!paused) {
         updateIndex(activeIndex + 1);
       }
-    }, 2000);
+    }, 2500);
 
     return () => {
       if (interval) {
