@@ -82,5 +82,101 @@ textarea{
 	opacity: .9;
 }
 
-/* DetailClient Component */
+/* DetailCommand Component */
 
+
+.hidden{
+  opacity:0;
+}
+
+#pop-up{
+  width:auto;
+  opacity:0;
+  background-color:white;
+  z-index:10;
+  height: auto;
+}
+  hr{
+    width: 40%;
+    height: 10px;
+    margin:10px auto 30px 0;
+    border: none;
+    outline: none;
+    background-color: blueviolet;
+  }
+
+.close{
+  position:absolute;
+  top: 20px;
+  right:40px;
+  width:30px;
+  font-weight:700;
+  font-size:1em;
+  color: white;
+  background: #443369;
+  cursor:pointer;
+}
+
+#innerPopUp{
+  height:auto;
+  overflow: auto;
+  opacity:0;
+}
+
+.fade-in{
+  animation: fadeIn 1.3s ease forwards 1s;
+}
+
+.fade-out{
+  animation: fadeOut 1.3s ease forwards;
+}
+
+.animate-in{
+  animation: popIn 1.3s cubic-bezier(.87,-.41,.19,1.22) forwards;
+}
+
+.animate-out{
+  animation: popOut 1.3s cubic-bezier(.87,-.41,.19,1.22) forwards;
+}
+
+@keyframes fadeIn{
+  from{
+    transform:translateY(-20px);
+    opacity:0;
+  }
+  to{
+    transform:translateY(0px);
+    opacity:1;
+  }
+}
+@keyframes popIn{
+  0%{
+    opacity:0;
+    transform:scale(0,0);
+  }
+  60%{
+    opacity:1;
+    transform:scale(1,1);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1,1);
+  }
+}
+
+@keyframes popOut{
+  0%{
+    z-index:100;
+    opacity:1;
+    transform:scale(1,1);
+  }
+  60%{
+    z-index:0;
+    opacity:.1;
+    transform:scale(.001,.001);
+  }
+  100%{
+    opacity:0;
+    transform:scale(0,0);
+  }
+}
