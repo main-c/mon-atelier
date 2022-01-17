@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Slide, {CarouselItem} from '../components/slide'
 
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import Categories from '../components/categories'
+import Articles from '../components/Article'
 
 
 class Home extends React.Component{
@@ -12,175 +16,48 @@ class Home extends React.Component{
 			
 			<div className="Integration">
 				<Navigation />
-				
-				<div className="pt-lg-5" style={{ backgroundImage: 'url(images/banner.jpg)', 
+				<Slide>
+					<CarouselItem>
+						<div className="pt-lg-5" style={{ backgroundImage: 'url(images/banner.jpg)', 
+					       height:'90vh', width:'99vw', backgroundSize:'cover'}}>
+
+						<h1 className="text-violet ps-lg-5 ps-3 fw-bold fs-1 mb-0 pt-5">MonAtelier,</h1>
+						<p className="pt-3 ps-lg-5 ps-3 fs-4 mb-4 pb-5" style={{fontWeight:'lightner'}}>
+							l’outil idéal pour tous vos besoins de 
+							<br/>couture
+						</p>
+						<Link to="/profil_atelier" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les modèles</Link>
+
+						</div>
+					</CarouselItem>
+
+					<CarouselItem><div className="pt-lg-5" style={{ backgroundImage: 'url(images/bg_login.jpg)', 
 				height:'90vh', width:'99vw', backgroundSize:'cover'}}>
 
-					<h1 className="text-violet ps-5 fw-bold fs-1 mb-0 pt-5">MonAtelier,</h1>
-					<p className="pt-lg-3 ps-5 fs-4 mb-5" style={{fontWeight:'lightner'}}>
+					<h1 className="text-violet ps-lg-5 ps-3 fw-bold fs-1 mb-0 pt-5">MonAtelier,</h1>
+					<p className="pt-3 ps-lg-5 ps-3 fs-4 mb-4 pb-5" style={{fontWeight:'lightner'}}>
 						l’outil idéal pour tous vos besoins de 
 						<br/>couture
 					</p>
-					<Link to="/profil" className="border-0 rounded-1 text-light fs-5 text-center pt-2 pb-2 ps-3 pe-3 ms-5" style={{background:'#443369'}}>voir les modèles</Link>
+					<Link to="/profil_atelier" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les modèles</Link>
 
-				</div>
+				</div></CarouselItem>
+					<CarouselItem><div className="pt-lg-5" style={{ backgroundImage: 'url(images/paysage.jpg)', 
+				height:'90vh', width:'99vw', backgroundSize:'cover'}}>
 
-				<div className="container px-auto pt-5">
+					<h1 className="text-violet ps-lg-5 ps-3 fw-bold fs-1 mb-0 pt-5">MonAtelier,</h1>
+					<p className="pt-3 ps-lg-5 ps-3 fs-4 mb-4 pb-5" style={{fontWeight:'lightner'}}>
+						l’outil idéal pour tous vos besoins de 
+						<br/>couture
+					</p>
+					<Link to="/profil_atelier" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les modèles</Link>
 
-					<p className='fw-bold text-center mt-5 fs-3' id="categories">CATEGORIES</p>
-					<div className="mx-auto" style={{height:'4px', width:'100px', background:'#FF5566'}}></div>
-					<div className="row pt-3 mx-auto categories">
+				</div></CarouselItem>
+				</Slide>
+				
+				<Categories />
 
-						<div className="col-lg-4 mx-auto mb-3 mt-3 p-0 d-flex border rounded" style={{height:'100px', width:'350px'}}>
-						    <img src="images/matoul.jpg" className="rounded-start" height="100px" alt="..." />
-						    <div className="my-auto">
-						        <a href="" className="text-violet fs-4 ms-5">Catégorie 1</a>
-						    </div>
-						</div>
-						<div className="col-lg-4 mx-auto mb-3 mt-3 p-0 d-flex border rounded" style={{height:'100px', width:'350px'}}>
-						    <img src="images/matoul.jpg" className="rounded-start" height="100px" alt="..." />
-						    <div className="my-auto">
-						        <a href="" className="text-violet fs-4 ms-5">Catégorie 2</a>
-						    </div>
-						</div>
-						<div className="col-lg-4 mx-auto mb-3 mt-3 p-0 d-flex border rounded" style={{height:'100px', width:'350px'}}>
-						    <img src="images/matoul.jpg" className="rounded-start" height="100px" alt="..." />
-						    <div className="my-auto">
-						        <a href="" className="text-violet fs-4 ms-5">Catégorie 3</a>
-						    </div>
-						</div>
-						<div className="col-lg-4 mx-auto mb-3 mt-3 p-0 d-flex border rounded" style={{height:'100px', width:'350px'}}>
-						    <img src="images/matoul.jpg" className="rounded-start" height="100px" alt="..." />
-						    <div className="my-auto">
-						        <a href="" className="text-violet fs-4 ms-5">Catégorie 4</a>
-						    </div>
-						</div>
-						<div className="col-lg-4 mx-auto mb-3 mt-3 p-0 d-flex border rounded" style={{height:'100px', width:'350px'}}>
-						    <img src="images/matoul.jpg" className="rounded-start" height="100px" alt="..." />
-						    <div className="my-auto">
-						        <a href="" className="text-violet fs-4 ms-5">Catégorie 5</a>
-						    </div>
-						</div>
-						<div className="col-lg-4 mx-auto mb-3 mt-3 p-0 d-flex border rounded" style={{height:'100px', width:'350px'}}>
-						    <img src="images/matoul.jpg" className="rounded-start" height="100px" alt="..." />
-						    <div className="my-auto">
-						        <a href="" className="text-violet fs-4 ms-5">Catégorie 6</a>
-						    </div>
-						</div>
-
-					</div>
-				</div>
-				<div className="container-fluid px-0 pb-lg-5">
-					<div className='fw-bold text-center mt-5 fs-3'>NOS ARTICLES</div>
-					<div className="mx-auto mb-5" style={{height:'4px', width:'100px', background:'#FF5566'}}></div>
-
-					<div className="row pt-3 mx-auto bg-violet py-5">
-
-						<div className="col-lg-3 card p-0 mt-3 mx-auto border-0 articles" style={{width: "18rem"}}>
-							<img src="images/banner1.jpg" className="card-img-top p-0 imag" alt="..." style={{width:'100%'}}  />
-							<div className="card-body ps-2">
-								<h5 className="card-title">Habillemnt de femme</h5>
-								<p className="card-text">200 000XAF <br /><span>ajouté le 22 dec 2021</span></p>
-								<div className="d-flex">
-									<img src="images/logo.png" className="card-img-top p-0" alt="..." style={{width:'50px', height:'5Opx'}}  />
-									<div className="ms-2 mt-3">Kim_atelier</div>
-								</div>
-							</div>
-						</div>
-						<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "18rem"}}>
-							<img src="images/banner1.jpg" className="card-img-top p-0" alt="..." style={{width:'100%'}}  />
-							<div className="card-body ps-2">
-								<h5 className="card-title">Habillemnt de femme</h5>
-								<p className="card-text">200 000XAF <br /><span>ajouté le 22 dec 2021</span></p>
-								<div className="d-flex">
-									<div>
-										<img src="images/logo.png" className="card-img-top p-0" alt="..." style={{width:'50px', height:'5Opx'}}  />
-									</div>
-									<div className="ms-2 mt-3">Kim_atelier</div>
-								</div>
-							</div>
-						</div>
-						<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "18rem"}}>
-							<img src="images/banner1.jpg" className="card-img-top p-0" alt="..." style={{width:'100%'}}  />
-							<div className="card-body ps-2">
-								<h5 className="card-title">Habillemnt de femme</h5>
-								<p className="card-text">200 000XAF <br /><span>ajouté le 22 dec 2021</span></p>
-								<div className="d-flex">
-									<div>
-										<img src="images/logo.png" className="card-img-top p-0" alt="..." style={{width:'50px', height:'5Opx'}}  />
-									</div>
-									<div className="ms-2 mt-3">Kim_atelier</div>
-								</div>
-							</div>
-						</div>
-						<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "18rem"}}>
-							<img src="images/banner1.jpg" className="card-img-top p-0" alt="..." style={{width:'100%'}}  />
-							<div className="card-body ps-2">
-								<h5 className="card-title">Habillemnt de femme</h5>
-								<p className="card-text">200 000XAF <br /><span>ajouté le 22 dec 2021</span></p>
-								<div className="d-flex">
-									<div>
-										<img src="images/logo.png" className="card-img-top p-0" alt="..." style={{width:'50px', height:'5Opx'}}  />
-									</div>
-									<div className="ms-2 mt-3">Kim_atelier</div>
-								</div>
-							</div>
-						</div>
-						<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "18rem"}}>
-							<img src="images/banner1.jpg" className="card-img-top p-0" alt="..." style={{width:'100%'}}  />
-							<div className="card-body ps-2">
-								<h5 className="card-title">Habillemnt de femme</h5>
-								<p className="card-text">200 000XAF <br /><span>ajouté le 22 dec 2021</span></p>
-								<div className="d-flex">
-									<div>
-										<img src="images/logo.png" className="card-img-top p-0" alt="..." style={{width:'50px', height:'5Opx'}}  />
-									</div>
-									<div className="ms-2 mt-3">Kim_atelier</div>
-								</div>
-							</div>
-						</div>
-						<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "18rem"}}>
-							<img src="images/banner1.jpg" className="card-img-top p-0" alt="..." style={{width:'100%'}}  />
-							<div className="card-body ps-2">
-								<h5 className="card-title">Habillemnt de femme</h5>
-								<p className="card-text">200 000XAF <br /><span>ajouté le 22 dec 2021</span></p>
-								<div className="d-flex">
-									<div>
-										<img src="images/logo.png" className="card-img-top p-0" alt="..." style={{width:'50px', height:'5Opx'}}  />
-									</div>
-									<div className="ms-2 mt-3">Kim_atelier</div>
-								</div>
-							</div>
-						</div>
-						<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "18rem"}}>
-							<img src="images/banner1.jpg" className="card-img-top p-0" alt="..." style={{width:'100%'}}  />
-							<div className="card-body ps-2">
-								<h5 className="card-title">Habillemnt de femme</h5>
-								<p className="card-text">200 000XAF <br /><span>ajouté le 22 dec 2021</span></p>
-								<div className="d-flex">
-									<div>
-										<img src="images/logo.png" className="card-img-top p-0" alt="..." style={{width:'50px', height:'5Opx'}}  />
-									</div>
-									<div className="ms-2 mt-3">Kim_atelier</div>
-								</div>
-							</div>
-						</div>
-						<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "18rem"}}>
-							<img src="images/banner1.jpg" className="card-img-top p-0" alt="..." style={{width:'100%'}}  />
-							<div className="card-body ps-2">
-								<h5 className="card-title">Habillemnt de femme</h5>
-								<p className="card-text">200 000XAF <br /><span>ajouté le 22 dec 2021</span></p>
-								<div className="d-flex">
-									<div>
-										<img src="images/logo.png" className="card-img-top p-0" alt="..." style={{width:'50px', height:'5Opx'}}  />
-									</div>
-									<div className="ms-2 mt-3">Kim_atelier</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
+				<Articles />
 
 				<div className="container-fluid mb-lg-5" id="a_propos">
 					<p className='fw-bold text-center mb-0 mt-5 fs-3'>A PROPOS</p>
