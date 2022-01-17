@@ -11,8 +11,9 @@ export default class Connexion extends React.Component{
 		constructor(props){
 			super(props)
 			this.state = {
-				username: "",
-				pasword: "",
+				id: "",
+				name: "",
+				showPass : false,
 			}
 			this.handleChange = this.handleChange.bind(this) 
 		}
@@ -26,7 +27,7 @@ export default class Connexion extends React.Component{
 		handleSubmit = (e) =>{
 			e.preventDefault()
 			console.log(this.state)
-			axios.post('https://api-mon-atelier.herokuapp.com/api/v1/auth/1/signin/', this.state)
+			axios.post("https://api-mon-atelier.herokuapp.com/api/v1/categories/", this.state)
 			.then(response => {
 			console.log(response)
 		})
@@ -37,7 +38,7 @@ export default class Connexion extends React.Component{
 
 
 	render(){
-		const {username,password} = this.state
+		const {id,name} = this.state
 		return(
 			<div className="container-fluid connexion_container py-5 ps-lg-5">
 				<section className="section">
@@ -51,8 +52,8 @@ export default class Connexion extends React.Component{
 								<p className="text-dark fs-5 ms-4 mb-0">Email ou Téléphone</p>
 								<input 
 									type="text" 
-									name="username" 
-									value={username}
+									name="id" 
+									value={id}
 									onChange = {this.handleChange}
 									id="id" placeholder="..." 
 									className="text-violet px-3 pb-2 px-4" 
@@ -65,8 +66,8 @@ export default class Connexion extends React.Component{
 										<p className="text-dark fs-5 ms-4 mb-0">Mot de passe</p>
 										<input 
 										type={this.state.showPass ? "text" : "password" }
-										name="password" 
-										value={password}
+										name="name" 
+										value={name}
 										onChange = {this.handleChange}
 										name="name" placeholder="..." id="pass"  
 										className="text-violet px-3 pb-2 px-4"

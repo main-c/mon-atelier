@@ -1,13 +1,1 @@
-.more:hover{
-	transition: 0.5s ease;
-	background-color: #443369 !important;
-	color: white;
-	box-shadow: 0 10px 0 white;
-}
 
-.more:hover{
-	transition: 0.5s ease;
-	background-color: #FFF !important;
-	color: #443369;
-	box-shadow: 0 10px 0 #443369;
-}

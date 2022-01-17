@@ -36,7 +36,7 @@ render(){
 						<div className="col-lg-4 mx-auto mb-3 mt-3 p-0 d-flex border rounded" style={{height:'100px', width:'350px'}}>
 						    <img src="images/matoul.jpg" className="rounded-start" height="100px" alt="..." />
 						    <div className="my-auto">
-						    <Link to={`/articles/${category.name}`}>
+						    <Link to={`/articles/${category.id}`}>
 					            <p className="text-violet fs-4 ms-5">{category.name}</p>
 					        </Link>
 						        
@@ -46,9 +46,6 @@ render(){
           })}
 
 
-					</div>
-					<div className="mx-auto text-center mt-5">
-						<Link to="/categories"  className="mx-auto text-center text-decoration-none fs-5 rounded-1 ps-4 pe-4 p-2 bg-violet text-white moreCat">voir plus</Link>
 					</div>
 				</div>
 		);
