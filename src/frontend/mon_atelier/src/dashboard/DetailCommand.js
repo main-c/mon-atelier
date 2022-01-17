@@ -15,7 +15,7 @@ function DetailCommand(){
 				</div>
 			</div>
 
-			<div className="row command_information border p-lg-5 p-2">
+			<div className="row border p-lg-5 p-2">
 				
 				<div className="col-lg-6 d-grid">
 					<div className="d-flex">
@@ -40,9 +40,7 @@ function DetailCommand(){
 					</i>
 				</div>
 
-				<div className="d-flex justify-content-end">
-					<Link to="" className="modif_btn text-light bg-violet p-2">Modifier la commande</Link>
-				</div>
+				<ModifCommand />
 
 			</div>
 
@@ -60,3 +58,47 @@ function DetailCommand(){
 	);
 }
 export default DetailCommand;
+
+
+
+class ModifCommand extends React.Component{
+    constructor(){
+      super();
+      this.state = {
+        animation_name : '',
+        depth: '',
+        fade: ''
+      };
+    }
+  
+    closePopUp(){
+      this.setState({animation_name: 'animate-out'});
+      this.setState({depth:'above'});
+       this.setState({fade:'fade-out'});
+    }
+    openPopUp(){
+      this.setState({animation_name: 'animate-in'});
+      this.setState({depth:'below'});
+      this.setState({fade:'fade-in'});
+    }
+
+    render(){
+        return (
+          <div>
+          	<div className="d-flex justify-content-end">
+            	<button className="opener border-0 modif_btn text-light bg-violet p-2" id={this.state.depth} onClick={this.openPopUp.bind(this)}>Modifier la commande</button>
+            </div>
+            <section id="pop-up" className={this.state.animation_name}>
+				<div id="innerPopUp" className={this.state.fade}>
+					<div className="p-3">
+						<p className="fs-5 text-violet">Modifier la commande</p>
+						<hr/>
+						<p className="close ps-2" onClick={this.closePopUp.bind(this)}><i className="fa fa-close"></i></p>
+						<p>Contenu du formulaire</p>
+					</div>
+				</div>
+            </section>
+          </div>
+        );
+    }
+}

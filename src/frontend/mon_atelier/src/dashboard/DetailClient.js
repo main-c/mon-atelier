@@ -35,9 +35,7 @@ function DetailClient(){
 					</div>
 				</div>
 
-				<div className="d-flex justify-content-end">
-					<Link to="" className="modif_btn text-light bg-violet p-2">Modifier</Link>
-				</div>
+				<ModifClient />
 			</div>
 			
 			<div className="underline mt-5">
@@ -54,3 +52,46 @@ function DetailClient(){
 	);
 }
 export default DetailClient;
+
+
+class ModifClient extends React.Component{
+    constructor(){
+      super();
+      this.state = {
+        animation_name : '',
+        depth: '',
+        fade: ''
+      };
+    }
+  
+    closePopUp(){
+      this.setState({animation_name: 'animate-out'});
+      this.setState({depth:'above'});
+       this.setState({fade:'fade-out'});
+    }
+    openPopUp(){
+      this.setState({animation_name: 'animate-in'});
+      this.setState({depth:'below'});
+      this.setState({fade:'fade-in'});
+    }
+
+    render(){
+        return (
+          <div>
+          	<div className="d-flex justify-content-end mt-3">
+            	<button className="opener border-0 modif_btn text-light bg-violet p-2" id={this.state.depth} onClick={this.openPopUp.bind(this)}>Modifier les informations</button>
+            </div>
+            <section id="pop-up" className={this.state.animation_name}>
+				<div id="innerPopUp" className={this.state.fade}>
+					<div className="p-3">
+						<p className="fs-5 text-violet">Modification</p>
+						<hr/>
+						<p className="close ps-2" onClick={this.closePopUp.bind(this)}><i className="fa fa-close"></i></p>
+						<p>Contenu du formulaire</p>
+					</div>
+				</div>
+            </section>
+          </div>
+        );
+    }
+}
