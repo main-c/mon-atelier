@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from './Layout.js';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 function Commande(){
@@ -15,10 +16,8 @@ function Commande(){
 				</div>
 			</div>
 
-			<div className="d-flex justify-content-between">
-				<div className="underline mb-5 mt-lg-3 mt-5 pt-lg-3">
-					<h4 className="text-violet">Commandes</h4>
-				</div>
+			<div className="d-flex justify-content-end mb-5">
+				
 				<div className="mt-5 pt-lg-0 pt-2">
 					<a href="#newCommand" className="text-light text-center bg-violet2 p-2 rounded">Nouvelle commande</a>
 				</div>
@@ -31,10 +30,6 @@ function Commande(){
 						<Link to="/detail_commande" className="text-dark">
 							<h3>Kimmy Black</h3>
 							<p className="text-secondary">18 Janvier 2020</p>
-							<p className="fs-5">
-								Pour sa soirée de mariage prévue le 16 février 2022, le client voudrait un veston blue nuit,
-								une robe de soirée dorée, et deux robettes pour enfants.
-							</p>
 							<hr className="mb-1" />
 							<i className="text-violet">En conception</i>
 						</Link>
@@ -43,10 +38,6 @@ function Commande(){
 						<Link to="/detail_commande" className="text-dark">
 							<h3>Kimmy Black</h3>
 							<p className="text-secondary">18 Janvier 2020</p>
-							<p className="fs-5">
-								Pour sa soirée de mariage prévue le 16 février 2022, le client voudrait un veston blue nuit,
-								une robe de soirée dorée, et deux robettes pour enfants.
-							</p>
 							<hr className="mb-1" />
 							<i className="text-violet">Terminé</i>
 						</Link>
@@ -55,10 +46,6 @@ function Commande(){
 						<Link to="/detail_commande" className="text-dark">
 							<h3>Kimmy Black</h3>
 							<p className="text-secondary">18 Janvier 2020</p>
-							<p className="fs-5">
-								Pour sa soirée de mariage prévue le 16 février 2022, le client voudrait un veston blue nuit,
-								une robe de soirée dorée, et deux robettes pour enfants.
-							</p>
 							<hr className="mb-1" />
 							<i className="text-violet">En conception</i>
 						</Link>
@@ -67,10 +54,6 @@ function Commande(){
 						<Link to="/detail_commande" className="text-dark">
 							<h3>Kimmy Black</h3>
 							<p className="text-secondary">18 Janvier 2020</p>
-							<p className="fs-5">
-								Pour sa soirée de mariage prévue le 16 février 2022, le client voudrait un veston blue nuit,
-								une robe de soirée dorée, et deux robettes pour enfants.
-							</p>
 							<hr className="mb-1" />
 							<i className="text-violet">Terminé</i>
 						</Link>
@@ -78,24 +61,14 @@ function Commande(){
 					<div className="col-lg-4 p-3 my-3 mx-auto shadow-sm rounded card_command">
 						<Link to="/detail_commande" className="text-dark">
 							<h3>Kimmy Black</h3>
-							<p className="text-secondary">18 Janvier 2020</p>
-							<p className="fs-5">
-								Pour sa soirée de mariage prévue le 16 février 2022, le client voudrait un veston blue nuit,
-								une robe de soirée dorée, et deux robettes pour enfants.
-							</p>
-							<hr className="mb-1" />
+							<p className="text-secondary">18 Janvier 2020</p>							<hr className="mb-1" />
 							<i className="text-violet">En attente de Materiel</i>
 						</Link>
 					</div>
 					<div className="col-lg-4 p-3 my-3 mx-auto shadow-sm rounded card_command">
 						<Link to="/detail_commande" className="text-dark">
 							<h3>Kimmy Black</h3>
-							<p className="text-secondary">18 Janvier 2020</p>
-							<p className="fs-5">
-								Pour sa soirée de mariage prévue le 16 février 2022, le client voudrait un veston blue nuit,
-								une robe de soirée dorée, et deux robettes pour enfants.
-							</p>
-							<hr className="mb-1" />
+							<p className="text-secondary">18 Janvier 2020</p>							<hr className="mb-1" />
 							<i className="text-violet">En conception</i>
 						</Link>
 					</div>
@@ -108,37 +81,8 @@ function Commande(){
 				<h4 className="text-violet">Ajouter</h4>
 			</div>
 
-			<form method="POST" action="" className="py-4 mb-5 px-3 border-violet3 bg-white">
-				<div className="row justify-content-around">
-					<div className="col-lg-5 my-2">
-						<p className="text-violet">Nom du client</p>
-						<input type="text" name="user" id="user" placeholder="nom" className="text-violet border-violet3 px-3 py-2 px-4 inputCommand" required/>
-					</div>
-					<div className="col-lg-5 my-2">
-						<p className="text-violet">Nom atelier</p>
-						<input type="text" name="user" id="user" placeholder="atelier" className="text-violet border-violet3 px-3 py-2 px-4 inputCommand" required/>
-					</div>		
-				</div>
-				<div className="row justify-content-around mt-lg-3">
-					<div className="col-lg-5 my-2">
-						<p className="text-violet">Date de livraison</p>
-						<input type="text" name="user" id="user" placeholder="date" className="text-violet border-violet3 px-3 py-2 px-4 inputCommand" required/>
-					</div>
-					<div className="col-lg-5 my-2">
-						<p className="text-violet">Statut</p>
-						<input type="text" name="user" id="user" placeholder="statut" className="text-violet border-violet3 px-3 py-2 px-4 inputCommand" required/>
-					</div>			
-				</div>
-				<div className="row justify-content-around mt-lg-3">
-					<div className="col-lg-5 my-2">
-						<p className="text-violet">Commentaire</p>
-						<textarea type="text-area" name="user" id="user" placeholder="Add comment ... " className="text-violet border-violet3 p-2 w-100 inputCommand" required></textarea>
-					</div>
-					<div className="col-lg-5 my-lg-2 mt-lg-auto mt-5">
-						<input type="submit" value="Ajouter la commande" className="text-light bg-violet p-2"/>
-					</div>			
-				</div>
-			</form>
+			<AjoutCommande />
+
 
 		</div>
 
@@ -150,3 +94,84 @@ function Commande(){
 	);
 }
 export default Commande;
+
+
+
+class AjoutCommande extends React.Component{
+		constructor(props){
+			super(props)
+			this.state = {
+				client: "",
+				workshop: "",
+				delivery_date: "",
+				comment: "",
+				state: "",
+			}
+			this.handleChange = this.handleChange.bind(this) 
+		}
+
+		handleChange = (e)=>{
+			this.setState({
+				[e.target.name]: e.target.value
+			})
+		}
+
+		handleSubmit = (e) =>{
+			e.preventDefault()
+			console.log(this.state)
+			axios.post("https://api-mon-atelier.herokuapp.com/api/v1/orders/", this.state)
+			.then(response => {
+			console.log(response)
+		})
+
+		.then((response) => this.setState({orders: response.data.results}))
+		.catch((err) => console.log(err));
+		}
+
+
+	render(){
+		const {client,workshop,delivery_date,comment,state} = this.state
+		return(
+			<div className="container-fluid px-0 pb-5">
+				<div className="col-lg-10 mx-auto bg-white shadow-sm py-5 px-lg-5 px-3">
+					<form action="" onSubmit={this.handleSubmit}>
+						
+						<div className="row justify-content-around">
+							<div className="col-lg-5 my-2">
+								<p className="text-violet">Nom du client</p>
+								<input type="number" name="client" id="client" value={client} onChange = {this.handleChange} placeholder="Nom client" className="text-violet border-violet3 px-3 py-2 px-4 inputCommand" required/>
+							</div>
+							<div className="col-lg-5 my-2">
+								<p className="text-violet">Nom atelier</p>
+								<input type="number" name="workshop" id="workshop" value={workshop} placeholder="Nom atelier" onChange = {this.handleChange} className="text-violet border-violet3 px-3 py-2 px-4 inputCommand" required/>
+							</div>		
+						</div>
+						<div className="row justify-content-around mt-lg-3">
+							<div className="col-lg-5 my-2">
+								<p className="text-violet">Date de livraison</p>
+								<input type="date" name="delivery_date" id="delivery_date" value={delivery_date} onChange = {this.handleChange} className="text-violet border-violet3 px-3 py-2 px-4 inputCommand" required/>
+							</div>
+							<div className="col-lg-5 my-2">
+								<p className="text-violet">Statut</p>
+								<select name="state" id="state" value={state} onChange = {this.handleChange} className="text-violet border-violet3 px-3 py-2 px-4 inputCommand" required>
+									<option value="C">En conception</option>
+									<option value="T">Terminé</option>
+									<option value="M">Attente de Materiel</option>
+								</select>
+							</div>			
+						</div>
+						<div className="row justify-content-around mt-lg-3">
+							<div className="col-lg-5 my-2">
+								<p className="text-violet">Commentaire</p>
+								<textarea type="text-area" name="comment" id="comment" value={comment} placeholder="Add comment ... " onChange = {this.handleChange} className="text-violet border-violet3 p-2 w-100 inputCommand" required></textarea>
+							</div>	
+							<div class="col-lg-5 text-end mt-auto">
+								<button className="my-3 border-0 bg-violet text-light p-2" type="submit">Ajouter la commande</button>
+							</div>	
+						</div>
+					</form>
+				</div>
+			</div>
+		);
+	}
+}

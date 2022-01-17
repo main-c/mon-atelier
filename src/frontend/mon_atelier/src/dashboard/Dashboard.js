@@ -15,11 +15,11 @@ function Dashboard(){
 
 			<div className="row mt-4 justify-content-around">
 				<div className="col-lg-3 d-grid mx-lg-2 px-3 pt-2 mt-2 shadow-sm rounded stats border border-5 border-primary border-top-0 border-bottom-0 border-end-0">
-					<h2 className="text-primary">13</h2>
+					<h2 className="text-primary">0</h2>
 					<p className="fs-5">Articles en vente</p>
 				</div>
 				<div className="col-lg-3 d-grid mx-lg-2 px-3 pt-2 mt-2 shadow-sm rounded stats border border-5 border-secondary border-top-0 border-bottom-0 border-end-0">
-					<h2 className="text-secondary">127</h2>
+					<h2 className="text-secondary">0</h2>
 					<p className="fs-5">Modèles</p>
 				</div>
 				<div className="col-lg-3 d-grid mx-lg-2 px-3 pt-2 mt-2 shadow-sm rounded stats border border-5 border-dark border-top-0 border-bottom-0 border-end-0">
@@ -27,15 +27,15 @@ function Dashboard(){
 					<p className="fs-5">Commande validée</p>
 				</div>
 				<div className="col-lg-3 d-grid mx-lg-2 px-3 pt-2 mt-2 mt-lg-4 shadow-sm rounded stats border border-5 border-danger border-top-0 border-bottom-0 border-end-0">
-					<h2 className="text-danger">50</h2>
+					<h2 className="text-danger">0</h2>
 					<p className="fs-5">Commandes en attende</p>
 				</div>
 				<div className="col-lg-3 d-grid mx-lg-2 px-3 pt-2 mt-2 mt-lg-4 shadow-sm rounded stats border border-5 border-success border-top-0 border-bottom-0 border-end-0">
-					<h2 className="text-success">20</h2>
+					<h2 className="text-success">0</h2>
 					<p className="fs-5">Clients enregistrés</p>
 				</div>
 				<div className="col-lg-3 d-grid mx-lg-2 px-3 pt-2 mt-2 mt-lg-4 shadow-sm rounded stats border border-5 border-warning border-top-0 border-bottom-0 border-end-0">
-					<h2 className="text-warning">07</h2>
+					<h2 className="text-warning">0</h2>
 					<p className="fs-5">Employés</p>
 				</div>
 			</div>
