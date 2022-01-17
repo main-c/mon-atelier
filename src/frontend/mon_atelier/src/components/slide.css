@@ -1,30 +1,37 @@
-.carousele{
-	overflow: hidden !important;
+.carousele {
+  overflow: hidden;
 }
 
-.innere{
-	white-space: nowrap ;
-	transition: transform 0.3s ;
+.innere {
+  white-space: nowrap;
+  transition: transform 0.6s;
 }
 
 .carousele-item {
-	display: inline-flex;
-	align-items: center !important;
-	justify-content: center !important;
-	background-color: teal;
-	color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  background-color: white;
+  color: #fff;
 }
-.Indiq{
-	padding-left: 47%;
-	justify-content: center;
-	margin-top: -9vh;
-	position: absolute;
+
+.indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 2vh;
 }
-.bouton{
-	border: none;
-	box-shadow: 10px 0px 10px  gray;
-	color: blueviolet;
+
+.indicators > button {
+  margin: 5px;
+  border: none;
+  color: blueviolet;
 	font-weight: bold;
 	background: none;
-	background-color: pink;
+	background-color: pink
+}
+
+.indicators > button.active {
+  background-color: blueviolet;
+  color: pink;
 }
