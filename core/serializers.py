@@ -96,24 +96,36 @@ class WorkshopSerializer(ModelSerializer):
         # create a workswhop instance using the user profile already created
         couturier = Workshop.objects.create(
             manager=user,
-            **validated_data
+            name = validated_data.get('name'),
+            location = validated_data.get('location'),
+            phone = validated_data.get('phone'),
+            whatsapp_phone = validated_data.get('whatsapp_phone'),
+            description = validated_data.get('description'),
+            logo = validated_data.get('logo'),
         )
         return couturier
 
     def update(self, instance, validated_data):
         profile_data = validated_data.pop("manager")
         user = User.objects.get(username=profile_data['email'])
-        user.last_name=profile_data["last_name"],
+        user.last_name=profile_data["last_name"]
         user.username = profile_data['email']
         user.email=profile_data["email"]
         user.set_password(profile_data['password'])
         user.save()
 
         instance.manager = user
-        for (key, value) in validated_data.items():
-            setattr(instance, key, value)
-        
+        instance.name = validated_data.get('name', instance.name)
+        instance.location = validated_data.get('location', instance.location)
+        instance.phone = validated_data.get('phone', instance.phone)
+        instance.whatsapp_phone = validated_data.get('whatsapp_phone', instance.whatsapp_phone)
+        instance.description = validated_data.get('description', instance.description)
+        instance.logo = validated_data.get('logo', instance.logo)
+        instance.save
+
+        print(instance.logo)
         return instance
+        
 
 
     
