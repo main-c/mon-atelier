@@ -8,7 +8,7 @@ class Workshop(models.Model):
     phone = models.CharField(max_length=13, unique=True, null=False, blank=True)
     whatsapp_phone = models.CharField(max_length=13, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    logo = models.ImageField(blank=True, null=True, upload_to="images/logos/", default='images/logo.png')
+    logo = models.ImageField(upload_to="images/logos", blank=True, null=True)
     manager = models.OneToOneField(User, models.CASCADE)
 
     def __str__(self):
@@ -17,8 +17,8 @@ class Workshop(models.Model):
 
 class LocationImage(models.Model):
     workshop = models.ForeignKey(Workshop, on_delete=models.CASCADE)
-    location_image_1 = models.ImageField(blank=True, null=True, upload_to="images/locations/")
-    location_image_2 = models.ImageField(blank=True, null=True, upload_to="images/locations/")
+    location_image_1 = models.ImageField(blank=True, null=True, upload_to="images/locations")
+    location_image_2 = models.ImageField(blank=True, null=True, upload_to="images/locations")
 
     def __str__(self):
         return f'images of {self.workshop.name}'
@@ -120,9 +120,9 @@ class Modele(models.Model):
 
 
 class OrderItem(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.SET_NULL,  null=True, blank=True,)
     modele = models.ForeignKey(Modele, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, unique=True null=False, blank=True)
+    name = models.CharField(max_length=255, null=True, blank=True)
     cost = models.IntegerField(null=False, blank=True)
     echantillon = models.ImageField(upload_to='images/echantillons')
     result = models.ImageField(upload_to='images/articles')
