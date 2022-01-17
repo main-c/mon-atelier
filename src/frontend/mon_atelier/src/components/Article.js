@@ -24,7 +24,7 @@ class Article extends React.Component {
 render(){
 		return(
 
-		
+
 				<div className="container-fluid px-0 pb-lg-5">
 					<div className='fw-bold text-center mt-5 fs-3'>NOS ARTICLES</div>
 					<div className="mx-auto mb-5" style={{height:'4px', width:'100px', background:'#FF5566'}}></div>
@@ -70,6 +70,8 @@ render(){
 
 
 					</div>
+
+			
 				</div>
 
 	);

@@ -1,8 +1,9 @@
-import React, {Suspense} from 'react';
+import React, {Suspense, lazy} from 'react';
 
 import Inscription from './core/Inscription';
 import Connexion from './core/Connexion';
 import Home from './core/Home';
+import Articles from './core/Articles.js'
 import ProfilAtelier from './core/ProfilAtelier';
 import Categories from './core/Categories';
 import ArticlesCategorie from './core/ArticlesCategorie';
@@ -18,6 +19,9 @@ import DetailClient from './dashboard/DetailClient';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
+
+const home = lazy(()=> import('./core/Home'));
+
 
 function App() {
   return (
@@ -35,7 +39,7 @@ function App() {
           <Route path="/categories" element={<Categories/>} />
           <Route path="/articles/:idCategory" element={<ArticlesCategorie/>} />
           <Route path="/detail_article" element={<DetailArticle/>} />
-          <Route path="/articles" element={<Articles />} />
+          <Route path="/articles" element={<Articles/>} />
 
           <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/commande" element={<Commande/>} />
