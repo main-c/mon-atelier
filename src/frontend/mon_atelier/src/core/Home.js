@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Slide, {CarouselItem} from '../components/slide'
 
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import Categories from '../components/categories'
 import Articles from '../components/Article'
-import Slide from '../components/slide.js'
 
 
 class Home extends React.Component{
@@ -16,8 +16,22 @@ class Home extends React.Component{
 			
 			<div className="Integration">
 				<Navigation />
-				
-				<div className="pt-lg-5" style={{ backgroundImage: 'url(images/banner.jpg)', 
+				<Slide>
+					<CarouselItem>
+						<div className="pt-lg-5" style={{ backgroundImage: 'url(images/banner.jpg)', 
+					       height:'90vh', width:'99vw', backgroundSize:'cover'}}>
+
+						<h1 className="text-violet ps-lg-5 ps-3 fw-bold fs-1 mb-0 pt-5">MonAtelier,</h1>
+						<p className="pt-3 ps-lg-5 ps-3 fs-4 mb-4 pb-5" style={{fontWeight:'lightner'}}>
+							l’outil idéal pour tous vos besoins de 
+							<br/>couture
+						</p>
+						<Link to="/profil_atelier" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les modèles</Link>
+
+						</div>
+					</CarouselItem>
+
+					<CarouselItem><div className="pt-lg-5" style={{ backgroundImage: 'url(images/bg_login.jpg)', 
 				height:'90vh', width:'99vw', backgroundSize:'cover'}}>
 
 					<h1 className="text-violet ps-lg-5 ps-3 fw-bold fs-1 mb-0 pt-5">MonAtelier,</h1>
@@ -27,9 +41,19 @@ class Home extends React.Component{
 					</p>
 					<Link to="/profil_atelier" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les modèles</Link>
 
-				</div>
+				</div></CarouselItem>
+					<CarouselItem><div className="pt-lg-5" style={{ backgroundImage: 'url(images/paysage.jpg)', 
+				height:'90vh', width:'99vw', backgroundSize:'cover'}}>
 
-				<Slide />
+					<h1 className="text-violet ps-lg-5 ps-3 fw-bold fs-1 mb-0 pt-5">MonAtelier,</h1>
+					<p className="pt-3 ps-lg-5 ps-3 fs-4 mb-4 pb-5" style={{fontWeight:'lightner'}}>
+						l’outil idéal pour tous vos besoins de 
+						<br/>couture
+					</p>
+					<Link to="/profil_atelier" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les modèles</Link>
+
+				</div></CarouselItem>
+				</Slide>
 				
 				<Categories />
 

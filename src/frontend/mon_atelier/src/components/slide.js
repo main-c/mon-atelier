@@ -1,45 +1,62 @@
-import React, {useState, useEffect, useRef} from 'react';
-import {Link} from 'react-router-dom';
+import React, {useState} from 'react';
+
+import "./slide.css"
+
+export const CarouselItem = ({ children, width }) => {
+
+    return(
+
+        <div className="carousele-item" style={{ width: width }}>
+            {children}
+        </div>
+
+        );
+}
 
 
-export default function Slide(){
+const Slide = ({children}) => {
+    const [activeIndex, setActivateIndex] = useState(0);
 
-	const[count, setCount] = useState(0);
-	const slides = ["'images/banner.jpg'", "'images/banner1.jpg'", "'images/banner2.jpg'"];
-	const currentImg = count
+    const updateIndex = (newIndex) =>{
 
-	const callback = ()=>{
-
-		setCount (count +1)
-
-		 if ((count -1) > slides.length - 2)
-			setCount(0)
-	}
-
-    function useInterval(callback) {
-        //create my reference object
-         const savedCallback = useRef()
-
-        useEffect(() => {
-            //after every render save the newest callback our reference object
-            savedCallback.current = callback
-        })
-
-        function tick() {
-            //call the latest timer 
-            savedCallback.current();
+        if(newIndex < 0){
+            newIndex = 0;
+        }
+        else if(newIndex >= React.Children.count(children)){
+            newIndex = React.Children.count(children) - 1;
         }
 
-        let timer = setInterval(tick)
-        return () => clearInterval(timer)
+        setActivateIndex(newIndex);
     }
 
-
-	return (
-
-		<div>
-                <img src={currentImg} alt="slide" />
+    return(
+        <div className="carousele">
+            <div 
+              className="innere" 
+              style={{ transform:`translateX(-${activeIndex * 100}%)` }}>
+              {React.Children.map(children, (child, index) => {
+                return React.cloneElement(child, { width: "100%" });
+              })}  
             </div>
+            <div className="Indiq mx-auto">
+                <button  className="bouton m-1"
+                    onClick={()=>{
+                        updateIndex(activeIndex -1);
+                    }}
+                >
+                    Prev
+                </button>
+                <button className="bouton m-1"
+                    onClick={()=>{
+                        updateIndex(activeIndex +1);
+                    }}
+                >
+                    Next
+                </button>
+            </div>
+        </div>
+    );
+};
 
-		)
-}
+
+export default Slide;
