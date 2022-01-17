@@ -31,7 +31,7 @@ render(){
 
 					<div className="row pt-3 mx-auto bg-violet py-5">
 					
-					{ this.state.articles.map(article => {
+					{ this.state.articles.slice(0, 4).map(article => {
 
 						return(
 							<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "19rem", maxHeight:'26rem'}}>
@@ -54,19 +54,6 @@ render(){
 
 							);
 					})}
-							<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "18rem"}}>
-							<img src="images/banner1.jpg" className="card-img-top p-0" alt="..." style={{width:'100%'}}  />
-							<div className="card-body ps-2">
-								<h5 className="card-title">Habillemnt de femme</h5>
-								<p className="card-text">200 000XAF <br /><span>ajouté le 22 dec 2021</span></p>
-								<div className="d-flex">
-									<div>
-										<img src="images/logo.png" className="card-img-top p-0" alt="..." style={{width:'50px', height:'5Opx'}}  />
-									</div>
-									<div className="ms-2 mt-3">Kim_atelier</div>
-								</div>
-							</div>
-						</div>
 
 
 					</div>

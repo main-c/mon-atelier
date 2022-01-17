@@ -7,7 +7,7 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import Categories from '../components/categories'
 import Articles from '../components/Article'
-
+import './Home.css'
 
 class Home extends React.Component{
 
@@ -39,7 +39,7 @@ class Home extends React.Component{
 						Decouvrez des modèles et trouver le tailleur parfait pour réaliser le vêtements de vos
 						<br/> rêves...
 					</p>
-					<Link to="/profil_atelier" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les modèles</Link>
+					<Link to="/categories" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les catégories</Link>
 
 				</div></CarouselItem>
 					<CarouselItem><div className="pt-lg-5" style={{ backgroundImage: 'url(images/paysage.jpg)', 
@@ -50,14 +50,20 @@ class Home extends React.Component{
 						La plate-forme adequate où les fans de modes peuvent trouver
 						<br/>Les modèles de rêves
 					</p>
-					<Link to="/profil_atelier" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les modèles</Link>
+					<Link to="/articles" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les articles</Link>
 
 				</div></CarouselItem>
 				</Slide>
 				
 				<Categories />
+					<div className="text-center mt-3">
+						<Link to="/categories" className="border-violet rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 more" style={{background:'#443369'}}>voir plus</Link>
+					</div>
 
 				<Articles />
+					<div className="text-center mt-3">
+						<Link to="/articles" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 more" style={{background:'#443369'}}>voir plus</Link>
+					</div>
 
 				<div className="container-fluid mb-lg-5" id="a_propos">
 					<p className='fw-bold text-center mb-0 mt-5 fs-3'>A PROPOS</p>

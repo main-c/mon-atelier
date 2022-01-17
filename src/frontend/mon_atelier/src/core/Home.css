@@ -1,0 +1,8 @@
+.morer:hover{
+	box-shadow: 0 10px 0 solid blueviolet;
+	background-color: white;
+	color: blueviolet;
+}
+.border-violet{
+	border: 1px solid blueviolet;
+}
