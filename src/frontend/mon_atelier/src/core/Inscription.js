@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { Link } from "react-router-dom";
-
 import './inscription.css';
-
+import axios from 'axios';
 
 
 class Inscription extends React.Component{
@@ -29,30 +27,29 @@ class Inscription extends React.Component{
 	}
 
 
-		handleSubmit = (e) =>{
-			e.preventDefault()
-			console.log(this.state)
-			axios.post("https://api-mon-atelier.herokuapp.com/api/v1/workshops/", {
-				manager: {
-					last_name: this.state.last_name,
-					password: this.state.password,
-					email: this.state.email
-				},
-				name: this.state.name,
-				phone: this.state.phone
-			})
-			.then(response => {
-			console.log(response)
+	handleSubmit = (e) =>{
+		e.preventDefault()
+		console.log(this.state)
+		axios.post("https://api-mon-atelier.herokuapp.com/api/v1/workshops/", {
+			manager: {
+				last_name: this.state.last_name,
+				password: this.state.password,
+				email: this.state.email
+			},
+			name: this.state.name,
+			phone: this.state.phone
 		})
+		.then(response => {
+		console.log(response)
+	})
 
-		.then((response) => this.setState({workshops: response.data.results}))
-		.catch((err)=> console.log(err));
-		}
+	.then((response) => this.setState({workshops: response.data.results}))
+	.catch((err)=> console.log(err));
+	}
 
-
-	state1 = {
-		icon: 'fa fa-eye',
-		type: 'password'
+	togglePasswordShownVisibility = () => {
+		const {isPasswordShown} = this.state;
+		this.setState({isPasswordShown: !isPasswordShown});
 	}
 
 /*	changeType = () => {
@@ -159,7 +156,7 @@ class Inscription extends React.Component{
 							</div>
 						</div>
 						<div className="sect3 p-3 text-center">
-							<button type="submit" className="fw-bold mt-3">S'inscrire</button>
+							<button className="fw-bold mt-3">S'inscrire</button>
 							{/* <input type="submit" className="bouton" value="S'inscrire"></input> */}
 							<p className="mt-2 text-center">Déjà inscris ? <strong><Link to="/login">se connecter</Link></strong></p>
 						</div>

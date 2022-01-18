@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios'
-
 import './connexion.css';
 
 
@@ -74,12 +73,12 @@ export default class Connexion extends React.Component{
 										required/>
 									</div>
 									<div><br />
-									<span
-									className="bouton"
-									alt="hide/show"
-									onClick={()=> this.setState({showPass: !this.state.showPass})}
-								>
-								{this.state.showPass ? '🙉' : '🙈'}</span>
+										<span
+										className="bouton"
+										alt="hide/show"
+										onClick={()=> this.setState({showPass: !this.state.showPass})}
+									>
+									{this.state.showPass ? '🙉' : '🙈'}</span>
 									</div>
 								</div>
 								<span className="focus-border"></span>

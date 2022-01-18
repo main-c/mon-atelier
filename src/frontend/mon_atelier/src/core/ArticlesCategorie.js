@@ -9,8 +9,6 @@ import Categories from '../components/categories.js'
 export default function ArticlesCategorie (){
 		const {nameCat} = useParams()
 
-		console.log(nameCat)
-
 
 		return(
 
