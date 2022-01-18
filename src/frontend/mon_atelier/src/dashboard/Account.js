@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from './Layout.js';
-import { useState } from "react";
+import { useState} from "react";
 import './dashboard.css';
 import './Account.css'
 
@@ -15,23 +15,23 @@ function Account(){
 	
 	//charger l'image
 	
+	const[imgPreview, setImgPreview] = useState(null);
+	const[error, setError] = useState(false);
 
-	const[image, setImage]= useState('');
-	const[isUploaded, setIsUploaded] = useState(false);
-
-	function handleImageChange(e){
-		if(e.target.selection && e.target.selection[0]){
-			let reader = new FileReader;
-
-			reader.onload = function(e){
-				setImage(e.target.result);
-				setIsUploaded(true);
+	const handleImageChange = (e) => {
+		setError(false);
+		const selected = e.target.files[0];
+		const ALLOWED_TYPES = ["image/png", "image/jpg", "image/jpeg"]
+		if(selected && ALLOWED_TYPES.includes(selected.type)){
+			let reader = new FileReader();
+			reader.onloadend = () =>{
+				setImgPreview(reader.result);
 			};
-			reader.readAsDataURL(e.target.selection[0]);
-			
+			reader.readAsDataURL(selected);
+		} else{
+			setError(true);
 		}
-	}
-	
+	};
 
 	const account = (
 
@@ -43,26 +43,28 @@ function Account(){
 				<div className="row justify-content-around bod">
 					<div className="col-lg-4 p-2 bg-white rounded shadow">
 						{/* <h4>Personal box</h4> */}
-						
 						<div>
-							{!isUploaded ? (
-									<div id="selection" onChange = {handleImageChange}>
+							{error && <p className="errorMsg">File not supported</p>} 
+							<div className="imgPreview" style={{background: imgPreview ? `url("${imgPreview}") no-repeat center/cover`: "#fff"}}>
+								{! imgPreview && (
+									<>
 										<img src="images/blank-profile.png" alt="Photo_Profil" className="img-hold shadow"/>
-										<div className=" bg-violet rounded-circle camera">
-											<i className="fa fa-camera text-light camm" ></i>
-										</div>
-									</div>
-								 ) : ( 
-									<div id="selection" onChange = {handleImageChange}>
-										<img id="uploaded-image" src={image} alt="upload-img" className="img-hold shadow"></img>
-										<div className=" bg-violet rounded-circle camera">
-											<i className="fa fa-camera text-light camm"></i>
-										</div>
-									</div>
-								 )
-							}
-							
+										<label htmlFor="fileUpload" className = "customFileUpload">
+											<div className=" bg-violet rounded-circle camera">
+												<i className="fa fa-camera text-light camm"></i>
+											</div>
+										</label>
+										<input type="file" id="fileUpload" onChange = {handleImageChange}/>
+									</>
+								)}
+							</div>
+							{imgPreview && <button className="btn-npt" onClick={()=> setImgPreview(null)}>
+								<div className=" bg-violet rounded-circle camera">
+									<i className="fa fa-camera text-light camm"></i>
+								</div>
+							</button>}
 						</div>
+
 
 						<div>
 							<form action="">
@@ -123,7 +125,7 @@ function Account(){
 												<textarea className="bordure text-violet" id="description" rows="3"></textarea>
 											</div>
 										</div>
-										<div className="btn-div">
+										<div>
 											<button className="btn-update">Update</button>
 										</div>	
 									</form>
