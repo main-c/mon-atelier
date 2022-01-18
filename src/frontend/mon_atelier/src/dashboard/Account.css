@@ -1,0 +1,148 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.bloc-tabs {
+  display: flex;
+}
+.tabs {
+
+  padding: 15px;
+  text-align: center;
+  width: 50%;
+  background: rgba(128, 128, 128, 0.075);
+  cursor: pointer;
+  border-bottom: 4px solid #8f42e831;
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+  transition: .5s ease-in-out;
+}
+
+.active-tabs  {
+  background: white;
+  border-bottom: 1px solid transparent;
+}
+
+.active-tabs::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 2px);
+  height: 4px;
+  background: #8f42e8;
+  margin-bottom: -1px;
+}
+
+
+
+button {
+  border: none;
+  
+}
+.content-tabs {
+  flex-grow : 1;
+}
+.content {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.content h2 {
+  padding: 0px 0 5px 0px;
+}
+.content hr {
+  width: 100px;
+  height: 2px;
+  background: #222;
+  margin-bottom: 5px;
+}
+.content p {
+  width: 100%;
+  height: 100%;
+}
+.active-content {
+  display: block;
+}
+
+.space{
+  margin-top: 20px;
+}
+
+/*les inputs*/
+.bordure{
+width: 100%;
+padding: .375rem .75rem;
+font-size: 1rem;
+font-weight: 400;
+line-height: 1.5;
+color: #212529;
+background-clip: padding-box;
+border: 1px solid #ced4da;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none; 
+background-color: transparent;
+border-radius: .25rem;
+border: 2px solid  #edddf8bb;
+}
+
+.bordure:focus{
+  color: black;
+	border: 2px solid #e4b5e6;
+	transition: .5s ease-in-out;
+}
+
+/* Photo de profil*/
+.img-hold{
+  width: 55%;
+  border-radius: 50%;
+  margin-top: 18px;
+  margin-left: 95px;
+  position: relative;
+}
+.camera{
+  width: 35px;
+  height: 35px;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  margin: -40px 249px;
+  cursor: pointer;
+}
+.camm{
+  margin-left: 9px;
+}
+.generail-box{
+  height: 100%;
+}
+
+.btn-update{
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 5px;
+  width: 15%;
+  padding: 10px;
+  color: white;
+  margin-top: 125px;
+  margin-bottom: 5px;
+  background-color: #443369;
+}
+
+.btn-update:hover{
+  transition: .5s ease-in-out;
+  background-color: #8f42e8;
+}
+
+/* .btn-div{
+  border-top: 1px solid #ced4da;
+} */

@@ -75,9 +75,10 @@ textarea{
 	background-size: cover;
 	background-position: center;
 }
-
-.account_container .row{
+.bod{
 	margin-top: -100px;
+}
+.account_container .row{
 	opacity: .9;
 }
 
