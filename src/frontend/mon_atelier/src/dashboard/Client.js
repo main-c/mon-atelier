@@ -22,7 +22,7 @@ function Client(){
 			<div className="row mt-5">
 				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
 					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
+						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
 						<div className="d-grid ms-4 mt-2">
 							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
 							<i className="mb-2 text-secondary">Féminin</i>
@@ -32,7 +32,7 @@ function Client(){
 				</div>
 				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
 					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
+						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
 						<div className="d-grid ms-4 mt-2">
 							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
 							<i className="mb-2 text-secondary">Féminin</i>
@@ -42,7 +42,7 @@ function Client(){
 				</div>
 				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
 					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
+						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
 						<div className="d-grid ms-4 mt-2">
 							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
 							<i className="mb-2 text-secondary">Féminin</i>
@@ -52,7 +52,7 @@ function Client(){
 				</div>
 				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
 					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
+						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
 						<div className="d-grid ms-4 mt-2">
 							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
 							<i className="mb-2 text-secondary">Féminin</i>
@@ -62,7 +62,7 @@ function Client(){
 				</div>
 				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
 					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
+						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
 						<div className="d-grid ms-4 mt-2">
 							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
 							<i className="mb-2 text-secondary">Féminin</i>
@@ -72,7 +72,7 @@ function Client(){
 				</div>
 				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
 					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
+						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
 						<div className="d-grid ms-4 mt-2">
 							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
 							<i className="mb-2 text-secondary">Féminin</i>

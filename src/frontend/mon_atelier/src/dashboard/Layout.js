@@ -51,19 +51,12 @@ function Layout(props){
 	                </li>
 	                
 	                <li>
-	                    <a href="#employeSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">
+	                    <Link to="/employe">
 	                    	<i className="fa fa-user me-2"></i>
 	                    	Employés
-	                    </a>
-	                    <ul className="collapse list-unstyled" id="employeSubmenu">
-	                        <li>
-	                            <a href="#">Liste employés</a>
-	                        </li>
-	                        <li>
-	                            <a href="#">Ajouter employés</a>
-	                        </li>
-	                    </ul>
+	                    </Link>
 	                </li>
+
 	                <li>
 	                    <Link to="/dashboard_client">
 	                    	<i className="fa fa-users me-2"></i>
