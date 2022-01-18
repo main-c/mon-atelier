@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom';
 
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import Articles from '../components/Article'
+import Article from '../components/Article'
 import Categories from '../components/categories.js'
 
 export default function ArticlesCategorie (){
@@ -21,7 +21,7 @@ export default function ArticlesCategorie (){
 
 
 					<div className="row px-lg-5">
-							<Articles />
+							<Article />
 
 						</div>
 				</div>

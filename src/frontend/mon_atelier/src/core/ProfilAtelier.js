@@ -37,7 +37,6 @@ function ProfilAtelier(){
 					<Modele />
 				</div>
 			</div>
-
 			<div className="container-fluid mb-5">
 				<div className="titre mt-5">
 					<p className="text-center mb-2 fs-3">Contactez-nous</p>

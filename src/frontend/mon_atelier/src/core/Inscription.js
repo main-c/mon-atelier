@@ -1,7 +1,9 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-import './inscription.css';
+import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
+
+import './inscription.css';
+
 
 
 class Inscription extends React.Component{
@@ -27,29 +29,31 @@ class Inscription extends React.Component{
 	}
 
 
-	handleSubmit = (e) =>{
-		e.preventDefault()
-		console.log(this.state)
-		axios.post("https://api-mon-atelier.herokuapp.com/api/v1/workshops/", {
-			manager: {
-				last_name: this.state.last_name,
-				password: this.state.password,
-				email: this.state.email
-			},
-			name: this.state.name,
-			phone: this.state.phone
+		handleSubmit = (e) =>{
+			e.preventDefault()
+			console.log(this.state)
+			axios.post("https://api-mon-atelier.herokuapp.com/api/v1/workshops/", {
+				manager: {
+					last_name: this.state.last_name,
+					password: this.state.password,
+					email: this.state.email
+				},
+				name: this.state.name,
+				phone: this.state.phone
+			})
+			.then(response => {
+			console.log(response)
 		})
-		.then(response => {
-		console.log(response)
-	})
 
-	.then((response) => this.setState({workshops: response.data.results}))
-	.catch((err)=> console.log(err));
-	}
+		.then((response) => this.setState({workshops: response.data.results}))
+		.catch((err)=> alert("L'une de vos information est incorrect, réesayez s'il vous plait"));
 
-	togglePasswordShownVisibility = () => {
-		const {isPasswordShown} = this.state;
-		this.setState({isPasswordShown: !isPasswordShown});
+		}
+
+
+	state1 = {
+		icon: 'fa fa-eye',
+		type: 'password'
 	}
 
 /*	changeType = () => {
@@ -156,7 +160,7 @@ class Inscription extends React.Component{
 							</div>
 						</div>
 						<div className="sect3 p-3 text-center">
-							<button className="fw-bold mt-3">S'inscrire</button>
+							<button type="submit" className="fw-bold mt-3">S'inscrire</button>
 							{/* <input type="submit" className="bouton" value="S'inscrire"></input> */}
 							<p className="mt-2 text-center">Déjà inscris ? <strong><Link to="/login">se connecter</Link></strong></p>
 						</div>
