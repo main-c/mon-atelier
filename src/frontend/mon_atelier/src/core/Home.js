@@ -41,7 +41,7 @@ class Home extends React.Component{
 					<Link to="/categories" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les catégories</Link>
 
 				</div></CarouselItem>
-					<CarouselItem><div className="pt-lg-5" style={{ backgroundImage: 'url(images/bg_login.jpg)', 
+					<CarouselItem><div className="pt-lg-5" style={{ backgroundImage: 'url(images/bg-acces.jpg)', 
 				height:'90vh', width:'99vw', backgroundSize:'cover'}}>
 
 					<h1 className="text-violet ps-lg-5 ps-3 fw-bold fs-1 mb-0 pt-5">MonAtelier,</h1>
