@@ -1,0 +1,37 @@
+.carousele {
+  overflow: hidden;
+}
+
+.innere {
+  white-space: nowrap;
+  transition: transform 0.6s;
+}
+
+.carousele-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  background-color: white;
+  color: #fff;
+}
+
+.indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 2vh;
+}
+
+.indicators > button {
+  margin: 5px;
+  border: none;
+  color: blueviolet;
+	font-weight: bold;
+	background: none;
+	background-color: pink
+}
+
+.indicators > button.active {
+  background-color: blueviolet;
+  color: pink;
+}

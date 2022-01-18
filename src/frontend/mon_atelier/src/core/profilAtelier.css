@@ -1,0 +1,47 @@
+.banner{
+	background: #F0EBFF;
+}
+.text_banner{
+	background-color: rgba(68, 51, 105, .75);
+	margin-top: -210px;
+	position: absolute;
+}
+.text-violet{
+	color: #443369;
+}
+.bg-green{
+	background-color: #ECF9F0;
+}
+.bg-violet{
+	background-color: #443369;
+}
+.title{
+	font-weight: 700;
+}
+.titre div{
+	width: 90px;
+	border: 2px solid #FF5566;
+}
+.contact p{
+	color: #443369;
+}
+
+@media screen and (max-width: 500px){
+	.text_banner{
+		margin-top: -170px;
+	}
+}
+
+/* Home page */
+
+.categories .col-lg-4:hover{
+	background-color: #f0ebff;
+	cursor: pointer;
+	transition: .7s ease-in-out;
+}
+.categories .col-lg-4 a:hover{
+	color: #443369;
+}
+.articles .imag:hover{
+	width: 90%;
+}
