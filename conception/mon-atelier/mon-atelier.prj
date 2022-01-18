@@ -1,7 +1,7 @@
 format 224
 "mon-atelier"
-  revision 9
-  modified_by 4 "main-c"
+  revision 11
+  modified_by 5 "edghi"
 
 
   
@@ -1039,7 +1039,7 @@ ${docstring}${members}
 	    classrelation_ref 138884 // (have)
       end
 
-      classrelation 153604 // (design)
+      classrelation 153604 // design
 	relation_ref 150404 // design
       end
     end
@@ -1519,7 +1519,7 @@ ${docstring}${members}
 	  b role_name "" multiplicity "*" private
 	    python "${comment}${self}${name} = ${stereotype}()
 "
-	    classrelation_ref 153604 // (design)
+	    classrelation_ref 153604 // design
       end
     end
 
@@ -1733,6 +1733,9 @@ ${docstring}${members}
       classrelation 146948 // (have)
 	relation_ref 143876 // have
       end
+    end
+
+    activity 128005 "place_an_order"
     end
   end
 end
