@@ -5,7 +5,7 @@ import Slide, {CarouselItem} from '../components/slide'
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import Categories from '../components/categories'
-import Articles from '../components/Article'
+import ArticleAll from '../components/articleAll'
 import './Home.css'
 
 class Home extends React.Component{
@@ -56,10 +56,10 @@ class Home extends React.Component{
 				
 				<Categories />
 					<div className="me-5 mt-3" style={{textAlign:'right'}}>
-						<Link to="/articles" className="border-0 rounded-1 text-light fs-5 pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 more">voir plus</Link>
+						<Link to="/categories" className="border-0 rounded-1 text-light fs-5 pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 more">voir plus</Link>
 					</div>
 
-				<Articles />
+				<ArticleAll />
 					
 
 				<div className="container-fluid mb-lg-5" id="a_propos">

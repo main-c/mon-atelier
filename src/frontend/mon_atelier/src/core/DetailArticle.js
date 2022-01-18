@@ -15,7 +15,7 @@ export default function DetailArticle(){
 				<Navigation />
 
 				<div className="container-fluid py-5 bg-light">
-					<p className="fs-4 ms-lg-5 text-violet fw-bold">Détail Article</p>
+					<p className="fs-4 ms-lg-5 text-violet fw-bold">Détail Article {nameArt}</p>
 					<div className="container">
 						<div className="row justify-content-center">
 							<div className="col-lg-4 mt-5 py-5 d-flex justify-content-center shadow rounded">
