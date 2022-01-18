@@ -1,0 +1,30 @@
+.carousele{
+	overflow: hidden !important;
+}
+
+.innere{
+	white-space: nowrap ;
+	transition: transform 0.3s ;
+}
+
+.carousele-item {
+	display: inline-flex;
+	align-items: center !important;
+	justify-content: center !important;
+	background-color: teal;
+	color: white;
+}
+.Indiq{
+	padding-left: 47%;
+	justify-content: center;
+	margin-top: -9vh;
+	position: absolute;
+}
+.bouton{
+	border: none;
+	box-shadow: 10px 0px 10px  gray;
+	color: blueviolet;
+	font-weight: bold;
+	background: none;
+	background-color: pink;
+}
