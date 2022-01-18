@@ -1,10 +1,14 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import {useParams} from 'react-router-dom'
 
-class DetailArticle extends React.Component{
+export default function DetailArticle(){
 
-	render(){
+	const {nameArt} = useParams();
+		console.log(nameArt)
+
+
 		return(
 
 			<div>
@@ -111,6 +115,3 @@ class DetailArticle extends React.Component{
 
 		);
 	}
-}
-
-export default DetailArticle;

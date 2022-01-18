@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import Slide, {CarouselItem} from '../components/slide'
 
 import Navigation from '../components/Navigation';
@@ -42,7 +41,7 @@ class Home extends React.Component{
 					<Link to="/categories" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les catégories</Link>
 
 				</div></CarouselItem>
-					<CarouselItem><div className="pt-lg-5" style={{ backgroundImage: 'url(images/paysage.jpg)', 
+					<CarouselItem><div className="pt-lg-5" style={{ backgroundImage: 'url(images/bg_login.jpg)', 
 				height:'90vh', width:'99vw', backgroundSize:'cover'}}>
 
 					<h1 className="text-violet ps-lg-5 ps-3 fw-bold fs-1 mb-0 pt-5">MonAtelier,</h1>
@@ -56,14 +55,12 @@ class Home extends React.Component{
 				</Slide>
 				
 				<Categories />
-					<div className="text-center mt-3">
-						<Link to="/categories" className="border-violet rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 more" style={{background:'#443369'}}>voir plus</Link>
+					<div className="me-5 mt-3" style={{textAlign:'right'}}>
+						<Link to="/articles" className="border-0 rounded-1 text-light fs-5 pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 more">voir plus</Link>
 					</div>
 
 				<Articles />
-					<div className="text-center mt-3">
-						<Link to="/articles" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 more" style={{background:'#443369'}}>voir plus</Link>
-					</div>
+					
 
 				<div className="container-fluid mb-lg-5" id="a_propos">
 					<p className='fw-bold text-center mb-0 mt-5 fs-3'>A PROPOS</p>
