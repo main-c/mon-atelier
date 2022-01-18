@@ -22,7 +22,8 @@ function Layout(props){
 
 	            <ul className="list-unstyled components">
 	                
-	                <li className="active">
+	                <li className="active d-flex">
+	                	<i className="fa fa-dashboard"></i>
 	                    <Link to="/dashboard">Dashboard</Link>
 	                </li>
 

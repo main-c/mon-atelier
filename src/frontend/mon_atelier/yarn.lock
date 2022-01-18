@@ -5960,6 +5960,11 @@
   "resolved" "https://registry.npmjs.org/node-int64/-/node-int64-0.4.0.tgz"
   "version" "0.4.0"
 
+"node-module@^2.0.0":
+  "integrity" "sha1-G6NJPNlVpRWJYQ03zdatcHa4ndA="
+  "resolved" "https://registry.npmjs.org/node-module/-/node-module-2.0.0.tgz"
+  "version" "2.0.0"
+
 "node-releases@^2.0.1":
   "integrity" "sha512-CqyzN6z7Q6aMeF/ktcMVTzhAHCEpf8SOarwpzpf8pNBY2k5/oM34UHldUwp8VKI7uxct2HxSRdJjBaZeESzcxA=="
   "resolved" "https://registry.npmjs.org/node-releases/-/node-releases-2.0.1.tgz"
