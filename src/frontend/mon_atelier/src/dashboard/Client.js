@@ -135,8 +135,8 @@ class AjoutClient extends React.Component{
 	render(){
 		const {name,phone,tranche_d_age,sexe} = this.state
 		return(
-			<div className="container-fluid px-0 pb-5 ps-lg-5">
-				<div className="col-lg-7 mx-auto bg-white shadow-sm px-lg-5 px-3">
+			<div className="container-fluid px-0 pb-5 ps-lg-5 bg_AddForm">
+				<div className="col-lg-7 mx-auto shadow px-lg-5 px-3">
 					<form action="" onSubmit={this.handleSubmit}>
 						<div className="pt-5">
 							<p className="text-dark fs-5 mb-0">Nom client</p>

@@ -84,8 +84,8 @@ class AjoutArticle extends React.Component{
 	render(){
 		const {name,modele,description,cost,state,quantity,echantillon} = this.state
 		return(
-			<div className="container-fluid px-0 pb-5">
-				<div className="col-lg-10 mx-auto bg-white shadow-sm py-5 px-lg-5 px-3">
+			<div className="container-fluid px-0 pb-5 bg_AddForm">
+				<div className="col-lg-10 mx-auto shadow py-5 px-lg-5 px-3">
 					<form action="" onSubmit={this.handleSubmit}>
 						<div className="row justify-content-around mt-lg-3">
 							<div className="col-lg-5 my-2">
