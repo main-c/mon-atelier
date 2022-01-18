@@ -62,9 +62,15 @@
     transform: translateY(0px);
     -webkit-transform: translateY(0px);
 }
-
-
-
+.mora{
+  margin-right: 63px;
+}
+.mora:hover{
+  background-color: #443369 !important;
+  border: 1px solid white !important;
+  box-shadow: 0 10px 0 white !important;
+  transition: ease 0.5s;
+}
 
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
