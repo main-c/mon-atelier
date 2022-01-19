@@ -44,7 +44,6 @@ function Account(){
 					<div className="col-lg-4 p-2 bg-white rounded shadow">
 						{/* <h4>Personal box</h4> */}
 						<div>
-							{error && <p className="errorMsg">File not supported</p>} 
 							<div className="imgPreview" style={{background: imgPreview ? `url("${imgPreview}") no-repeat center/cover`: "#fff"}}>
 								{! imgPreview && (
 									<>
@@ -64,7 +63,7 @@ function Account(){
 								</div>
 							</button>}
 						</div>
-
+						{error && <p className="errorMsg">File not supported</p>} 
 
 						<div>
 							<form action="">

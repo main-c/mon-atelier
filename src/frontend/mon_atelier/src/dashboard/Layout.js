@@ -23,43 +23,60 @@ function Layout(props){
 	            <ul className="list-unstyled components">
 	                
 	                <li className="active">
-	                    <Link to="/dashboard">Dashboard</Link>
+	                    <Link to="/dashboard">
+	                    	<i className="fa fa-dashboard me-2"></i>
+	                    	Dashboard
+	                    </Link>
 	                </li>
 
 	                <li>
-	                    <Link to="/dashboard_modele">Modèles</Link>
+	                    <Link to="/dashboard_modele">
+	                    	<i className="fa fa-google-wallet me-2"></i>
+	                    	Modèles
+	                    </Link>
 	                </li>
 
 	                <li>
-	                    <Link to="/dashboard_article">Articles</Link>
+	                    <Link to="/dashboard_article">
+	                    	<i className="fa fa-clipboard me-2"></i>
+	                    	Articles
+	                    </Link>
 	                </li>
 
 	                <li>
-	                    <Link to="/commande">Commandes</Link>
+	                    <Link to="/commande">
+	                    	<i className="fa fa-shopping-bag me-2"></i>
+	                    	Commandes
+	                    </Link>
 	                </li>
 	                
 	                <li>
-	                    <a href="#employeSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">Employés</a>
-	                    <ul className="collapse list-unstyled" id="employeSubmenu">
-	                        <li>
-	                            <a href="#">Liste employés</a>
-	                        </li>
-	                        <li>
-	                            <a href="#">Ajouter employés</a>
-	                        </li>
-	                    </ul>
+	                    <Link to="/employe">
+	                    	<i className="fa fa-user me-2"></i>
+	                    	Employés
+	                    </Link>
 	                </li>
+
 	                <li>
-	                    <Link to="/dashboard_client">Clients</Link>
+	                    <Link to="/dashboard_client">
+	                    	<i className="fa fa-users me-2"></i>
+	                    	Clients
+	                    </Link>
 	                </li>
 	            </ul>
 
 	            <ul className="list-unstyled bottom">
 	                <li>
-	                    <Link to="/account" className="account">Account</Link>
+	                    <Link to="/account" className="account">
+	                    	<i className="fa fa-user me-2"></i>
+	                    	Account
+	                    </Link>
 	                </li>
 	                <li>
-	                    <Link to="/" className="logout">Logout</Link>
+	                    <Link to="/" className="logout">
+	                    	<i className="fa me-2 fa-sign-out"></i>
+	                    	Logout
+	                    </Link>
 	                </li>
 	            </ul>
 	        </nav>

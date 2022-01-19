@@ -5,6 +5,10 @@
 .border-violet3{
 	border: 2px solid #f8f5fa;
 }
+.bg_AddForm{
+  background-image: url(../../public/images/bg_AddForm.png);
+  background-size: cover;
+}
 
 .underline{
 	border-bottom: 3px solid #8f42e8;
