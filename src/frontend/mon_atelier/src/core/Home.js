@@ -16,6 +16,7 @@ class Home extends React.Component{
 			<div className="Integration">
 				<Navigation />
 				<Slide>
+
 					<CarouselItem>
 						<div className="pt-lg-5" style={{ backgroundImage: 'url(images/banner.jpg)', 
 					       height:'90vh', width:'99vw', backgroundSize:'cover'}}>
@@ -30,31 +31,38 @@ class Home extends React.Component{
 						</div>
 					</CarouselItem>
 
-					<CarouselItem><div className="pt-lg-5" style={{ backgroundImage: 'url(images/bg_login.jpg)', 
-				height:'90vh', width:'99vw', backgroundSize:'cover'}}>
+					<CarouselItem>
+						<div className="pt-lg-5" style={{ backgroundImage: 'url(images/bg_login.jpg)', 
+							height:'90vh', width:'99vw', backgroundSize:'cover'}}>
 
-					<h1 className="text-violet ps-lg-5 ps-3 fw-bold fs-1 mb-0 pt-5">MonAtelier,</h1>
-					<p className="pt-3 ps-lg-5 ps-3 fs-4 mb-4 pb-5 text-dark" style={{fontWeight:'lightner'}}>
-						Decouvrez des modèles et trouver le tailleur parfait pour réaliser le vêtements de vos
-						<br/> rêves...
-					</p>
-					<Link to="/categories" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les catégories</Link>
+							<h1 className="text-violet ps-lg-5 ps-3 fw-bold fs-1 mb-0 pt-5">MonAtelier,</h1>
+							<p className="pt-3 ps-lg-5 ps-3 fs-4 mb-4 pb-5 text-dark" style={{fontWeight:'lightner'}}>
+								Decouvrez des modèles et trouver le tailleur parfait pour réaliser le vêtements de vos
+								<br/> rêves...
+							</p>
+							<Link to="/categories" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les catégories</Link>
 
-				</div></CarouselItem>
-					<CarouselItem><div className="pt-lg-5" style={{ backgroundImage: 'url(images/bg-acces.jpg)', 
-				height:'90vh', width:'99vw', backgroundSize:'cover'}}>
+						</div>
+					</CarouselItem>
 
-					<h1 className="text-violet ps-lg-5 ps-3 fw-bold fs-1 mb-0 pt-5">MonAtelier,</h1>
-					<p className="pt-3 ps-lg-5 ps-3 fs-4 mb-4 pb-5 text-dark" style={{fontWeight:'lightner'}}>
-						La plate-forme adequate où les fans de modes peuvent trouver
-						<br/>Les modèles de rêves
-					</p>
-					<Link to="/articles" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les articles</Link>
+					<CarouselItem>
+						<div className="pt-lg-5" style={{ backgroundImage: 'url(images/bg-acces.jpg)', 
+							height:'90vh', width:'99vw', backgroundSize:'cover'}}>
 
-				</div></CarouselItem>
+							<h1 className="text-violet ps-lg-5 ps-3 fw-bold fs-1 mb-0 pt-5">MonAtelier,</h1>
+							<p className="pt-3 ps-lg-5 ps-3 fs-4 mb-4 pb-5 text-dark" style={{fontWeight:'lightner'}}>
+								La plate-forme adequate où les fans de modes peuvent trouver
+								<br/>Les modèles de rêves
+							</p>
+							<Link to="/articles" className="border-0 rounded-1 text-light fs-5 text-center pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 ms-lg-5 ms-3" style={{background:'#443369'}}>voir les articles</Link>
+
+						</div>
+					</CarouselItem>
+
 				</Slide>
 				
 				<Categories />
+
 					<div className="me-5 mt-3" style={{textAlign:'right'}}>
 						<Link to="/categories" className="border-0 rounded-1 text-light fs-5 pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 more">voir plus</Link>
 					</div>
