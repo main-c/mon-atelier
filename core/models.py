@@ -80,13 +80,13 @@ class Client(models.Model):
 
 
 class Order(models.Model):
-    STATE = [ ('EC', 'En Conception'),('T', 'Terminée'), ('C', 'Commandée'),]
+    STATE = [ ('EC', 'En Conception'),('T', 'Terminée'), ('C', 'Commandée'), ('M', 'Attente de Matériel')]
     workshop = models.ForeignKey(Workshop, on_delete=models.CASCADE)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     delivery_date = models.DateField(auto_now_add=False, auto_now=False, blank=True)
     comment = models.TextField(null=True, blank=True)
     total_cost = models.IntegerField(default = 0, null=False, blank=True)
-    state = models.CharField(max_length=100, choices=STATE)
+    state = models.CharField(max_length=100, choices=STATE, default=STATE[2])
 
     def __str__(self):
         return str(self.delivery_date)
