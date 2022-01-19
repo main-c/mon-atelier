@@ -124,7 +124,7 @@ class OrderItem(models.Model):
     modele = models.ForeignKey(Modele, on_delete=models.CASCADE)
     name = models.CharField(max_length=255, null=True, blank=True)
     cost = models.IntegerField(null=False, blank=True)
-    echantillon = models.ImageField(upload_to='images/echantillons')
+    echantillon = models.ImageField(upload_to='images/echantillons', blank=True, null=True)
     result = models.ImageField(upload_to='images/articles')
     quantity = models.IntegerField(null=False, blank=True)
     mesure = models.OneToOneField(Mesure,  on_delete=models.SET_NULL, null=True, blank=True)
@@ -144,3 +144,5 @@ class Article(OrderItem, models.Model):
     
     def __str__(self):
         return self.name + " | " + self.status
+
+
