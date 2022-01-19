@@ -1,8 +1,10 @@
 import React, {useEffect} from 'react';
 import axios from 'axios';
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+
+
 
 export default function DetailArticle(){
 
@@ -35,7 +37,18 @@ export default function DetailArticle(){
   }, []);
 
 
-if(!post) return "No POst";
+if(!post) return (<body className="bg-green" style={{position:"absolute"}}>
+	<div style={{padding:'550px', paddingTop:'30vh'}} className='bg-green pt-5'>
+		<div>
+			<h1>Chargement...</h1>
+		</div>
+		<div>
+			<img src={'...'} alt="loading..." />
+
+		</div>	
+	</div>
+	
+</body>);
 if(!postWorkshop) return "Not aving";
 		return(
 
@@ -49,19 +62,23 @@ if(!postWorkshop) return "Not aving";
 					<div className="container">
 						<div className="row justify-content-center">
 							<div className="col-lg-4 mt-5 py-5 d-flex justify-content-center shadow rounded">
-								<img src="images/img1.jpg" className="img-fluid" alt="" />
+								<img src={post.result} className="img-fluid" alt="" />
 							</div>
 							<div className="col-lg-1"></div>
 							<div className="col-lg-5 mt-5">
 								<div className="d-flex justify-content-between">
 									<div className="d-grid">
-										<p className="fs-2 fw-bold mb-0 text-violet">{postWorkshop.name}</p>
+										<p className="fs-2 fw-bold mb-0 text-violet">{post.name}</p>
 										<p className="fw-bold">{post.status}</p>
 									</div>
 									
 								</div>
 								<div className="my-3">
-									<p className="fs-2">{post.name}</p>
+									<p className="fs-5"><span className="fw-bold">Publié par</span>
+										<Link to={`/articles/${postWorkshop.name}`}>
+								            <span className="text-dark fs-6"> : {postWorkshop.name}</span>
+								        </Link>
+									</p>
 									<p>
 										{post.description}
 									</p>
@@ -71,6 +88,10 @@ if(!postWorkshop) return "Not aving";
 									<a href="#" className="text-success fw-bold fs-5 py-2 bg-green px-3 shadow-sm rounded">
 										<i className="fa fa-whatsapp me-2"></i>
 										Contacter l'atelier
+									</a><br /><br />
+									<a href="#" className="text-dark fw-bold fs-5 bg-light py-2 bg- px-3 shadow-md rounded">
+										<i className="fa fa-phone me-2"></i>
+										Contacter
 									</a>
 								</div>
 							</div>
