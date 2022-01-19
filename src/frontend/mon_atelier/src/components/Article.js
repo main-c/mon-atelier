@@ -27,8 +27,11 @@ export default function Article() {
 					<div className="mx-auto mb-5" style={{height:'4px', width:'100px', background:'#FF5566'}}></div>
 
 					<div className="row pt-3 mx-auto bg-violet py-5">
-					
+
+										
 					{articles.map(article => {
+
+						if(articles){ 
 
 						return(
 							<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "19rem", maxHeight:'26rem'}}>
@@ -50,6 +53,11 @@ export default function Article() {
 						</div>
 
 							);
+						}
+						 if(articles = null){
+						 	console.log(articles)
+							return(<h1>No articles yet</h1>)
+						}
 					})}
 						
 

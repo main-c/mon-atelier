@@ -79,7 +79,7 @@ class Home extends React.Component{
 							<img src="images/APropos.png" className="img-fluid" alt="" style={{width:'500px', height:'50Opx'}}  />
 						</div>
 						<div className="col-lg-5 mt-lg-5">
-							<h3 className="text-violet text-lg-end text-start ps-lg-5 fw-bold fs-2 pt-lg-2">MonAtelier,</h3>	
+							<h3 className="text-violet text-lg-end text-start ps-lg-5 fw-bold fs-2 pt-lg-2">MonAtelier</h3>	
 							<div className="ms-lg-auto" style={{height:'6px', width:'100px', background:'#443369'}}></div><br />
 							<p className="text-lg-end">
 								MonAtelier est une application web de couture dont l’objectif principal est de numériser 
