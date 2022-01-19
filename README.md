@@ -7,3 +7,12 @@
 <p>En plus de créer une plate-forme qui permettra à chaque atelier ou couturier de pouvoir partager ses modèles en ligne, nous permettrons la gestion des informations de leurs clients telle que leurs mesures, leurs commandes passées et les dates de livraison, ainsi que l'amélioration de la visibilité de l’atelier.</p>
 
 Pour visiter le site en ligne, cliquez ici : https://mon-atelier.vercel.app/
+<br>
+Pour consulter l'api , rendez vous sur : https://api-mon-atelier.herokuapp.com/api/v1/
+
+## Liste des contributeurs
+<li>KADJIE WAFFO YANNIK CABREL ---- 19M2555 ---- @main-c
+<li>KENGNE TAMHO Judith Gaëlle ---- 19M2064 ---- @jugalux
+<li>MAKOLLE EBONGUE NDJOH Edmond Ghislain ---- 17B2680 ---- @Edmond22-prog
+<li>NGOUTSOP Rainsong ---- 19M2299 ----- @gouraintite
+<li>TIOMELA TCHINDA Raïssa Flore ---- 19M2380 ---- @raissa237
