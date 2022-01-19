@@ -22,44 +22,44 @@ function Layout(props){
 
 	            <ul className="list-unstyled components">
 	                
-	                <li className="active">
+	                <li className="nav-item active">
 	                    <Link to="/dashboard">
-	                    	<i className="fa fa-dashboard me-2"></i>
+	                    	<i className="fa fa-dashboard me-4"></i>
 	                    	Dashboard
 	                    </Link>
 	                </li>
 
-	                <li>
+	                <li className="nav-item">
 	                    <Link to="/dashboard_modele">
-	                    	<i className="fa fa-google-wallet me-2"></i>
+	                    	<i className="fa fa-google-wallet me-4"></i>
 	                    	Modèles
 	                    </Link>
 	                </li>
 
-	                <li>
+	                <li className="nav-item">
 	                    <Link to="/dashboard_article">
-	                    	<i className="fa fa-clipboard me-2"></i>
+	                    	<i className="fa fa-clipboard me-4"></i>
 	                    	Articles
 	                    </Link>
 	                </li>
 
-	                <li>
+	                <li className="nav-item">
 	                    <Link to="/commande">
-	                    	<i className="fa fa-shopping-bag me-2"></i>
+	                    	<i className="fa fa-shopping-bag me-4"></i>
 	                    	Commandes
 	                    </Link>
 	                </li>
 	                
-	                <li>
+	                <li className="nav-item">
 	                    <Link to="/employe">
-	                    	<i className="fa fa-user me-2"></i>
+	                    	<i className="fa fa-user me-4"></i>
 	                    	Employés
 	                    </Link>
 	                </li>
 
-	                <li>
+	                <li className="nav-item">
 	                    <Link to="/dashboard_client">
-	                    	<i className="fa fa-users me-2"></i>
+	                    	<i className="fa fa-users me-4"></i>
 	                    	Clients
 	                    </Link>
 	                </li>

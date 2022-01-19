@@ -73,7 +73,7 @@ body {
     background: #fff;
 }
 
-#sidebar ul li.active>a,
+#sidebar .components li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
     background: #8f42e8;
