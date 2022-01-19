@@ -1,22 +1,42 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import axios from 'axios';
-import {Link, useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
 export default function DetailArticle(){
 
 	const {nameArt} = useParams()
+  const [postWorkshop, setPostWorkshop] = React.useState(null);
   const [post, setPost] = React.useState(null);
+  
 
-  React.useEffect(() => {
-    axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/articles/${nameArt}/`).then((response) => {
-      setPost(response.data);
-    });
+  const request1 = axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/articles/${nameArt}/`);
+  const request2 = axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/workshops/1/`);
+
+	  React.useEffect(() => {
+	  	axios.all([request1, request2]).then(axios.spread((...responses) => {
+		  const resp1 = responses[0]
+		  const resp2 = responses[1]
+
+		  setPost(resp1.data)
+		  setPostWorkshop(resp2.data)
+		  console.log(resp1.data)
+		  console.log(resp2.data)
+
+
+		})).catch(errors => {
+		  console.log(errors)
+		  console.log(postWorkshop)
+
+		})
+	  
+
   }, []);
 
 
-if(!post) return null;
+if(!post) return "No POst";
+if(!postWorkshop) return "Not aving";
 		return(
 
 			<div>
@@ -35,10 +55,10 @@ if(!post) return null;
 							<div className="col-lg-5 mt-5">
 								<div className="d-flex justify-content-between">
 									<div className="d-grid">
-										<p className="fs-2 fw-bold mb-0 text-violet">Nom Atelier {post.workshop}</p>
-										<p className="fw-bold">catégorie</p>
+										<p className="fs-2 fw-bold mb-0 text-violet">{postWorkshop.name}</p>
+										<p className="fw-bold">{post.status}</p>
 									</div>
-									<p className="mt-3">Publié le 01 Dec 2021</p>
+									
 								</div>
 								<div className="my-3">
 									<p className="fs-2">{post.name}</p>

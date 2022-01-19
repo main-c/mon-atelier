@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './profilAtelier.css';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import AllCategories from '../components/categories.js'
+
 
 import axios from 'axios'
 import {Link} from 'react-router-dom'
