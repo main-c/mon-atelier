@@ -133,7 +133,7 @@ class OrderItem(models.Model):
         return self.name
 
     def get_total_cot(self):
-        return self.cost * self.qty
+        return self.cost * self.quantity
 
 
 
