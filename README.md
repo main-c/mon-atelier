@@ -10,8 +10,8 @@ Pour visiter le site en ligne, cliquez ici : https://mon-atelier.vercel.app/
 Pour consulter l'api , rendez vous sur : https://api-mon-atelier.herokuapp.com/api/v1/
 
 ## Liste des contributeurs
-*KADJIE WAFFO YANNIK CABREL ---- 19M2555 ---- @main-c
-*KENGNE TAMHO Judith Gaëlle ---- 19M2064 ---- @jugalux
-*MAKOLLE EBONGUE NDJOH Edmond Ghislain ---- 17B2680 ---- @Edmond-prog
-*NGOUTSOP Rainsong ---- 19M2299 ----- @gouraintite
-*TIOMELA TCHINDA Raïssa Flore ---- 19M2380 ---- @raissa237
+<li>KADJIE WAFFO YANNIK CABREL ---- 19M2555 ---- @main-c
+<li>KENGNE TAMHO Judith Gaëlle ---- 19M2064 ---- @jugalux
+<li>MAKOLLE EBONGUE NDJOH Edmond Ghislain ---- 17B2680 ---- @Edmond-prog
+<li>NGOUTSOP Rainsong ---- 19M2299 ----- @gouraintite
+<li>TIOMELA TCHINDA Raïssa Flore ---- 19M2380 ---- @raissa237
