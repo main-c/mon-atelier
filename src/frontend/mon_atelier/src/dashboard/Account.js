@@ -57,11 +57,22 @@ function Account(){
 									</>
 								)}
 							</div>
-							{imgPreview && <button className="btn-npt" onClick={()=> setImgPreview(null)}>
+							{/* {imgPreview && <button className="btn-npt" onClick={()=> setImgPreview(null)}>
 								<div className=" bg-violet rounded-circle camera">
 									<i className="fa fa-camera text-light camm"></i>
 								</div>
-							</button>}
+							</button>} */}
+							{ imgPreview && (
+									<>
+										{/* <img src="images/blank-profile.png" alt="Photo_Profil" className="img-hold shadow"/> */}
+										<label htmlFor="fileUpload" className = "customFileUpload">
+											<div className=" bg-violet rounded-circle camera position_cam">
+												<i className="fa fa-camera text-light camm"></i>
+											</div>
+										</label>
+										<input type="file" id="fileUpload" onChange = {handleImageChange} style={{display: "none"}}/>
+									</>
+								)}
 						</div>
 						{error && <p className="errorMsg">File not supported</p>} 
 
