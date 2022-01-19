@@ -1,10 +1,23 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Layout from './Layout.js';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
 function Commande(){
+
+	const [commands, setCommands] = useState([])
+
+	useEffect(() => {
+		axios.get("https://api-mon-atelier.herokuapp.com/api/v1/orders/")
+		.then((response) => {
+			setCommands(response.data.results);
+		})
+		.catch(err => {
+			console.log(err)
+		})
+	}, []);
+
 
 	const commande = (
 
@@ -26,52 +39,25 @@ function Commande(){
 
 			<div className="container-fluid mb-2 px-0">
 				<div className="row">
-					<div className="col-lg-4 p-3 my-3 mx-auto shadow-sm rounded card_command">
-						<Link to="/detail_commande" className="text-dark">
-							<h3>Kimmy Black</h3>
-							<p className="text-secondary">18 Janvier 2020</p>
-							<hr className="mb-1" />
-							<i className="text-violet">En conception</i>
-						</Link>
-					</div>
-					<div className="col-lg-4 p-3 my-3 mx-auto shadow-sm rounded card_command">
-						<Link to="/detail_commande" className="text-dark">
-							<h3>Kimmy Black</h3>
-							<p className="text-secondary">18 Janvier 2020</p>
-							<hr className="mb-1" />
-							<i className="text-violet">Terminé</i>
-						</Link>
-					</div>
-					<div className="col-lg-4 p-3 my-3 mx-auto shadow-sm rounded card_command">
-						<Link to="/detail_commande" className="text-dark">
-							<h3>Kimmy Black</h3>
-							<p className="text-secondary">18 Janvier 2020</p>
-							<hr className="mb-1" />
-							<i className="text-violet">En conception</i>
-						</Link>
-					</div>
-					<div className="col-lg-4 p-3 my-3 mx-auto shadow-sm rounded card_command">
-						<Link to="/detail_commande" className="text-dark">
-							<h3>Kimmy Black</h3>
-							<p className="text-secondary">18 Janvier 2020</p>
-							<hr className="mb-1" />
-							<i className="text-violet">Terminé</i>
-						</Link>
-					</div>
-					<div className="col-lg-4 p-3 my-3 mx-auto shadow-sm rounded card_command">
-						<Link to="/detail_commande" className="text-dark">
-							<h3>Kimmy Black</h3>
-							<p className="text-secondary">18 Janvier 2020</p>							<hr className="mb-1" />
-							<i className="text-violet">En attente de Materiel</i>
-						</Link>
-					</div>
-					<div className="col-lg-4 p-3 my-3 mx-auto shadow-sm rounded card_command">
-						<Link to="/detail_commande" className="text-dark">
-							<h3>Kimmy Black</h3>
-							<p className="text-secondary">18 Janvier 2020</p>							<hr className="mb-1" />
-							<i className="text-violet">En conception</i>
-						</Link>
-					</div>
+
+					{ commands.map(command => {
+						return(
+
+							<div className="col-lg-4 p-3 my-3 mx-auto shadow-sm rounded card_command">
+								<Link to={`/detail_commande/${command.id}`} className="text-dark d-flex">
+									<div className="me-4">
+										<i className="fa fa-3x fa-shopping-bag mt-1 ms-3 text-secondary"></i>
+									</div>
+									<div>
+										<p className="fs-4">{/* {command.client} */} Kimmy Black</p>
+										<p className="text-secondary">{command.delivery_date}</p>
+										<hr className="mb-1" />
+										<i className="text-violet">{command.state}</i>
+									</div>
+								</Link>
+							</div>
+						);
+					})}
 
 				</div>
 			</div>

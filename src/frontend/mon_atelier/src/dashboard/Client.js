@@ -1,10 +1,23 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Layout from './Layout.js';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
 function Client(){
+
+	const [clients, setClients] = useState([])
+
+	useEffect(() => {
+		axios.get("https://api-mon-atelier.herokuapp.com/api/v1/clients/")
+		.then((response) => {
+			setClients(response.data.results);
+		})
+		.catch(err => {
+			console.log(err)
+		})
+	}, []);
+
 
 	const client = (
 
@@ -20,66 +33,21 @@ function Client(){
 			</div>
 
 			<div className="row mt-5">
-				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
-					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
-						<div className="d-grid ms-4 mt-2">
-							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
-							<i className="mb-2 text-secondary">Féminin</i>
-							<p className="text-dark">654 371 312</p>
+
+				{ clients.map(client => {
+					return(
+						<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
+							<Link to={`/detail_client/${client.id}`} className="d-flex">
+								<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
+								<div className="d-grid ms-4 mt-2">
+									<p className="fs-5 mb-0 text-violet">{client.name}</p>
+									<i className="mb-2 text-secondary">{client.sexe}</i>
+									<p className="text-dark">{client.phone}</p>
+								</div>
+							</Link>
 						</div>
-					</Link>
-				</div>
-				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
-					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
-						<div className="d-grid ms-4 mt-2">
-							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
-							<i className="mb-2 text-secondary">Féminin</i>
-							<p className="text-dark">654 371 312</p>
-						</div>
-					</Link>
-				</div>
-				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
-					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
-						<div className="d-grid ms-4 mt-2">
-							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
-							<i className="mb-2 text-secondary">Féminin</i>
-							<p className="text-dark">654 371 312</p>
-						</div>
-					</Link>
-				</div>
-				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
-					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
-						<div className="d-grid ms-4 mt-2">
-							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
-							<i className="mb-2 text-secondary">Féminin</i>
-							<p className="text-dark">654 371 312</p>
-						</div>
-					</Link>
-				</div>
-				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
-					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
-						<div className="d-grid ms-4 mt-2">
-							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
-							<i className="mb-2 text-secondary">Féminin</i>
-							<p className="text-dark">654 371 312</p>
-						</div>
-					</Link>
-				</div>
-				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
-					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
-						<div className="d-grid ms-4 mt-2">
-							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
-							<i className="mb-2 text-secondary">Féminin</i>
-							<p className="text-dark">654 371 312</p>
-						</div>
-					</Link>
-				</div>
+					);
+				})}
 
 			</div>
 
