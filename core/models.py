@@ -80,7 +80,7 @@ class Client(models.Model):
 
 
 class Order(models.Model):
-    STATE = [ ('EC', 'En Conception'),('T', 'Terminée'), ('C', 'Commandée'), ('M', 'Attente de Matériel')]
+    STATE = [ ('EC', 'En Conception'),('T', 'Terminée'), ('C', 'Commandée'), ('M', 'Attente de Matériel'), ('A', 'Annulée')]
     workshop = models.ForeignKey(Workshop, on_delete=models.CASCADE)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     delivery_date = models.DateField(auto_now_add=False, auto_now=False, blank=True)
