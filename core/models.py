@@ -80,7 +80,7 @@ class Client(models.Model):
 
 
 class Order(models.Model):
-    STATE = [ ('C', 'En Conception'),('T', 'Termine'), ('M', 'Attente de materiel'),]
+    STATE = [ ('EC', 'En Conception'),('T', 'Terminée'), ('C', 'Commandée'),]
     workshop = models.ForeignKey(Workshop, on_delete=models.CASCADE)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     delivery_date = models.DateField(auto_now_add=False, auto_now=False, blank=True)
@@ -138,7 +138,7 @@ class OrderItem(models.Model):
 
 
 class Article(OrderItem, models.Model):
-    status = models.CharField(max_length=255, null=False, choices=[("En vente", "En vente"), ("Vendu", "Vendu")], default="En vente")
+    status = models.CharField(max_length=255, null=False, choices=[("En Vente", "En Vente"), ("Vendu", "Vendu")], default="En vente")
     description = models.TextField(null=True, blank=True)
     workshop = models.ForeignKey(Workshop, on_delete=models.CASCADE)
     
