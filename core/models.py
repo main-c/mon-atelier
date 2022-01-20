@@ -80,13 +80,13 @@ class Client(models.Model):
 
 
 class Order(models.Model):
-    STATE = [ ('C', 'En Conception'),('T', 'Termine'), ('M', 'Attente de materiel'),]
+    STATE = [ ('EC', 'En Conception'),('T', 'Terminée'), ('C', 'Commandée'), ('M', 'Attente de Matériel'), ('A', 'Annulée')]
     workshop = models.ForeignKey(Workshop, on_delete=models.CASCADE)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     delivery_date = models.DateField(auto_now_add=False, auto_now=False, blank=True)
     comment = models.TextField(null=True, blank=True)
     total_cost = models.IntegerField(default = 0, null=False, blank=True)
-    state = models.CharField(max_length=100, choices=STATE)
+    state = models.CharField(max_length=100, choices=STATE, default=STATE[2])
 
     def __str__(self):
         return str(self.delivery_date)
@@ -133,12 +133,12 @@ class OrderItem(models.Model):
         return self.name
 
     def get_total_cot(self):
-        return self.cost * self.qty
+        return self.cost * self.quantity
 
 
 
 class Article(OrderItem, models.Model):
-    status = models.CharField(max_length=255, null=False, choices=[("En vente", "En vente"), ("Vendu", "Vendu")], default="En vente")
+    status = models.CharField(max_length=255, null=False, choices=[("En Vente", "En Vente"), ("Vendu", "Vendu")], default="En vente")
     description = models.TextField(null=True, blank=True)
     workshop = models.ForeignKey(Workshop, on_delete=models.CASCADE)
     

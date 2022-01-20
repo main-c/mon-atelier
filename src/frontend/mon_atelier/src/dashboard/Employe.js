@@ -1,10 +1,24 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Layout from './Layout.js';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
 function Employe(){
+
+
+	const [employes, setEmployes] = useState([])
+
+	useEffect(() => {
+		axios.get("https://api-mon-atelier.herokuapp.com/api/v1/workers/")
+		.then((response) => {
+			setEmployes(response.data.results);
+		})
+		.catch(err => {
+			console.log(err)
+		})
+	}, []);
+
 
 	const employe = (
 
@@ -20,66 +34,22 @@ function Employe(){
 			</div>
 
 			<div className="row mt-5">
-				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
-					<Link to="/detail_employe" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
-						<div className="d-grid ms-4 mt-2">
-							<p className="fs-5 mb-0 text-violet">Jugalux</p>
-							<i className="mb-2 text-secondary">Sapeur Mimboman</i>
-							<p className="text-dark">654 371 312</p>
+
+				{ employes.map(employe => {
+					return(
+
+						<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
+							<Link to={`/detail_employe/${employe.id}`} className="d-flex">
+								<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
+								<div className="d-grid ms-4 mt-2">
+									<p className="fs-5 mb-0 text-violet">{employe.full_name}</p>
+									<i className="mb-2 text-secondary">{employe.location}</i>
+									<p className="text-dark">{employe.phone}</p>
+								</div>
+							</Link>
 						</div>
-					</Link>
-				</div>
-				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
-					<Link to="/detail_employe" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
-						<div className="d-grid ms-4 mt-2">
-							<p className="fs-5 mb-0 text-violet">Jugalux</p>
-							<i className="mb-2 text-secondary">Ekounou</i>
-							<p className="text-dark">654 371 312</p>
-						</div>
-					</Link>
-				</div>
-				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
-					<Link to="/detail_employe" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
-						<div className="d-grid ms-4 mt-2">
-							<p className="fs-5 mb-0 text-violet">Jugalux</p>
-							<i className="mb-2 text-secondary">Ngousso</i>
-							<p className="text-dark">654 371 312</p>
-						</div>
-					</Link>
-				</div>
-				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
-					<Link to="/detail_employe" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
-						<div className="d-grid ms-4 mt-2">
-							<p className="fs-5 mb-0 text-violet">Jugalux</p>
-							<i className="mb-2 text-secondary">Bastos</i>
-							<p className="text-dark">654 371 312</p>
-						</div>
-					</Link>
-				</div>
-				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
-					<Link to="/detail_employe" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
-						<div className="d-grid ms-4 mt-2">
-							<p className="fs-5 mb-0 text-violet">Jugalux</p>
-							<i className="mb-2 text-secondary">Emana</i>
-							<p className="text-dark">654 371 312</p>
-						</div>
-					</Link>
-				</div>
-				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
-					<Link to="/detail_employe" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
-						<div className="d-grid ms-4 mt-2">
-							<p className="fs-5 mb-0 text-violet">Jugalux</p>
-							<i className="mb-2 text-secondary">Avenue Kenedy</i>
-							<p className="text-dark">654 371 312</p>
-						</div>
-					</Link>
-				</div>
+					);
+				})}
 
 			</div>
 

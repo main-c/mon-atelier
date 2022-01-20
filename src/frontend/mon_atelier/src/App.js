@@ -52,9 +52,9 @@ function App() {
           <Route path="/dashboard_client" element={<Client/>} />
           <Route path="/employe" element={<Employe/>} />
           <Route path="/account" element={<Account/>} />
-          <Route path="/detail_commande" element={<DetailCommand/>} />
-          <Route path="/detail_client" element={<DetailClient/>} />
-          <Route path="/detail_employe" element={<DetailEmploye/>} />
+          <Route path="/detail_commande/:nameCommand" element={<DetailCommand/>} />
+          <Route path="/detail_client/:nameClient" element={<DetailClient/>} />
+          <Route path="/detail_employe/:nameEmploye" element={<DetailEmploye/>} />
         </Routes>
         </Suspense>
       </BrowserRouter>
