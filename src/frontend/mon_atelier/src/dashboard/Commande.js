@@ -136,7 +136,9 @@ class AjoutCommande extends React.Component{
 						<div className="row justify-content-around">
 							<div className="col-lg-5 my-2">
 								<p className="text-violet">Nom du client</p>
-								
+								<select name="client" id="client" value="" onChange = {this.handleChange} placeholder="Nom client" className="text-violet border-violet3 px-3 py-2 px-4 w-100 inputCommand" required>
+									<option value="">Tous les clients</option>
+								</select>
 							</div>
 							<div className="col-lg-5 my-2">
 								<p className="text-violet">Statut</p>
