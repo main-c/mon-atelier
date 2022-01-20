@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Layout from './Layout.js';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -14,7 +14,7 @@ function Commande(){
 			setCommands(response.data.results);
 		})
 		.catch(err => {
-			console.log(err)
+			console.log("eeeeeeeeeeeeeeror"+err)
 		})
 	}, []);
 
@@ -41,15 +41,18 @@ function Commande(){
 				<div className="row">
 
 					{ commands.map(command => {
+
+
+
 						return(
 
-							<div className="col-lg-4 p-3 my-3 mx-auto shadow-sm rounded card_command">
+							<div className="col-lg-4 p-3 my-3 mx-auto shadow-sm rounded card_command" key={command.client}>
 								<Link to={`/detail_commande/${command.id}`} className="text-dark d-flex">
 									<div className="me-4">
 										<i className="fa fa-3x fa-shopping-bag mt-1 ms-3 text-secondary"></i>
 									</div>
 									<div>
-										<p className="fs-4">{/* {command.client} */} Kimmy Black</p>
+										<p className="fs-4">{command.client}</p>
 										<p className="text-secondary">{command.delivery_date}</p>
 										<hr className="mb-1" />
 										<i className="text-violet">{command.state}</i>
