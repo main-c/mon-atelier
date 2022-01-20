@@ -8,7 +8,7 @@
 
 Pour visiter le site en ligne, cliquez ici : https://mon-atelier.vercel.app/
 <br>
-Pour consulter l'api , rendez vous sur : https://api-mon-atelier.herokuapp.com/api/v1/
+Pour consulter l'api , rendez vous sur : http://monatelier.comsas.club/api/v1/
 
 ## Liste des contributeurs
 <br>
