@@ -19,6 +19,7 @@ import Dashboard from './dashboard/Dashboard';
 import DetailCommand from './dashboard/DetailCommand';
 import DetailClient from './dashboard/DetailClient';
 import DetailEmploye from './dashboard/DetailEmploye';
+import NotFound from './components/notFound.js'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
@@ -44,6 +45,7 @@ function App() {
           <Route path="/detail_article/:nameArt" element={<DetailArticle/>} />
           <Route path="/articles" element={<Articles/>} />
           <Route path="/modeles" element={<Modeles/>} />
+          <Route path="*" element={<NotFound/>} />
 
           <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/commande" element={<Commande/>} />
