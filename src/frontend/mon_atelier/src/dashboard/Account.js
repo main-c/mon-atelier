@@ -1,9 +1,12 @@
 import React from 'react';
 import Layout from './Layout.js';
-import { useState} from "react";
+import { useState, useEffect} from "react";
+import axios from 'axios';
 import './dashboard.css';
 import './Account.css'
 
+
+const baseURL = "https://api-mon-atelier.herokuapp.com/api/v1/workshops/";
 
 function Account(){
 
@@ -32,6 +35,42 @@ function Account(){
 			setError(true);
 		}
 	};
+
+
+	//consommation de l'API
+
+	const [last_name, setLast_name] = useState('');
+	const [email, setEmail] = useState('');
+	const [name, setName] = useState('');
+	const [password, setPassword] = useState('');
+	const [phone, setPhone] = useState('');
+	const [location, setlocation] = useState('');
+	const [whatsapp_phone, setWhatsapp_phone] = useState('');
+	const [description, setDescription] = useState('')
+
+
+
+	function handleSubmit(e){
+		e.preventDefault()
+		axios.post(`https://api-mon-atelier.herokuapp.com/api/v1/workshops/?format=json`, {
+			manager: {
+			  last_name,
+			  password,
+			  email
+			},
+			name,
+			phone,
+			location,
+			whatsapp_phone,
+			description
+		  })
+			.then(res => {
+			  console.log(res);
+			  console.log(res.data);
+			})
+			 .catch(err => console.log(err));
+	  }
+		
 
 	const account = (
 
@@ -77,19 +116,19 @@ function Account(){
 						{error && <p className="errorMsg">File not supported</p>} 
 
 						<div>
-							<form action="">
+							<form action="" onSubmit={handleSubmit}>
 								<div className="bg-white mt-5 py-5">
 									<div className="col mx-lg-3">
-										<label htmlFor="Lname" className="form-label text-violet">LastName</label>
-										<input type="text" className="bordure" id="Lname" name="name" placeholder="..." aria-label="First name"/>
+										<label htmlFor="last_name" className="form-label text-violet">LastName</label>
+                                        <input type="text"className="bordure subject" placeholder="..." id="last_name" value={last_name} onChange={(e)=>{setLast_name(e.target.value)}} />
 									</div>
 									<div class="col mx-lg-3">
-										<label htmlFor="passw" className="form-label text-violet">Password</label>
-										<input type="password" className="bordure" id="passw" placeholder="..." aria-label="Last name"/>
+										<label htmlFor="password" className="form-label text-violet">Password</label>
+                                        <input type="password"className="bordure subject" placeholder="..." id="password" value={password} onChange={(e)=>{setPassword(e.target.value)}} />
 									</div>
 									<div class="col mx-lg-3">
-										<label htmlFor="tel" className="form-label text-violet">Phone</label>
-										<input type="tel" className="bordure" id="tel" placeholder="..." aria-label="Last name"/>
+										<label htmlFor="phone" className="form-label text-violet">Phone</label>
+                                        <input type="text"className="bordure text-violet subject" placeholder="..." id="phone" value={phone} onChange={(e)=>{setPhone(e.target.value)}}/>
 									</div>
 								</div>	
 							</form>
@@ -106,37 +145,38 @@ function Account(){
 							</div>
 							<div className="content-tabs">
 								<div className={toggleState === 1 ? "content  active-content" : "content"}>
-									<form action="">
+									<form action="" onSubmit={handleSubmit}>
 										<div>
 											<div className="row">
 												<div className="col">
-													<label htmlFor="name" className="form-label text-violet">Name</label>
-													<input type="text" className="bordure text-violet" id="name" name="name" placeholder="..." aria-label="First name"/>
+													<label htmlFor="Fname" className="form-label text-violet">Name</label>
+                                                    <input type="text"className="bordure text-violet subject" id="Fname" placeholder="..." value={name} onChange={(e)=>{setName(e.target.value)}} />
 												</div>
 												<div className="col">
 													<label htmlFor="mail" className="form-label text-violet">Email</label>
-													<input type="email" className="bordure text-violet" id="mail" placeholder="..." aria-label="Last name"/>
+                                                    <input type="email"className="bordure text-violet subject" placeholder="..." id="email" value={email} onChange={(e)=>{setEmail(e.target.value)}} />
+                                                    
 												</div>
 											</div>
 											<div className="space"></div>
 											<div className="row">
 												<div className="col">
-													<label htmlFor="exampleFormControlTextarea1" className="form-label text-violet">WhatsApp Phone</label>
-													<input type="tel" className="bordure text-violet" placeholder="..." aria-label="First name"/>
+													<label htmlFor="whatsapp_phone" className="form-label text-violet">WhatsApp Phone</label>
+                                                    <input type="tel"className="bordure text-violet subject" placeholder="..." id="whatsapp_phone" value={whatsapp_phone} onChange={(e)=>{setWhatsapp_phone(e.target.value)}} />
 												</div>
 												<div class="col">
-													<label htmlFor="lieu" className="form-label text-violet">Location</label>
-													<input type="text" className="bordure text-violet" id="lieu" placeholder="..." aria-label="Last name"/>
+													<label htmlFor="location" className="form-label text-violet">Location</label>
+                                                    <input type="text"className="bordure text-violet subject" placeholder="..." id="location" value={location} onChange={(e)=>{setlocation(e.target.value)}} />
 												</div>
 											</div>
 											<div className="space"></div>
 											<div className="mb-3">
 												<label htmlFor="description" className="form-label text-violet">Description</label>
-												<textarea className="bordure text-violet" id="description" rows="3"></textarea>
+                                                <textarea type="text"className="bordure text-violet subject" rows="3"  id="description" value={description} onChange={(e)=>setDescription(e.target.value)}></textarea>
 											</div>
 										</div>
 										<div>
-											<button className="btn-update">Update</button>
+											<button className="btn-update" onSubmit={handleSubmit}>Update</button>
 										</div>	
 									</form>
 								</div>

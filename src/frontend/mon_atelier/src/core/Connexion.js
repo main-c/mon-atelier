@@ -12,7 +12,7 @@ export default class Connexion extends React.Component{
 			this.state = {
 				id: "",
 				name: "",
-				showPass : false,
+				isPasswordShown : false
 			}
 			this.handleChange = this.handleChange.bind(this) 
 		}
@@ -35,14 +35,20 @@ export default class Connexion extends React.Component{
 		.catch((err) => console.log(err));
 		}
 
+		//visibilite
+
+		togglePasswordShownVisibility = () => {
+			const {isPasswordShown} = this.state;
+			this.setState({isPasswordShown: !isPasswordShown});
+		}
 
 	render(){
-		const {id,name} = this.state
+		const {id, name, isPasswordShown} = this.state
 		return(
 			<div className="container-fluid connexion_container py-5 ps-lg-5">
 				<section className="section">
 					<div class="d-flex justify-content-center py-3">
-						<img src="logo.png" className="img" alt="logo_MonAtelier" alt="retour à l'acceuil" />
+						<img src="logo.png" className="img" alt="logo_MonAtelier" title="retour à l'acceuil" />
 						<h3 className="text-white mt-4 ms-1">Connexion</h3>
 					</div>
 					<div className="div2">
@@ -63,22 +69,10 @@ export default class Connexion extends React.Component{
 								<div id="eye">
 									<div>
 										<p className="text-dark fs-5 ms-4 mb-0">Mot de passe</p>
-										<input 
-										type={this.state.showPass ? "text" : "password" }
-										name="name" 
-										value={name}
-										onChange = {this.handleChange}
-										name="name" placeholder="..." id="pass"  
-										className="text-violet px-3 pb-2 px-4"
-										required/>
+										<input className='input' type={(isPasswordShown) ? "text" : "password"} className="inp_ins text-violet px-3 pb-2 px-4" name="user_pass" id="pass" onchange={this.handleChange} required/>
 									</div>
-									<div><br />
-										<span
-										className="bouton"
-										alt="hide/show"
-										onClick={()=> this.setState({showPass: !this.state.showPass})}
-									>
-									{this.state.showPass ? '🙉' : '🙈'}</span>
+									<div className="text-violet me-4">
+										<i className={`fa ${isPasswordShown ? "fa-eye":"fa-eye-slash"} icon-eye`} id="i" aria-hidden='true' onClick={this.togglePasswordShownVisibility}></i>
 									</div>
 								</div>
 								<span className="focus-border"></span>

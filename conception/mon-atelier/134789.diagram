@@ -1,0 +1,100 @@
+format 224
+
+classinstancecanvas 128005 classinstance_ref 128133 // 
+  xyz 318 17 2005 life_line_z 2000
+end
+classinstancecanvas 128133 classinstance_ref 128261 // 
+  xyz 72 20 2005 life_line_z 2000
+end
+textcanvas 128645 "AjouterClient()"
+  xyzwh 182 80 2020 87 16
+classinstancecanvas 128773 classinstance_ref 128389 // 
+  xyz 551 22 2005 life_line_z 2000
+end
+textcanvas 130053 "CreerCommande()
+"
+  xyzwh 416 98 2020 112 32
+textcanvas 130181 "InformationsCommande"
+  xyzwh 403 144 2030 144 16
+textcanvas 131205 "InformationsClient"
+  xyzwh 175 166 2030 110 16
+textcanvas 131717 "InformationsCommandeClient"
+  xyzwh 145 244 2030 178 16
+textcanvas 132229 "Info1"
+  xyzwh 217 203 2030 31 16
+textcanvas 132357 "Info2"
+  xyzwh 214 289 2030 39 18
+textcanvas 132485 "Info1 + Info2"
+  xyzwh 435 316 2030 80 16
+classinstancecanvas 132613 classinstance_ref 128517 // 
+  xyz 732 20 2005 life_line_z 2000
+end
+textcanvas 132997 "CreerClient(Info1)"
+  xyzwh 620 361 2020 108 16
+durationcanvas 128261 classinstance_ref 128133 // :User
+  xyzwh 91 80 2010 11 340
+  overlappingdurationcanvas 130949
+    xyzwh 97 174 2020 11 58
+  end
+  overlappingdurationcanvas 131461
+    xyzwh 97 251 2020 11 65
+  end
+end
+durationcanvas 128389 classinstance_ref 128005 // :Workshop
+  xyzwh 351 93 2010 11 331
+  overlappingdurationcanvas 129797
+    xyzwh 357 143 2020 11 210
+  end
+end
+durationcanvas 129541 classinstance_ref 128773 // :Order
+  xyzwh 572 107 2010 11 300
+end
+durationcanvas 133125 classinstance_ref 132613 // :Client
+  xyzwh 751 374 2010 11 27
+end
+msg 128517 asynchronous
+  from durationcanvas_ref 128261
+  to durationcanvas_ref 128389
+  yz 93 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 129669 asynchronous
+  from durationcanvas_ref 128389
+  to durationcanvas_ref 129541
+  yz 112 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 129925 synchronous
+  from durationcanvas_ref 129541
+  to durationcanvas_ref 129797
+  yz 157 2025 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 130565 return
+  from durationcanvas_ref 129797
+  to durationcanvas_ref 129541
+  yz 330 2025 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 131077 synchronous
+  from durationcanvas_ref 128389
+  to durationcanvas_ref 130949
+  yz 179 2025 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 131333 return
+  from durationcanvas_ref 130949
+  to durationcanvas_ref 128389
+  yz 214 2025 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 131589 synchronous
+  from durationcanvas_ref 128389
+  to durationcanvas_ref 131461
+  yz 256 2025 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 131845 return
+  from durationcanvas_ref 131461
+  to durationcanvas_ref 128389
+  yz 302 2025 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 133253 asynchronous
+  from durationcanvas_ref 129541
+  to durationcanvas_ref 133125
+  yz 374 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+end
