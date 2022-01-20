@@ -144,7 +144,6 @@ class AuthViewSet(GenericViewSet):
             raise ValueError("Username/password not found")
 
         token = Token.objects.get_or_create(user=user)[0]
-        print(f"token {token.key}")
         return JsonResponse(UserSerializer(user).data)
 
 
