@@ -1,9 +1,21 @@
 import React from 'react';
 import Layout from './Layout.js';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { Link, useParams } from 'react-router-dom';
 
 
 function DetailCommand(){
+
+	const {nameCommand} = useParams()
+  const [info, setInfo] = React.useState([]);
+
+  React.useEffect(() => {
+    axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/orders/${nameCommand}/`)
+    .then((response) => {
+      setInfo(response.data);
+    });
+  }, []);
+  if(!info) return null;
 
 	const detailCommand = (
 
@@ -20,22 +32,21 @@ function DetailCommand(){
 				<div className="col-lg-6 d-grid">
 					<div className="d-flex">
 						<p className="me-2 my-auto">Nom client :</p>
-						<span className="fw-bold text-violet fs-5 my-auto">Kimmy Black</span>
+						<span className="fw-bold text-violet fs-5 my-auto">{info.client}</span>
 					</div>
 					<div className="mt-3 description">
 						<p>
-							La cliente souhaite un ensemble boubou pour toute la famille.
-							Ceci comprends un costume pour homme, une robe de soirée et des robettes
+							{info.comment}
 						</p>
 					</div>
-					<p className="text-violet">En conception</p>
+					<p className="text-violet">{info.state}</p>
 				</div>
 				<div className="col-lg-6 d-grid justify-content-end">
 
 					<i>
 						<div className="d-flex text-secondary">
 							<p className="me-1 my-auto">Commandé le</p>
-							<span className="my-auto">18 Janvier 2018</span>
+							<span className="my-auto">{info.delivery_date}</span>
 						</div>
 					</i>
 				</div>

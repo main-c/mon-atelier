@@ -1,9 +1,21 @@
 import React from 'react';
 import Layout from './Layout.js';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { Link, useParams } from 'react-router-dom';
 
 
 function DetailEmploye(){
+
+	const {nameEmploye} = useParams()
+  const [info, setInfo] = React.useState([]);
+
+  React.useEffect(() => {
+    axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/workers/${nameEmploye}/`)
+    .then((response) => {
+      setInfo(response.data);
+    });
+  }, []);
+  if(!info) return null;
 
 	const detailEmploye = (
 
@@ -17,33 +29,33 @@ function DetailEmploye(){
 				<div className="col-lg-6">
 					<div className="d-flex my-3">
 						<p>Nom employe : </p>
-						<p className="fw-bold ms-3 fs-5">Kimmy Black</p>
+						<p className="fw-bold ms-3 fs-5">{info.full_name}</p>
 					</div>
 					<div className="d-flex my-3">
 						<p className="me-3">Tel : </p>
-						<p className="fw-bold fs-5">654 371 312</p>
+						<p className="fw-bold fs-5">{info.phone}</p>
 					</div>
 					<div className="d-flex my-3">
 						<p className="me-3">Salaire : </p>
-						<p className="fw-bold fs-5">50 000 FCFA</p>
+						<p className="fw-bold fs-5">{info.salary}</p>
 					</div>
 					<div className="d-flex my-3">
 						<p className="me-3">CV : </p>
-						<p className="fw-bold fs-5">[Afficher le cv]</p>
+						<p className="fw-bold fs-5">{info.cv}</p>
 					</div>
 				</div>
 				<div className="col-lg-6 mt-lg-3">
 					<div className="d-flex my-3 ms-lg-5 ps-lg-5">
 						<p className="me-3">Employé le : </p>
-						<p className="fw-bold fs-5">12 / 05 / 2013</p>
+						<p className="fw-bold fs-5">{info.since}</p>
 					</div>
 					<div className="d-flex my-3 ms-lg-5 ps-lg-5">
 						<p>Adresse : </p>
-						<p className="fw-bold ms-3 fs-5">Avenue Kennedy</p>
+						<p className="fw-bold ms-3 fs-5">{info.location}</p>
 					</div>
 					<div className="d-flex my-3 ms-lg-5 ps-lg-5">
 						<p className="me-3">NCNI : </p>
-						<p className="fw-bold fs-5">0005643564</p>
+						<p className="fw-bold fs-5">{info.no_cni}</p>
 					</div>
 				</div>
 
