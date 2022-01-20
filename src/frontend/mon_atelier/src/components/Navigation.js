@@ -53,7 +53,7 @@ function Navigation(){
 					<div className="d-lg-flex mx-lg-auto conteneur">
 						<li className="items pe-5"><Link to="/">Accueil</Link></li>
 						<li className="items pe-5"><a href="/#categories">Catégories</a></li>
-						<li className="items pe-5"><Link to="/detail_article">Articles</Link></li>
+						<li className="items pe-5"><Link to="/articles">Articles</Link></li>
 						<li className="items pe-5"><a href="/#a_propos">A Propos</a></li>
 						<li className="items pe-5"><a href="/#contact">Contact</a></li>
 					</div>

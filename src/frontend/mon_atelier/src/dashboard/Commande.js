@@ -86,11 +86,19 @@ export default Commande;
 
 
 
+function allClients() {
+   return axios.get('https://api-mon-atelier.herokuapp.com/api/v1/clients/').then(function (response) {
+      return response.data;
+   })
+}
+
+
+
 class AjoutCommande extends React.Component{
 		constructor(props){
 			super(props)
 			this.state = {
-				client: "",
+				clients: [],
 				workshop: "",
 				delivery_date: "",
 				comment: "",
@@ -119,7 +127,7 @@ class AjoutCommande extends React.Component{
 
 
 	render(){
-		const {client,workshop,delivery_date,comment,state} = this.state
+		const {clients,workshop,delivery_date,comment,state} = this.state
 		return(
 			<div className="container-fluid px-0 pb-5 bg_AddForm">
 				<div className="col-lg-10 mx-auto shadow py-5 px-lg-5 px-3">
@@ -128,8 +136,8 @@ class AjoutCommande extends React.Component{
 						<div className="row justify-content-around">
 							<div className="col-lg-5 my-2">
 								<p className="text-violet">Nom du client</p>
-								<select name="client" id="client" value={client} onChange = {this.handleChange} placeholder="Nom client" className="text-violet border-violet3 px-3 py-2 px-4 w-100 inputCommand" required>
-									<option value="">Liste clients</option>
+								<select name="client" id="client" value="" onChange = {this.handleChange} placeholder="Nom client" className="text-violet border-violet3 px-3 py-2 px-4 w-100 inputCommand" required>
+									<option value="">Tous les clients</option>
 								</select>
 							</div>
 							<div className="col-lg-5 my-2">

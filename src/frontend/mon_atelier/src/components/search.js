@@ -11,7 +11,7 @@ const [allData, setAllData] = useState([]);
 const[filtData, setFiltData] = useState(allData); 
 
 const handleSearch = (e) => {
-	let value = (e).target.value.toLowerCase();
+	let value = (e).target.value;
 	let result = [];console.log(value);
 	result = allData.filter((data) => {
 		return data.name.search(value) != -1;});
@@ -55,9 +55,14 @@ useEffect(() =>
 		        <input className=" border-0 p-3 "   type="search" placeholder="Rechercher un élément" aria-label="Search"  onChange={(e) =>handleSearch(e)} />
 		        <button className="border-0 fw-bold ps-3 pe-3"   style={{color:"white", backgroundColor: '#443369'}} type="submit">Search</button>
 		     </form>
+
 			</div>
 		</div>
-		<Articles />
+		<span className="d-flex w-75 border border-1 mx-auto bg-white ">
+						<span className="border-0 fw-bold ps-2 pe-5 pt-4"   style={{color:"white", backgroundColor: '#443369'}} >Catégories</span>
+		        <span className=" border-0 w-100" ><Articles /></span>
+		        
+		     </span>
 
 					<div className='fw-bold text-center mt-5 fs-3'>NOS ARTICLES</div>
 					<div className="mx-auto mb-2" style={{height:'4px', width:'100px', background:'#FF5566'}}></div>
@@ -116,10 +121,9 @@ class Articles extends React.Component{
 	return(
 	<>
 			<div className="filters w-100" style={{ height:'12vh'}}>
-				<div class="row w-100 row fs-5 mb-5 mx-auto border">  
+				<div class="row w-100 row fs-5 mx-auto ">  
 			    	<div class="row mx-auto fs-5 text-center" style={{width: '100vw', borderRadius: '0.9rem'}}>
 			    		<div class="mb-2 w-100 d-flex mt-2" style={{overflowX: "hidden", flexWrap: "wrap"}}>
-			    			<span className="border-0 fw-bold ps-3 pe-3 mt-0"   style={{color:"white", backgroundColor: '#443369'}}>Catégories :</span>
 					        {this.state.categories.slice(0,8).map((cat)=>{
 					    		return(
 					    		   
