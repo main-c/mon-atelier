@@ -1,9 +1,21 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Layout from './Layout.js';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 
 function DetailClient(){
+
+	const {nameClient} = useParams()
+  const [info, setInfo] = React.useState([]);
+
+  React.useEffect(() => {
+    axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/clients/${nameClient}/`)
+    .then((response) => {
+      setInfo(response.data);
+    });
+  }, []);
+  if(!info) return null;
 
 	const detailClient = (
 
@@ -17,21 +29,21 @@ function DetailClient(){
 				<div className="col-lg-6">
 					<div className="d-flex my-auto">
 						<p>Nom client : </p>
-						<p className="fw-bold ms-3 fs-5">Kimmy Black</p>
+						<p className="fw-bold ms-3 fs-5">{info.name}</p>
 					</div>
 					<div className="d-flex my-auto">
 						<p className="me-3">Tel : </p>
-						<p className="fw-bold fs-5">654 371 312</p>
+						<p className="fw-bold fs-5">{info.phone}</p>
 					</div>
 				</div>
 				<div className="col-lg-6">
 					<div className="d-flex my-auto ms-lg-5 ps-lg-5">
 						<p>Tranche d'âge : </p>
-						<p className="fw-bold ms-3 fs-5">21 - 33</p>
+						<p className="fw-bold ms-3 fs-5">{info.tranche_d_age}</p>
 					</div>
 					<div className="d-flex my-auto ms-lg-5 ps-lg-5">
 						<p className="me-3">Sexe : </p>
-						<p className="fw-bold fs-5">Masculin</p>
+						<p className="fw-bold fs-5">{info.sexe}</p>
 					</div>
 				</div>
 
