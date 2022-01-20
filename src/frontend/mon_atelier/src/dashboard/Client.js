@@ -22,7 +22,7 @@ function Client(){
 			<div className="row mt-5">
 				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
 					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
+						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
 						<div className="d-grid ms-4 mt-2">
 							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
 							<i className="mb-2 text-secondary">Féminin</i>
@@ -32,7 +32,7 @@ function Client(){
 				</div>
 				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
 					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
+						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
 						<div className="d-grid ms-4 mt-2">
 							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
 							<i className="mb-2 text-secondary">Féminin</i>
@@ -42,7 +42,7 @@ function Client(){
 				</div>
 				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
 					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
+						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
 						<div className="d-grid ms-4 mt-2">
 							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
 							<i className="mb-2 text-secondary">Féminin</i>
@@ -52,7 +52,7 @@ function Client(){
 				</div>
 				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
 					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
+						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
 						<div className="d-grid ms-4 mt-2">
 							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
 							<i className="mb-2 text-secondary">Féminin</i>
@@ -62,7 +62,7 @@ function Client(){
 				</div>
 				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
 					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
+						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
 						<div className="d-grid ms-4 mt-2">
 							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
 							<i className="mb-2 text-secondary">Féminin</i>
@@ -72,7 +72,7 @@ function Client(){
 				</div>
 				<div className="col-lg-4 mx-auto mt-4 p-1 rounded shadow-sm card_command">
 					<Link to="/detail_client" className="d-flex">
-						<i className="fa fa-3x fa-user-circle mt-3 ms-3 text-secondary"></i>
+						<i className="fa fa-3x fa-users mt-3 ms-3 text-secondary"></i>
 						<div className="d-grid ms-4 mt-2">
 							<p className="fs-5 mb-0 text-violet">Kimmy Black</p>
 							<i className="mb-2 text-secondary">Féminin</i>
@@ -135,8 +135,8 @@ class AjoutClient extends React.Component{
 	render(){
 		const {name,phone,tranche_d_age,sexe} = this.state
 		return(
-			<div className="container-fluid px-0 pb-5 ps-lg-5">
-				<div className="col-lg-7 mx-auto bg-white shadow-sm px-lg-5 px-3">
+			<div className="container-fluid px-0 pb-5 ps-lg-5 bg_AddForm">
+				<div className="col-lg-7 mx-auto shadow px-lg-5 px-3">
 					<form action="" onSubmit={this.handleSubmit}>
 						<div className="pt-5">
 							<p className="text-dark fs-5 mb-0">Nom client</p>

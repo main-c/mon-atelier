@@ -30,13 +30,13 @@ render(){
 					<div className="row pt-3 mx-auto categories">
 
 
-					{ this.state.categories.map(category => {
+					{ this.state.categories.slice(0, 6).map(category => {
 						return(
 
 						<div className="col-lg-4 mx-auto mb-3 mt-3 p-0 d-flex border rounded" style={{height:'100px', width:'350px'}}>
 						    <img src="images/matoul.jpg" className="rounded-start" height="100px" alt="..." />
 						    <div className="my-auto">
-						    <Link to={`/articles/${category.id}`}>
+						    <Link to={`/articles/${category.name}`}>
 					            <p className="text-violet fs-4 ms-5">{category.name}</p>
 					        </Link>
 						        

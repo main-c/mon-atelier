@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios'
-
 import './connexion.css';
 
 
@@ -43,7 +42,7 @@ export default class Connexion extends React.Component{
 			<div className="container-fluid connexion_container py-5 ps-lg-5">
 				<section className="section">
 					<div class="d-flex justify-content-center py-3">
-						<img src="logo.png" className="img" alt="logo_MonAtelier" alt="retour à l'acceuil" />
+						<img src="logo.png" className="img" alt="logo_MonAtelier" title="retour à l'acceuil" />
 						<h3 className="text-white mt-4 ms-1">Connexion</h3>
 					</div>
 					<div className="div2">
@@ -69,17 +68,17 @@ export default class Connexion extends React.Component{
 										name="name" 
 										value={name}
 										onChange = {this.handleChange}
-										name="name" placeholder="..." id="pass"  
+									    placeholder="..." id="pass"  
 										className="text-violet px-3 pb-2 px-4"
 										required/>
 									</div>
 									<div><br />
-									<span
-									className="bouton"
-									alt="hide/show"
-									onClick={()=> this.setState({showPass: !this.state.showPass})}
-								>
-								{this.state.showPass ? '🙉' : '🙈'}</span>
+										<span
+										className="bouton"
+										alt="hide/show"
+										onClick={()=> this.setState({showPass: !this.state.showPass})}
+									>
+									{this.state.showPass ? '🙉' : '🙈'}</span>
 									</div>
 								</div>
 								<span className="focus-border"></span>

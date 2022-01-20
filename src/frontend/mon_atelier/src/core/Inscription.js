@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
@@ -46,7 +46,8 @@ class Inscription extends React.Component{
 		})
 
 		.then((response) => this.setState({workshops: response.data.results}))
-		.catch((err)=> console.log(err));
+		.catch((err)=> alert("L'une de vos information est incorrect, réesayez s'il vous plait"));
+
 		}
 
 

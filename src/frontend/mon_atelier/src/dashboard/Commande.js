@@ -132,8 +132,8 @@ class AjoutCommande extends React.Component{
 	render(){
 		const {client,workshop,delivery_date,comment,state} = this.state
 		return(
-			<div className="container-fluid px-0 pb-5">
-				<div className="col-lg-10 mx-auto bg-white shadow-sm py-5 px-lg-5 px-3">
+			<div className="container-fluid px-0 pb-5 bg_AddForm">
+				<div className="col-lg-10 mx-auto shadow py-5 px-lg-5 px-3">
 					<form action="" onSubmit={this.handleSubmit}>
 						
 						<div className="row justify-content-around">

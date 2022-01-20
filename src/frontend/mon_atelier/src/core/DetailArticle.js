@@ -1,17 +1,51 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import axios from 'axios';
+import {useParams} from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
-class DetailArticle extends React.Component{
+export default function DetailArticle(){
 
-	render(){
+	const {nameArt} = useParams()
+  const [postWorkshop, setPostWorkshop] = React.useState(null);
+  const [post, setPost] = React.useState(null);
+  
+
+  const request1 = axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/articles/${nameArt}/`);
+  const request2 = axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/workshops/1/`);
+
+	  React.useEffect(() => {
+	  	axios.all([request1, request2]).then(axios.spread((...responses) => {
+		  const resp1 = responses[0]
+		  const resp2 = responses[1]
+
+		  setPost(resp1.data)
+		  setPostWorkshop(resp2.data)
+		  console.log(resp1.data)
+		  console.log(resp2.data)
+
+
+		})).catch(errors => {
+		  console.log(errors)
+		  console.log(postWorkshop)
+
+		})
+	  
+
+  }, []);
+
+
+if(!post) return "No POst";
+if(!postWorkshop) return "Not aving";
 		return(
 
 			<div>
 				<Navigation />
+		
 
 				<div className="container-fluid py-5 bg-light">
-					<p className="fs-4 ms-lg-5 text-violet fw-bold">Détail Article</p>
+				 
+					<p className="fs-4 ms-lg-5 text-violet fw-bold"> Article: <span className="" style={{color:'pink'}}> {post.name}</span> </p>
 					<div className="container">
 						<div className="row justify-content-center">
 							<div className="col-lg-4 mt-5 py-5 d-flex justify-content-center shadow rounded">
@@ -21,20 +55,17 @@ class DetailArticle extends React.Component{
 							<div className="col-lg-5 mt-5">
 								<div className="d-flex justify-content-between">
 									<div className="d-grid">
-										<p className="fs-2 fw-bold mb-0 text-violet">Nom Atelier</p>
-										<p className="fw-bold">catégorie</p>
+										<p className="fs-2 fw-bold mb-0 text-violet">{postWorkshop.name}</p>
+										<p className="fw-bold">{post.status}</p>
 									</div>
-									<p className="mt-3">Publié le 01 Dec 2021</p>
+									
 								</div>
 								<div className="my-3">
-									<p className="fs-2">Robe pagne</p>
+									<p className="fs-2">{post.name}</p>
 									<p>
-										Lorem ipsum dolor sit amet consectetur adipisicing elit.
-										Expedita, illo ipsam, quisquam neque natus architecto ab et
-										optio repellat atque voluptatum iste cum temporibus, quae.
-										Eligendi atque iure, architecto eos.
+										{post.description}
 									</p>
-									<p className="fw-bold fs-4">10 000 XFA</p>	
+									<p className="fw-bold fs-4">{post.cost} XFA</p>	
 								</div>
 								<div className="mt-5">
 									<a href="#" className="text-success fw-bold fs-5 py-2 bg-green px-3 shadow-sm rounded">
@@ -111,6 +142,3 @@ class DetailArticle extends React.Component{
 
 		);
 	}
-}
-
-export default DetailArticle;

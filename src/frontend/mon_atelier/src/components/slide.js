@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useSwipeable } from "react-swipeable";
 
 import "../components/slide.css";
 
@@ -30,7 +29,7 @@ const Slide = ({ children }) => {
       if (!paused) {
         updateIndex(activeIndex + 1);
       }
-    }, 2000);
+    }, 3000);
 
     return () => {
       if (interval) {
@@ -39,17 +38,10 @@ const Slide = ({ children }) => {
     };
   });
 
-  const handlers = useSwipeable({
-    onSwipedLeft: () => updateIndex(activeIndex + 1),
-    onSwipedRight: () => updateIndex(activeIndex - 1)
-  });
-
   return (
     <div
-      {...handlers}
+    
       className="carousele"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
     >
       <div
         className="innere"
@@ -58,34 +50,6 @@ const Slide = ({ children }) => {
         {React.Children.map(children, (child, index) => {
           return React.cloneElement(child, { width: "100%" });
         })}
-      </div>
-      <div className="indicators">
-        <button
-          onClick={() => {
-            updateIndex(activeIndex - 1);
-          }}
-        >
-          Prev
-        </button>
-        {React.Children.map(children, (child, index) => {
-          return (
-            <button
-              className={`${index === activeIndex ? "active" : ""}`}
-              onClick={() => {
-                updateIndex(index);
-              }}
-            >
-              {index + 1}
-            </button>
-          );
-        })}
-        <button
-          onClick={() => {
-            updateIndex(activeIndex + 1);
-          }}
-        >
-          Next
-        </button>
       </div>
     </div>
   );
