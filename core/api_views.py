@@ -144,8 +144,6 @@ class AuthViewSet(GenericViewSet):
             login(request,user)
         else:
             raise AuthenticationFailed('Username or Password is not valid !')
-
-
         token = Token.objects.get_or_create(user=user)[0]
         return JsonResponse(UserSerializer(user).data)
 
