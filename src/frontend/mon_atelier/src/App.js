@@ -6,6 +6,7 @@ import Home from './core/Home';
 import Articles from './core/Articles.js'
 import ProfilAtelier from './core/ProfilAtelier';
 import Categories from './core/Categories';
+import Modeles from './core/Modeles';
 import ArticlesCategorie from './core/ArticlesCategorie';
 import DetailArticle from './core/DetailArticle';
 import Commande from './dashboard/Commande';
@@ -42,6 +43,7 @@ function App() {
           <Route path="/articles/:nameCat" element={<ArticlesCategorie/>} />
           <Route path="/detail_article/:nameArt" element={<DetailArticle/>} />
           <Route path="/articles" element={<Articles/>} />
+          <Route path="/modeles" element={<Modeles/>} />
 
           <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/commande" element={<Commande/>} />

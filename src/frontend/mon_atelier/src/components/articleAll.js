@@ -1,89 +1,13 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import ReactDOM from 'react-dom'
 
-import './modele.css'
+
 
 
 export default class ArticleAll extends React.Component {
 
 	state = {
-		post: [],
-		allPosts: []
-	};
-
-	componentDidMount() {
-		axios
-			.get("https://10degrees.uk/wp-json/wp/v2/posts", {
-				headers: {
-					Accept: "application/json",
-					"Content-Type": "application/json"
-				}
-			})
-			.then(({ data }) => {
-				this.setState({
-					post: data,
-					allPosts: data // array data from JSON stored in these
-				});
-			})
-			.catch(err => {});
-	}
-
-	_onKeyUp = e => {
-		// filter post list by title using onKeyUp function
-		const post = this.state.allPosts.filter(item =>
-			item.title.rendered.toLowerCase().includes(e.target.value.toLowerCase())
-		);
-		this.setState({ post });
-	};
-
-	render() {
-		return (
-			<div className="container">
-				<div className="search-outer">
-					<form
-						role="search"
-						method="get"
-						id="searchform"
-						className="searchform"
-						action=""
-					>
-						{/* input field activates onKeyUp function on state change */}
-						<input
-							type="search"
-							onChange={this._onKeyUp}
-							name="s"
-							id="s"
-							placeholder="Search"
-						/>
-						<button type="submit" id="searchsubmit">
-							<i className="fa fa-search" aria-hidden="true" />
-						</button>
-					</form>
-				</div>
-				<ul className="data-list">
-					{/* post items mapped in a list linked to onKeyUp function */}
-					{this.state.post.map((item, index) => (
-						<li className={"block-" + index}>
-							<a className="title" href={item.link}>
-								<h3>{item.title.rendered}</h3>
-							</a>
-							<a className="link" href={item.link}>
-							 
-							</a>
-						</li>
-					))}
-				</ul>
-			</div>
-		);
-	}
-}
-
-ReactDOM.render(<AllArticle />, document.getElementById("root"));
-
-
-	/*state = {
 		articles : []
 	}
 
@@ -101,13 +25,11 @@ ReactDOM.render(<AllArticle />, document.getElementById("root"));
 
 render(){
 		return(
-
-
-				<div className="container-fluid px-0 pb-0">
+		<div className="container-fluid px-0 pb-0">
 					<div className='fw-bold text-center mt-5 fs-3'>NOS ARTICLES</div>
 					<div className="mx-auto mb-5" style={{height:'4px', width:'100px', background:'#FF5566'}}></div>
 
-					<div className="row pt-3 mx-auto bg-violet py-3">
+					<div className="row pt-3 mx-auto py-3">
 					
 					{ this.state.articles.map(article => {
 
@@ -132,16 +54,10 @@ render(){
 
 							);
 					})}
-					<div className="me-5 mt-3" style={{textAlign:'right'}}>
-						<Link to="/articles" className="border-0 rounded-1 bg-white text-violet fs-5 pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 mora" style={{background:'#443369'}}>voir plus</Link>
-					</div>
 
 					</div>
-
-				
 				</div>
 
 	);
 }
 }
-*/
