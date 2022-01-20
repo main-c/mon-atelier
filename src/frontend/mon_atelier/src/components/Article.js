@@ -26,12 +26,12 @@ export default function Article() {
 					<div className='fw-bold text-center mt-5 fs-3'>NOS ARTICLES</div>
 					<div className="mx-auto mb-5" style={{height:'4px', width:'100px', background:'#FF5566'}}></div>
 
-					<div className="row pt-3 mx-auto bg-violet py-5">
+					<div className="row pt-3 mx-auto py-5">
 
 										
 					{articles.map(article => {
 
-						if(articles){ 
+						if(this.results.lenght >= 1){ 
 
 						return(
 							<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "19rem", maxHeight:'26rem'}}>
@@ -54,7 +54,7 @@ export default function Article() {
 
 							);
 						}
-						 if(articles = null){
+						 if(this.results.lenght=0){
 						 	console.log(articles)
 							return(<h1>No articles yet</h1>)
 						}
