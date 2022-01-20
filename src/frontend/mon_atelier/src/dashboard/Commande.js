@@ -9,7 +9,7 @@ function Commande(){
 	const [commands, setCommands] = useState([])
 
 	useEffect(() => {
-		axios.get("https://api-mon-atelier.herokuapp.com/api/v1/orders/")
+		axios.get("www.monatelier.comsas.club/api/v1/orders/")
 		.then((response) => {
 			setCommands(response.data.results);
 		})
@@ -108,7 +108,7 @@ class AjoutCommande extends React.Component{
 		handleSubmit = (e) =>{
 			e.preventDefault()
 			console.log(this.state)
-			axios.post("https://api-mon-atelier.herokuapp.com/api/v1/orders/", this.state)
+			axios.post("www.monatelier.comsas.club/api/v1/orders/", this.state)
 			.then(response => {
 			console.log(response)
 		})

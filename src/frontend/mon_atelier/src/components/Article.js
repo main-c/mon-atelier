@@ -10,7 +10,7 @@ export default function Article() {
 	const {nameCat} = useParams()
 	
 	useEffect(() => {
-		axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/articles/?workshop__name=&mesure=&modele__name=&modele__category__name=${nameCat}`)
+		axios.get(`www.monatelier.comsas.club/api/v1/articles/?workshop__name=&mesure=&modele__name=&modele__category__name=${nameCat}`)
 		.then(res => {
 			console.log(res.data)
 			setArticles(res.data.results)

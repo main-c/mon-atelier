@@ -26,7 +26,7 @@ export default class Connexion extends React.Component{
 		handleSubmit = (e) =>{
 			e.preventDefault()
 			console.log(this.state)
-			axios.post("https://api-mon-atelier.herokuapp.com/api/v1/categories/", this.state)
+			axios.post("www.monatelier.comsas.club/api/v1/categories/", this.state)
 			.then(response => {
 			console.log(response)
 		})

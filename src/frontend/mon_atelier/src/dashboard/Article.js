@@ -71,7 +71,7 @@ class AjoutArticle extends React.Component{
 		handleSubmit = (e) =>{
 			e.preventDefault()
 			console.log(this.state)
-			axios.post("https://api-mon-atelier.herokuapp.com/api/v1/articles/", this.state)
+			axios.post("www.monatelier.comsas.club/api/v1/articles/", this.state)
 			.then(response => {
 			console.log(response)
 		})

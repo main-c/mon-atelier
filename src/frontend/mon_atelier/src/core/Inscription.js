@@ -32,7 +32,7 @@ class Inscription extends React.Component{
 		handleSubmit = (e) =>{
 			e.preventDefault()
 			console.log(this.state)
-			axios.post("https://api-mon-atelier.herokuapp.com/api/v1/workshops/", {
+			axios.post("www.monatelier.comsas.club/api/v1/workshops/", {
 				manager: {
 					last_name: this.state.last_name,
 					password: this.state.password,

@@ -11,7 +11,7 @@ class Modele extends React.Component{
 	}
 
 	componentDidMount(){
-		axios.get("https://api-mon-atelier.herokuapp.com/api/v1/modeles/")
+		axios.get("www.monatelier.comsas.club/api/v1/modeles/")
 		.then(res => {
 			const modeles = res.data.results;
 			this.setState({ modeles });

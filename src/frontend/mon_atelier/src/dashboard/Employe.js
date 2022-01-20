@@ -10,7 +10,7 @@ function Employe(){
 	const [employes, setEmployes] = useState([])
 
 	useEffect(() => {
-		axios.get("https://api-mon-atelier.herokuapp.com/api/v1/workers/")
+		axios.get("www.monatelier.comsas.club/api/v1/workers/")
 		.then((response) => {
 			setEmployes(response.data.results);
 		})
@@ -96,7 +96,7 @@ class AjoutEmploye extends React.Component{
 		handleSubmit = (e) =>{
 			e.preventDefault()
 			console.log(this.state)
-			axios.post("https://api-mon-atelier.herokuapp.com/api/v1/workers/", this.state)
+			axios.post("www.monatelier.comsas.club/api/v1/workers/", this.state)
 			.then(response => {
 			console.log(response)
 		})

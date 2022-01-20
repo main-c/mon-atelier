@@ -6,7 +6,7 @@ import './dashboard.css';
 import './Account.css'
 
 
-const baseURL = "https://api-mon-atelier.herokuapp.com/api/v1/workshops/";
+const baseURL = "www.monatelier.comsas.club/api/v1/workshops/";
 
 function Account(){
 
@@ -52,7 +52,7 @@ function Account(){
 
 	function handleSubmit(e){
 		e.preventDefault()
-		axios.post(`https://api-mon-atelier.herokuapp.com/api/v1/workshops/?format=json`, {
+		axios.post(`www.monatelier.comsas.club/api/v1/workshops/?format=json`, {
 			manager: {
 			  last_name,
 			  password,

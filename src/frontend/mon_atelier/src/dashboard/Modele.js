@@ -68,7 +68,7 @@ class AjoutModele extends React.Component{
 		handleSubmit = (e) =>{
 			e.preventDefault()
 			console.log(this.state)
-			axios.post("https://api-mon-atelier.herokuapp.com/api/v1/modeles/", this.state)
+			axios.post("www.monatelier.comsas.club/api/v1/modeles/", this.state)
 			.then(response => {
 			console.log(response)
 		})

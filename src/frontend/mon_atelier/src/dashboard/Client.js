@@ -9,7 +9,7 @@ function Client(){
 	const [clients, setClients] = useState([])
 
 	useEffect(() => {
-		axios.get("https://api-mon-atelier.herokuapp.com/api/v1/clients/")
+		axios.get("www.monatelier.comsas.club/api/v1/clients/")
 		.then((response) => {
 			setClients(response.data.results);
 		})
@@ -90,7 +90,7 @@ class AjoutClient extends React.Component{
 		handleSubmit = (e) =>{
 			e.preventDefault()
 			console.log(this.state)
-			axios.post("https://api-mon-atelier.herokuapp.com/api/v1/clients/", this.state)
+			axios.post("www.monatelier.comsas.club/api/v1/clients/", this.state)
 			.then(response => {
 			console.log(response)
 		})

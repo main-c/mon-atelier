@@ -13,8 +13,8 @@ export default function DetailArticle(){
   const [post, setPost] = React.useState(null);
   
 
-  const request1 = axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/articles/${nameArt}/`);
-  const request2 = axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/workshops/1/`);
+  const request1 = axios.get(`www.monatelier.comsas.club/api/v1/articles/${nameArt}/`);
+  const request2 = axios.get(`www.monatelier.comsas.club/api/v1/workshops/1/`);
 
 	  React.useEffect(() => {
 	  	axios.all([request1, request2]).then(axios.spread((...responses) => {

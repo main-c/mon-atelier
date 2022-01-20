@@ -10,7 +10,7 @@ function DetailEmploye(){
   const [info, setInfo] = React.useState([]);
 
   React.useEffect(() => {
-    axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/workers/${nameEmploye}/`)
+    axios.get(`www.monatelier.comsas.club/api/v1/workers/${nameEmploye}/`)
     .then((response) => {
       setInfo(response.data);
     });
