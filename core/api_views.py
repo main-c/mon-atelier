@@ -160,6 +160,6 @@ class LogoutViewSet(GenericViewSet):
 		request.user.auth_token.delete()
 		logout(request)
 		return Response(status=status.HTTP_200_OK)
-
+ 
 
 
