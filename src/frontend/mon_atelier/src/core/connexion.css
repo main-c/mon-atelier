@@ -1,0 +1,95 @@
+.connexion_container{
+    background-image: url(../../public/images/bgLogin.jpg); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.img{
+    width: 15%;
+    height: 15%;
+}
+
+.section{
+    border-radius: 8%;
+}
+
+.div2{
+    width: 100%;
+    height: 42vh;
+    background: #FFFFFF;
+}
+
+.icon-eye{
+    margin-left: 75px;
+    margin-top: 38px;
+}
+
+input{
+    outline: none;
+    border: none;
+    width: 100%;
+    font-size: 17px;
+}
+
+.focus-border{
+    width: 80%;
+    height: 2px;
+    background-color: #443369;
+    margin-left: 5%;
+    display: flex;
+}
+
+.pass{
+    margin-bottom: 2%;
+}
+
+.div3 button{
+    border: none;
+    color: #443369;
+    background-color: white;
+    width: 38%;
+    height: 50px;
+    border-radius: 23px;
+    position: relative; 
+}
+
+.para{
+    top: -20px;
+}
+
+.div3 button:hover{
+    background-color: #8f42e8;
+    color: white;
+}
+
+.div3 a{
+    color: white;
+    text-decoration: none;
+}
+
+.div3 a:hover{
+    color: #8f42e8;
+}
+
+@media screen and (min-width: 500px){
+
+    .section{
+        width: 35% !important;
+        height: 90%;
+        left: 8%;
+        top: 13% ;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10%;
+        padding-left: 0% !important;
+        padding-right: 0% !important;
+        background-color: #443369;
+    }
+
+}
+
+.bouton{
+    font-size: 20px;
+    cursor: pointer;
+    padding-top: 10px;
+}

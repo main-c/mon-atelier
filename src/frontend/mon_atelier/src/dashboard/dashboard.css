@@ -1,0 +1,187 @@
+/* Dashboard Component */
+.bg-violet2{
+	background: #8f42e8;
+}
+.border-violet3{
+	border: 2px solid #f8f5fa;
+}
+.bg_AddForm{
+  background-image: url(../../public/images/bg_AddForm.png);
+  background-size: cover;
+}
+
+.underline{
+	border-bottom: 3px solid #8f42e8;
+	width: 40px;
+	transition: .6s ease-in-out;
+}
+
+.underline:hover{
+	width: 150px;
+	transition: .6s ease-in-out;
+}
+
+.stats{
+	transition: .4s ease-in-out;
+}
+.stats:hover{
+	border-left: 5px solid #443369 !important;
+	color: #443369 !important;
+	background: #f8f5fa;
+	transition: .4s ease-in-out;
+}
+
+.command{
+	transition: .4s ease-in-out;
+}
+.command:hover{
+	background: #f8f5fa;
+	transition: .4s ease-in-out;
+}
+
+.inputCommand{
+	transition: .5s ease-in-out;
+}
+.inputCommand:focus{
+	color: black;
+	border: 2px solid #e4b5e6;
+	transition: .5s ease-in-out;
+}
+
+textarea{
+	outline: none;
+}
+
+
+/* Command component */
+
+.card_command{
+	background: #fff;
+	border-bottom: 3px solid #e4b5e6;
+	transition: .4s ease-in-out;
+}
+.card_command:hover{
+	background: #f8f5fa;
+	cursor: pointer;
+	transition: .4s ease-in-out;
+}
+
+@media screen and (min-width: 500px){
+	.card_command{
+		width: 31%;
+	}
+}
+
+/* Account Component */
+
+.bg_brofil{
+	background-image: url(../../public/images/bg_profil.jpg);
+	height: 300px;
+	background-size: cover;
+	background-position: center;
+}
+.bod{
+	margin-top: -100px;
+}
+.account_container .row{
+	opacity: .9;
+}
+
+/* DetailCommand Component */
+
+
+.hidden{
+  opacity:0;
+}
+
+#pop-up{
+  width:auto;
+  opacity:0;
+  background-color:white;
+  z-index:10;
+  height: auto;
+}
+  hr{
+    width: 40%;
+    height: 10px;
+    margin:10px auto 30px 0;
+    border: none;
+    outline: none;
+    background-color: blueviolet;
+  }
+
+.close{
+  position:absolute;
+  top: 20px;
+  right:40px;
+  width:30px;
+  font-weight:700;
+  font-size:1em;
+  color: white;
+  background: #443369;
+  cursor:pointer;
+}
+
+#innerPopUp{
+  height:auto;
+  overflow: auto;
+  opacity:0;
+}
+
+.fade-in{
+  animation: fadeIn 1.3s ease forwards 1s;
+}
+
+.fade-out{
+  animation: fadeOut 1.3s ease forwards;
+}
+
+.animate-in{
+  animation: popIn 1.3s cubic-bezier(.87,-.41,.19,1.22) forwards;
+}
+
+.animate-out{
+  animation: popOut 1.3s cubic-bezier(.87,-.41,.19,1.22) forwards;
+}
+
+@keyframes fadeIn{
+  from{
+    transform:translateY(-20px);
+    opacity:0;
+  }
+  to{
+    transform:translateY(0px);
+    opacity:1;
+  }
+}
+@keyframes popIn{
+  0%{
+    opacity:0;
+    transform:scale(0,0);
+  }
+  60%{
+    opacity:1;
+    transform:scale(1,1);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1,1);
+  }
+}
+
+@keyframes popOut{
+  0%{
+    z-index:100;
+    opacity:1;
+    transform:scale(1,1);
+  }
+  60%{
+    z-index:0;
+    opacity:.1;
+    transform:scale(.001,.001);
+  }
+  100%{
+    opacity:0;
+    transform:scale(0,0);
+  }
+}
