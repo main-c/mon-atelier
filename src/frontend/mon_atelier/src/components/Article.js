@@ -11,7 +11,7 @@ export default function Article() {
 	console.log({nameCat})
 	
 	useEffect(() => {
-		axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/articles/?workshop__name=&mesure=&modele__name=&modele__category__name=Robe+en+pagne`)
+		axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/articles/?workshop__name=&mesure=&modele__name=&modele__category__name=${nameCat}`)
 		.then(res => {
 			console.log(res.data)
 			setArticles(res.data.results)
@@ -32,7 +32,7 @@ export default function Article() {
 										
 					{articles.map(article => {
 
-						if(this.results.lenght >= 1){ 
+						
 
 						return(
 							<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "19rem", maxHeight:'26rem'}}>
@@ -54,11 +54,6 @@ export default function Article() {
 						</div>
 
 							);
-						}
-						 if(this.results.lenght=0){
-						 	console.log(articles)
-							return(<h1>No articles yet</h1>)
-						}
 					})}
 						
 
