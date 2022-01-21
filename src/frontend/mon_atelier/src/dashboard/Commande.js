@@ -9,12 +9,12 @@ function Commande(){
 	const [commands, setCommands] = useState([])
 
 	useEffect(() => {
-		axios.get("www.monatelier.comsas.club/api/v1/orders/")
+		axios.get("orders/")
 		.then((response) => {
 			setCommands(response.data.results);
 		})
 		.catch(err => {
-			console.log("eeeeeeeeeeeeeeror"+err)
+			console.log(err)
 		})
 	}, []);
 
@@ -86,14 +86,6 @@ export default Commande;
 
 
 
-function allClients() {
-   return axios.get('https://api-mon-atelier.herokuapp.com/api/v1/clients/').then(function (response) {
-      return response.data;
-   })
-}
-
-
-
 class AjoutCommande extends React.Component{
 		constructor(props){
 			super(props)
@@ -116,7 +108,7 @@ class AjoutCommande extends React.Component{
 		handleSubmit = (e) =>{
 			e.preventDefault()
 			console.log(this.state)
-			axios.post("www.monatelier.comsas.club/api/v1/orders/", this.state)
+			axios.post("orders/", this.state)
 			.then(response => {
 			console.log(response)
 		})

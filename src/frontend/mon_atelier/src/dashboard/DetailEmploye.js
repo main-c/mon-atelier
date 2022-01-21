@@ -10,7 +10,7 @@ function DetailEmploye(){
   const [info, setInfo] = React.useState([]);
 
   React.useEffect(() => {
-    axios.get(`www.monatelier.comsas.club/api/v1/workers/${nameEmploye}/`)
+    axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/workers/${nameEmploye}/`)
     .then((response) => {
       setInfo(response.data);
     });
@@ -41,7 +41,7 @@ function DetailEmploye(){
 					</div>
 					<div className="d-flex my-3">
 						<p className="me-3">CV : </p>
-						<p className="fw-bold fs-5">{info.cv}</p>
+						<p className="fs-5">{info.cv}</p>
 					</div>
 				</div>
 				<div className="col-lg-6 mt-lg-3">
