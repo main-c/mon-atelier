@@ -16,7 +16,7 @@ class Home extends React.Component{
 	}
 
 	componentDidMount(){
-		axios.get("www.monatelier.comsas.club/api/v1/articles/")
+		axios.get("articles/")
 		.then(response => {
 			const articles = response.data.results;
 			this.setState({articles});

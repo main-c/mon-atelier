@@ -10,6 +10,9 @@ class Footer extends React.Component{
 			<div className="">
 				<div className=" pb-5 text-white" style={{backgroundColor:'#443369'}}>
 			        <div className="container-fluid">
+			        <div className="mx-auto text-end me-3"> 
+			        	<a href="#"><img src="images/up.png" className="card-img-top mx-auto text-end p-0 rounded-1 " title ="aller en haut de la page" style={{width:'60px', height:'60px', marginTop:'-60px'}} alt="" /></a>
+			        </div>
 			            <div className="row d-flex align-items-center">
 			                <div className="col-lg-4 ps-lg-5 mt-5">
 			                    <div>
