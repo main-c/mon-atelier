@@ -26,7 +26,7 @@ export default class Connexion extends React.Component{
 		handleSubmit = (e) =>{
 			e.preventDefault()
 			console.log(this.state)
-			axios.post("https://api-mon-atelier.herokuapp.com/api/v1/categories/", this.state)
+			axios.post("www.monatelier.comsas.club/api/v1/categories/", this.state)
 			.then(response => {
 			console.log(response)
 		})
@@ -79,9 +79,7 @@ export default class Connexion extends React.Component{
 							</div>
 
 					<div class="text-center py-2 div3">
-						<Link to='/dashboard'>
 							<button className="fw-bold my-3" type="submit">connexion</button>
-						</Link>
 						<p className="para text-white">Pas encore connecté ? <strong><Link to="/signup">s'inscrire</Link></strong></p>
 					</div>
 						</form>

@@ -10,7 +10,7 @@ class Categories extends React.Component{
   }
 
   componentDidMount(){
-    axios.get("https://api-mon-atelier.herokuapp.com/api/v1/categories/")
+    axios.get("www.monatelier.comsas.club/api/v1/categories/")
     .then(res => {
       const categories = res.data.results;
       this.setState({ categories });

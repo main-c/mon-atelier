@@ -16,7 +16,7 @@ export default function ProfilAtelier(){
 	 const [post, setPost] = React.useState(null);
 
   React.useEffect(() => {
-    axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/workshops/48/`).then((response) => {
+    axios.get(`www.monatelier.comsas.club/api/v1/workshops/48/`).then((response) => {
       setPost(response.data);
     });
   }, []);
