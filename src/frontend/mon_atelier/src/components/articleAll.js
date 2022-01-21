@@ -12,7 +12,7 @@ export default class ArticleAll extends React.Component {
 	}
 
 	componentDidMount(){
-		axios.get("www.monatelier.comsas.club/api/v1/articles/")
+		axios.get("http://www.monatelier.comsas.club/api/v1/articles/")
 		.then(response => {
 			const articles = response.data.results;
 			this.setState({articles});

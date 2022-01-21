@@ -6,8 +6,6 @@ import './dashboard.css';
 import './Account.css'
 
 
-const baseURL = "www.monatelier.comsas.club/api/v1/workshops/";
-
 function Account(){
 
 	const [toggleState, setToggleState] = useState(1);
@@ -52,7 +50,7 @@ function Account(){
 
 	function handleSubmit(e){
 		e.preventDefault()
-		axios.post(`www.monatelier.comsas.club/api/v1/workshops/?format=json`, {
+		axios.post(`http://www.monatelier.comsas.club/api/v1/workshops/?format=json`, {
 			manager: {
 			  last_name,
 			  password,
