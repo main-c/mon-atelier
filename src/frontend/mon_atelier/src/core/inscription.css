@@ -1,7 +1,9 @@
 .body{
-    background-image: url(../../public/images/bgSignup.jpg); 
+    background-image: url(../../public/images/bg-acces.jpg); 
     background-size: cover;
     background-repeat: no-repeat;
+    color: white;
+    height: 100vh;
 }
 
 .img{

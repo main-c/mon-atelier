@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
@@ -16,7 +17,7 @@ class Inscription extends React.Component{
 			password: "",
 			email: "",
 			phone: "",
-			isPasswordShown : false
+			showPass : false,
 		};
 		this.handleChange = this.handleChange.bind(this) 
     }
@@ -32,7 +33,7 @@ class Inscription extends React.Component{
 		handleSubmit = (e) =>{
 			e.preventDefault()
 			console.log(this.state)
-			axios.post("www.monatelier.comsas.club/api/v1/workshops/", {
+			axios.post("https://api-mon-atelier.herokuapp.com/api/v1/workshops/", {
 				manager: {
 					last_name: this.state.last_name,
 					password: this.state.password,
@@ -50,16 +51,31 @@ class Inscription extends React.Component{
 
 		}
 
-		//visibilite
 
-		togglePasswordShownVisibility = () => {
-			const {isPasswordShown} = this.state;
-			this.setState({isPasswordShown: !isPasswordShown});
+	state1 = {
+		icon: 'fa fa-eye',
+		type: 'password'
+	}
+
+/*	changeType = () => {
+		const { type } = this.state1
+		if (type === 'password') {
+			this.setState1({
+				icon: 'fa fa-eye-slash',
+				type: 'text'
+			})
+		} else {
+			this.setState1({
+				icon: 'fa fa-eye',
+				type: 'password'
+			})
 		}
+	}
+*/
 
 	render(){
 
-		const { last_name, name, password, email, phone, isPasswordShown } = this.state;
+		const { last_name, name, password, email, phone } = this.state;
 	
 		return(
 			<div className="container-fluid body mt-0 py-1 d-flex justify-content-center">
@@ -92,7 +108,7 @@ class Inscription extends React.Component{
 										name="name"
 										value={name}
 										className="inp_ins text-violet px-3 pb-2 px-4" 
-										placeholder="..." id="atel" 
+										placeholder="MonAtelier" id="atel" 
 										onChange={this.handleChange} required/>
 										<span className="focus-bord larg"></span>
 									</div>
@@ -100,13 +116,25 @@ class Inscription extends React.Component{
 								<div id="eye">
 									<div>
 										<p className="text-dark fs-5 ms-4 mb-0">Mot de passe</p>
-										<input className='input' type={(isPasswordShown) ? "text" : "password"} placeholder="..." className="inp_ins text-violet px-3 pb-2 px-4" name="user_pass" id="pass" onchange={this.handleChange} required/>
+										<input 
+										type={this.state.showPass ? "text" : "password" }
+										name="password" 
+										value={password}
+										onChange = {this.handleChange}
+									    placeholder="..." id="pass"  
+										className="text-violet px-3 pb-2 px-4"
+										required/>
 									</div>
-									<div className="text-violet me-4">
-										<i className={`fa ${isPasswordShown ? "fa-eye":"fa-eye-slash"} icon`} id="i" aria-hidden='true' onClick={this.togglePasswordShownVisibility}></i>
+									<div><br />
+									<span
+									className="bouton"
+									alt="hide/show"
+									onClick={()=> this.setState({showPass: !this.state.showPass})}
+								>
+								{this.state.showPass ? '🙉' : '🙈'}</span>
 									</div>
 								</div>
-								<span className="focus-bord"></span>
+								<span className="focus-border"></span>
 							</div>
 								</div>
 								<div className="col-lg-6">
