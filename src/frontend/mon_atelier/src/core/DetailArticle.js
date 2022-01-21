@@ -12,8 +12,8 @@ export default function DetailArticle(){
   const [postWorkshop, setPostWorkshop] = React.useState(null);
   const [post, setPost] = React.useState(null);
   
-  const request1 = axios.get(`http://monatelier.comsas.club/api/v1/articles/${nameArt}/`);
-  const request2 = axios.get(`workshops/1/`);
+  const request1 = axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/articles/${nameArt}/`);
+  const request2 = axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/workshops/1/`);
 
 	  React.useEffect(() => {
 	  	axios.all([request1, request2]).then(axios.spread((...responses) => {

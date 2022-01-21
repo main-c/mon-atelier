@@ -16,7 +16,7 @@ export default function ProfilAtelier(){
 	console.log({nameWork})
 	
 	useEffect(() => {
-		axios.get(`http://monatelier.comsas.club/api/v1/workshops/1/`)
+		axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/workshops/2/`)
 		.then(res => {
 			console.log(res.data)
 			setArticles(res.data.results)
