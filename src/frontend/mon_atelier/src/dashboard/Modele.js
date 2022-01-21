@@ -52,7 +52,7 @@ class AjoutModele extends React.Component{
 			super(props)
 			this.state = {
 				name: "",
-				category: [],
+				category: "",
 				add_on: "",
 				image: "",
 			}

@@ -3,7 +3,7 @@ import axios from 'axios';
 import {Link, useParams} from 'react-router-dom';
 
 
-export default function Article() {
+export default function Same() {
 
 	const [articles,setArticles]= useState([])
 
@@ -11,7 +11,7 @@ export default function Article() {
 	console.log({nameCat})
 	
 	useEffect(() => {
-		axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/articles/?workshop__name=&mesure=&modele__name=&modele__category__name=${nameCat}`)
+		axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/articles/?workshop__name=&mesure=&modele__name=&modele__category__name=Chemise`)
 		.then(res => {
 			console.log(res.data)
 			setArticles(res.data.results)
@@ -30,7 +30,7 @@ export default function Article() {
 					<div className="row pt-3 mx-auto py-5">
 
 										
-					{articles.map(article => {
+					{articles.slice(0, 4).map(article => {
 
 						
 
@@ -39,7 +39,7 @@ export default function Article() {
 							<img src={article.result} className="card-img-top p-0" alt="..." style={{width:'auto', height:'6.4cm'}}  />
 							<div className="card-body ps-2">
 								<h5 className="card-title">
-									<Link to={`/detail_article/${article.id}`}>
+									<Link to={`/articles/${article.id}`}>
 						            	<p className="text-dark fs-4">{article.name}</p>
 						        	</Link>
 								</h5>

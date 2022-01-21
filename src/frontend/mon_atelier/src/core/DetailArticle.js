@@ -3,6 +3,7 @@ import axios from 'axios';
 import {useParams, Link} from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import Same from '../components/same'
 
 
 
@@ -11,17 +12,21 @@ export default function DetailArticle(){
 	const {nameArt} = useParams()
   const [postWorkshop, setPostWorkshop] = React.useState(null);
   const [post, setPost] = React.useState(null);
+  const[same, setSame]=React.useState(null);
   
-  const request1 = axios.get(`http://monatelier.comsas.club/api/v1/articles/${nameArt}/`);
-  const request2 = axios.get(`workshops/1/`);
+  const request1 = axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/articles/${nameArt}/`);
+  const request2 = axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/workshops/48/`);
+  const request3 = axios.get("https://api-mon-atelier.herokuapp.com/api/v1/articles/?workshop__name=&mesure=&modele__name=&modele__category__name=Chemise");
 
 	  React.useEffect(() => {
-	  	axios.all([request1, request2]).then(axios.spread((...responses) => {
+	  	axios.all([request1, request2, request3]).then(axios.spread((...responses) => {
 		  const resp1 = responses[0]
 		  const resp2 = responses[1]
+		  const resp3 = responses[2]
 
 		  setPost(resp1.data)
 		  setPostWorkshop(resp2.data)
+		  setSame(resp3.data)
 		  console.log(resp1.data)
 		  console.log(resp2.data)
 
@@ -74,7 +79,7 @@ if(!postWorkshop) return "Not aving";
 								</div>
 								<div className="my-3">
 									<p className="fs-5"><span className="fw-bold">Publié par</span>
-										<Link to={`/profil_atelier/${postWorkshop.name}`}>
+										<Link to={`/profil_atelier`}>
 								            <span className="text-dark fs-6"> : {postWorkshop.name}</span>
 								        </Link>
 									</p>
@@ -100,58 +105,9 @@ if(!postWorkshop) return "Not aving";
 					<div className="container-fluid my-5 pt-5">
 						<p className="fw-bold ms-lg-5 fs-4 text-violet">Articles similaires</p>
 						<div className="row px-lg-5">
-							<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "18rem"}}>
-								<img src="images/banner1.jpg" className="card-img-top p-0" alt="..." style={{width:'100%'}}  />
-								<div className="card-body ps-2">
-									<h5 className="card-title">Habillemnt de femme</h5>
-									<p className="card-text">200 000XAF <br /><span>ajouté le 22 dec 2021</span></p>
-									<div className="d-flex">
-										<div>
-											<img src="images/logo.png" className="card-img-top p-0" alt="..." style={{width:'50px', height:'5Opx'}}  />
-										</div>
-										<div className="ms-2 mt-3">Kim_atelier</div>
-									</div>
-								</div>
-							</div>
-							<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "18rem"}}>
-								<img src="images/banner1.jpg" className="card-img-top p-0" alt="..." style={{width:'100%'}}  />
-								<div className="card-body ps-2">
-									<h5 className="card-title">Habillemnt de femme</h5>
-									<p className="card-text">200 000XAF <br /><span>ajouté le 22 dec 2021</span></p>
-									<div className="d-flex">
-										<div>
-											<img src="images/logo.png" className="card-img-top p-0" alt="..." style={{width:'50px', height:'5Opx'}}  />
-										</div>
-										<div className="ms-2 mt-3">Kim_atelier</div>
-									</div>
-								</div>
-							</div>
-							<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "18rem"}}>
-								<img src="images/banner1.jpg" className="card-img-top p-0" alt="..." style={{width:'100%'}}  />
-								<div className="card-body ps-2">
-									<h5 className="card-title">Habillemnt de femme</h5>
-									<p className="card-text">200 000XAF <br /><span>ajouté le 22 dec 2021</span></p>
-									<div className="d-flex">
-										<div>
-											<img src="images/logo.png" className="card-img-top p-0" alt="..." style={{width:'50px', height:'5Opx'}}  />
-										</div>
-										<div className="ms-2 mt-3">Kim_atelier</div>
-									</div>
-								</div>
-							</div>
-							<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "18rem"}}>
-								<img src="images/banner1.jpg" className="card-img-top p-0" alt="..." style={{width:'100%'}}  />
-								<div className="card-body ps-2">
-									<h5 className="card-title">Habillemnt de femme</h5>
-									<p className="card-text">200 000XAF <br /><span>ajouté le 22 dec 2021</span></p>
-									<div className="d-flex">
-										<div>
-											<img src="images/logo.png" className="card-img-top p-0" alt="..." style={{width:'50px', height:'5Opx'}}  />
-										</div>
-										<div className="ms-2 mt-3">Kim_atelier</div>
-									</div>
-								</div>
-							</div>
+
+						<Same />
+							
 
 						</div>
 					</div>

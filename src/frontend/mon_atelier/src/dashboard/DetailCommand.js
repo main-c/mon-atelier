@@ -31,7 +31,7 @@ function DetailCommand(){
 				
 				<div className="col-lg-6 d-grid">
 					<div className="d-flex">
-						<p className="me-2 my-auto">Nom client :</p>
+						<p className="me-2 my-auto">Id client :</p>
 						<span className="fw-bold text-violet fs-5 my-auto">{info.client}</span>
 					</div>
 					<div className="mt-3 description">

@@ -10,21 +10,18 @@ import Footer from '../components/Footer';
 
 export default function ProfilAtelier(){
 
-	const [articles,setArticles]= useState([])
-
 	const {nameWork} = useParams()
 	console.log({nameWork})
-	
-	useEffect(() => {
-		axios.get(`http://monatelier.comsas.club/api/v1/workshops/1/`)
-		.then(res => {
-			console.log(res.data)
-			setArticles(res.data.results)
-		})
-		.catch(err => {
-			console.log(err)
-		})
-	}, [])
+
+	 const [post, setPost] = React.useState(null);
+
+  React.useEffect(() => {
+    axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/workshops/48/`).then((response) => {
+      setPost(response.data);
+    });
+  }, []);
+
+  if (!post) return null;
 
 	return(
 
@@ -36,11 +33,10 @@ export default function ProfilAtelier(){
 				<img src="images/profil_atelier.jpg" alt="" width="100%" height="600px" />
 
 				<div className="p-3 py-lg-5 text_banner text-light w-100">
-					<p className="fs-1 title">Atelier {nameWork}</p>
+					<p className="fs-1 title"> {post.name}</p>
 					<p>
-						{articles.description}
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+						{post.description}
+						
 					</p>
 				</div>
 
@@ -48,7 +44,7 @@ export default function ProfilAtelier(){
 
 			<div className="container-fluid my-5 px-0">
 				<div className="titre mt-5">
-					<p className="text-center mb-2 fs-3">LES MODÈLES</p>
+					<p className="text-center mb-2 fs-3">NOS MODÈLES</p>
 					<div className="mx-auto"></div>
 				</div>
 				<div className="mt-5 bg-violet p-5">
@@ -65,27 +61,27 @@ export default function ProfilAtelier(){
 				<div className="row w-50 mx-auto">
 					<div className="col-lg-6 d-grid mx-auto">
 						<img src="images/gmail.png" className="mx-auto" alt="" width="100px" />
-						<p className="mt-4 mx-auto">atelier@gmail.com</p>
+						<p className="mt-4 mx-auto">{post.manager.email}</p>
 					</div>
 					<div className="col-lg-6 d-grid mx-auto">
 						<img src="images/telephone.png" className="mx-auto" alt="" width="100px" />
-						<p className="mt-4 mx-auto">+237 6 99 99 99 99</p>
+						<p className="mt-4 mx-auto">{post.phone}</p>
 					</div>
 				</div>
 				<div className="row w-50 mx-auto">
 					<div className="col-lg-6 d-grid mx-auto">
 						<img src="images/whatsapp.png" className="mx-auto" alt="" width="100px" />
-						<p className="mt-4 mx-auto">+237 6 99 99 99 99</p>
+						<p className="mt-4 mx-auto">{post.whatsapp_phone}</p>
 					</div>
 					<div className="col-lg-6 d-grid mx-auto">
 						<img src="images/place.png" className="mx-auto" alt="" width="100px" />
-						<p className="mt-4 mx-auto">127, Rue foé Omnisport</p>
+						<p className="mt-4 mx-auto">{post.location}</p>
 					</div>
 				</div>
 			</div>
 
 			<div className="container my-5 d-flex justify-content-between">
-				<img src="images/banner1.jpg" alt="" className="img-fluid" width="40%" />
+				<img src='images/banner1.jpg'  alt="" className="img-fluid" width="40%" />
 				<img src="images/banner2.jpg" alt="" className="img-fluid" width="40%" />
 			</div>
 

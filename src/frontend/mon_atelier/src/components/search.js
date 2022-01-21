@@ -60,7 +60,7 @@ useEffect(() =>
 
 			</div>
 		</div>
-		<span className="d-flex w-100 border border-1 mx-auto bg-white ">
+		<span className="d-flex w-75 border border-1 mx-auto bg-white ">
 						<span className="border-0 fw-bold ps-2 pe-5 pt-4"   style={{color:"white", backgroundColor: '#443369'}} >Catégories</span>
 		        <span className=" border-0 w-100" ><Articles /></span>
 		        
