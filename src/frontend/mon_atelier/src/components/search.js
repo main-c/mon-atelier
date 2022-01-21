@@ -60,7 +60,7 @@ useEffect(() =>
 
 			</div>
 		</div>
-		<span className="d-flex w-75 border border-1 mx-auto bg-white ">
+		<span className="d-flex w-100 border border-1 mx-auto bg-white ">
 						<span className="border-0 fw-bold ps-2 pe-5 pt-4"   style={{color:"white", backgroundColor: '#443369'}} >Catégories</span>
 		        <span className=" border-0 w-100" ><Articles /></span>
 		        
@@ -70,21 +70,7 @@ useEffect(() =>
 					<div className="mx-auto mb-2" style={{height:'4px', width:'100px', background:'#FF5566'}}></div>
 
 					<div className="row pt-3 mx-auto py-3">
-					<button onClick={ ()=> 
-													{axios(`http://monatelier.comsas.club/api/v1/articles/?format=json&ordering=status`)
 
-																.then((res)=>{
-
-																	console.log(res.data.results)
-																	setFiltData(res.data.results)
-																	setAllData(res.data.results)
-																})
-																.catch((err)=>{
-																	console.log("the error now is" + err)
-																})
-															}
-
-						}> filtrer</button>
 					{filtData.map((article,index)=>{
 
 						return(
@@ -124,7 +110,7 @@ class Articles extends React.Component{
   }
 
   componentDidMount(){
-    axios.get("www.monatelier.comsas.club/api/v1/categories/")
+    axios.get("https://api-mon-atelier.herokuapp.com/api/v1/categories/")
     .then(res => {
       const categories = res.data.results;
       this.setState({ categories });

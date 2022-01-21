@@ -12,7 +12,7 @@ export default class ArticleAll extends React.Component {
 	}
 
 	componentDidMount(){
-		axios.get("articles/")
+		axios.get("https://api-mon-atelier.herokuapp.com/api/v1/articles/")
 		.then(response => {
 			const articles = response.data.results;
 			this.setState({articles});
