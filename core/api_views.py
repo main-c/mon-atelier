@@ -1,7 +1,7 @@
 from rest_framework.viewsets import GenericViewSet
 from rest_framework.mixins import (CreateModelMixin, DestroyModelMixin,
 	ListModelMixin, UpdateModelMixin, RetrieveModelMixin)
-from core.serializers import (LocationImageSerializer, OrderItemSerializer, OrderSerializer, ArticleSerializer,ModeleSerializer,
+from core.serializers import (LocationImageSerializer, LogoutSerializer, OrderItemSerializer, OrderSerializer, ArticleSerializer,ModeleSerializer,
 	MesureSerializer,ClientSerializer, LoginSerializer, UserSerializer,
 	WorkerSerializer, CategorySerializer, WorkshopSerializer,)
 from core.models import (LocationImage, Modele, Order, Article, Client, OrderItem, Worker, Category, Mesure, Workshop)
@@ -12,7 +12,10 @@ from django.http import JsonResponse, request
 from django.contrib.auth.models import User
 from drf_yasg.utils import swagger_auto_schema
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters
+from rest_framework import filters, status
+from rest_framework.exceptions import AuthenticationFailed
+from django.contrib.auth import authenticate, login, logout
+
 
 class CategoryViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin,
 	UpdateModelMixin, DestroyModelMixin, GenericViewSet):
@@ -136,15 +139,25 @@ class AuthViewSet(GenericViewSet):
         username = seria.validated_data.get('username')
         password = seria.validated_data.get('password')
 
-        user = User.objects.filter(username=username).first()
-        if not user:
-            raise ValueError("Username/password not found")
-
-        if not user.check_password(password):
-            raise ValueError("Username/password not found")
-
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request,user)
+        else:
+            raise AuthenticationFailed('Username or Password is not valid !')
         token = Token.objects.get_or_create(user=user)[0]
         return JsonResponse(UserSerializer(user).data)
 
+class LogoutViewSet(GenericViewSet):
+
+	serializer_class = LogoutSerializer
+
+
+	@action(methods=["GET"], detail=False)
+	def signout(self, request, *args, **kwargs):
+
+		request.user.auth_token.delete()
+		logout(request)
+		return Response(status=status.HTTP_200_OK)
+ 
 
 
