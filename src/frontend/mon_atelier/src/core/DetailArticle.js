@@ -13,8 +13,8 @@ export default function DetailArticle(){
   const [post, setPost] = React.useState(null);
   
 
-  const request1 = axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/articles/${nameArt}/`);
-  const request2 = axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/workshops/1/`);
+  const request1 = axios.get(`http://monatelier.comsas.club/api/v1/articles/${nameArt}/`);
+  const request2 = axios.get(`http://monatelier.comsas.club/api/v1/workshops/1/`);
 
 	  React.useEffect(() => {
 	  	axios.all([request1, request2]).then(axios.spread((...responses) => {
@@ -75,7 +75,7 @@ if(!postWorkshop) return "Not aving";
 								</div>
 								<div className="my-3">
 									<p className="fs-5"><span className="fw-bold">Publié par</span>
-										<Link to={`/articles/${postWorkshop.name}`}>
+										<Link to={`/profil_atelier/${postWorkshop.name}`}>
 								            <span className="text-dark fs-6"> : {postWorkshop.name}</span>
 								        </Link>
 									</p>
@@ -85,7 +85,7 @@ if(!postWorkshop) return "Not aving";
 									<p className="fw-bold fs-4">{post.cost} XFA</p>	
 								</div>
 								<div className="mt-5">
-									<a href="#" className="text-success fw-bold fs-5 py-2 bg-green px-3 shadow-sm rounded">
+									<a href="https://wa.me/693184269" className="text-success fw-bold fs-5 py-2 bg-green px-3 shadow-sm rounded">
 										<i className="fa fa-whatsapp me-2"></i>
 										Contacter l'atelier
 									</a><br /><br />

@@ -4,11 +4,13 @@ import axios from 'axios'
 
 import Navigation from './Navigation'
 
-
 export default function Search(){
 
 const [allData, setAllData] = useState([]);
 const[filtData, setFiltData] = useState(allData); 
+
+var [appendice, setAppendice] = ""
+
 
 const handleSearch = (e) => {
 	let value = (e).target.value;
@@ -20,7 +22,7 @@ const handleSearch = (e) => {
 
 
 useEffect(() => 
-	{axios('https://api-mon-atelier.herokuapp.com/api/v1/articles/?format=json')
+	{axios(`http://monatelier.comsas.club/api/v1/articles/`)
 
 		.then((res)=>{
 
@@ -68,7 +70,21 @@ useEffect(() =>
 					<div className="mx-auto mb-2" style={{height:'4px', width:'100px', background:'#FF5566'}}></div>
 
 					<div className="row pt-3 mx-auto py-3">
-					
+					<button onClick={ ()=> 
+													{axios(`http://monatelier.comsas.club/api/v1/articles/?format=json&ordering=status`)
+
+																.then((res)=>{
+
+																	console.log(res.data.results)
+																	setFiltData(res.data.results)
+																	setAllData(res.data.results)
+																})
+																.catch((err)=>{
+																	console.log("the error now is" + err)
+																})
+															}
+
+						}> filtrer</button>
 					{filtData.map((article,index)=>{
 
 						return(
