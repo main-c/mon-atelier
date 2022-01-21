@@ -11,7 +11,7 @@ export default function Article() {
 	console.log({nameCat})
 	
 	useEffect(() => {
-		axios.get(`http://monatelier.comsas.club/api/v1/articles/?workshop__name=&mesure=&modele__name=&modele__category__name=Robe+en+pagne`)
+		axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/articles/?workshop__name=&mesure=&modele__name=&modele__category__name=Robe+en+pagne`)
 		.then(res => {
 			console.log(res.data)
 			setArticles(res.data.results)
