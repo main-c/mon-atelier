@@ -90,7 +90,7 @@ class AjoutCommande extends React.Component{
 		constructor(props){
 			super(props)
 			this.state = {
-				clients: [],
+				client: "",
 				workshop: "",
 				delivery_date: "",
 				comment: "",
@@ -119,7 +119,7 @@ class AjoutCommande extends React.Component{
 
 
 	render(){
-		const {clients,workshop,delivery_date,comment,state} = this.state
+		const {client,workshop,delivery_date,comment,state} = this.state
 		return(
 			<div className="container-fluid px-0 pb-5 bg_AddForm">
 				<div className="col-lg-10 mx-auto shadow py-5 px-lg-5 px-3">
@@ -127,10 +127,8 @@ class AjoutCommande extends React.Component{
 						
 						<div className="row justify-content-around">
 							<div className="col-lg-5 my-2">
-								<p className="text-violet">Nom du client</p>
-								<select name="client" id="client" value="" onChange = {this.handleChange} placeholder="Nom client" className="text-violet border-violet3 px-3 py-2 px-4 w-100 inputCommand" required>
-									<option value="">Tous les clients</option>
-								</select>
+								<p className="text-violet">Id du client</p>
+								<input type="number" name="client" id="client" value={client} onChange = {this.handleChange} placeholder="Id client" className="text-violet border-violet3 px-3 py-2 px-4 w-100 inputCommand" required />
 							</div>
 							<div className="col-lg-5 my-2">
 								<p className="text-violet">Statut</p>
@@ -151,8 +149,18 @@ class AjoutCommande extends React.Component{
 								<input type="date" name="delivery_date" id="delivery_date" value={delivery_date} onChange = {this.handleChange} className="text-violet border-violet3 px-3 py-2 px-4 inputCommand" required/>
 							</div>		
 						</div>
-						<div className="row justify-content-end me-lg-4 mt-lg-3">
-								
+						<div className="row justify-content-around me-lg-4 mt-lg-3">
+							<div className="col-lg-5 my-2">
+								<p className="text-violet mb-0">Atelier</p>
+								<input 
+									type="number" 
+									name="workshop" 
+									value={workshop}
+									onChange = {this.handleChange}
+									id="workshop" placeholder="Id de votre atelier" 
+									className="text-violet border-violet3 mx-auto ps-3 mt-2 py-2 inputCommand" 
+									required/>
+							</div>
 							<div class="col-lg-5 text-end mt-auto">
 								<button className="my-3 border-0 bg-violet text-light p-2" type="submit">Ajouter la commande</button>
 							</div>	

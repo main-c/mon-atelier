@@ -120,7 +120,7 @@ class AjoutClient extends React.Component{
 						<div className="pt-3">
 							<p className="text-dark fs-5 mb-0">Tel</p>
 							<input 
-								type="text" 
+								type="tel" 
 								name="phone" 
 								value={phone}
 								onChange = {this.handleChange}
