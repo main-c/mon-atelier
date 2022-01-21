@@ -57,12 +57,7 @@ class AjoutModele extends React.Component{
 				image: "",
 			}
 			this.handleChange = this.handleChange.bind(this);
-			this.fileUpload = this.fileUpload.bind(this);
 		}
-
-		fileUpload = (e) => {
-	        this.setFile({[e.target.files[0].name]: e.target.files[0].value});
-	    };
 
 		handleChange = (e)=>{
 			this.setState({
@@ -106,7 +101,7 @@ class AjoutModele extends React.Component{
 							</div>
 							<div className="col-lg-5 my-2">
 								<p className="text-violet">Echantillon</p>
-								<input type="file" name="image" id="image" value={image} onChange = {this.fileUpload} className="text-violet w-100 border-violet3 px-3 py-2 px-4 inputCommand" required />
+								<input type="file" name="image" id="image" value={image} onChange = {this.handleChange} className="text-violet w-100 border-violet3 px-3 py-2 px-4 inputCommand" required />
 							</div>
 						</div>
 						<div className="row justify-content-end">

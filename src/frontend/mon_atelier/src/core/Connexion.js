@@ -79,7 +79,9 @@ export default class Connexion extends React.Component{
 							</div>
 
 					<div class="text-center py-2 div3">
-						<button className="fw-bold my-3" type="submit">connexion</button>
+						<Link to='/dashboard'>
+							<button className="fw-bold my-3" type="submit">connexion</button>
+						</Link>
 						<p className="para text-white">Pas encore connecté ? <strong><Link to="/signup">s'inscrire</Link></strong></p>
 					</div>
 						</form>
