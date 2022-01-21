@@ -10,7 +10,7 @@ function DetailClient(){
   const [info, setInfo] = React.useState([]);
 
   React.useEffect(() => {
-    axios.get(`www.monatelier.comsas.club/api/v1/clients/${nameClient}/`)
+    axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/clients/${nameClient}/`)
     .then((response) => {
       setInfo(response.data);
     });

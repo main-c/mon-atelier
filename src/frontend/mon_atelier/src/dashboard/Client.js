@@ -9,7 +9,7 @@ function Client(){
 	const [clients, setClients] = useState([])
 
 	useEffect(() => {
-		axios.get("www.monatelier.comsas.club/api/v1/clients/")
+		axios.get("clients/")
 		.then((response) => {
 			setClients(response.data.results);
 		})
@@ -90,7 +90,7 @@ class AjoutClient extends React.Component{
 		handleSubmit = (e) =>{
 			e.preventDefault()
 			console.log(this.state)
-			axios.post("www.monatelier.comsas.club/api/v1/clients/", this.state)
+			axios.post("clients/", this.state)
 			.then(response => {
 			console.log(response)
 		})
@@ -120,7 +120,7 @@ class AjoutClient extends React.Component{
 						<div className="pt-3">
 							<p className="text-dark fs-5 mb-0">Tel</p>
 							<input 
-								type="text" 
+								type="tel" 
 								name="phone" 
 								value={phone}
 								onChange = {this.handleChange}

@@ -1,13 +1,30 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import {useParams} from 'react-router-dom'
 import Modele from '../components/Modele';
 import './profilAtelier.css';
+import axios from 'axios'
 
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
 
-function ProfilAtelier(){
+export default function ProfilAtelier(){
 
+	const [articles,setArticles]= useState([])
+
+	const {nameWork} = useParams()
+	console.log({nameWork})
+	
+	useEffect(() => {
+		axios.get(`http://monatelier.comsas.club/api/v1/workshops/1/`)
+		.then(res => {
+			console.log(res.data)
+			setArticles(res.data.results)
+		})
+		.catch(err => {
+			console.log(err)
+		})
+	}, [])
 
 	return(
 
@@ -19,8 +36,9 @@ function ProfilAtelier(){
 				<img src="images/profil_atelier.jpg" alt="" width="100%" height="600px" />
 
 				<div className="p-3 py-lg-5 text_banner text-light w-100">
-					<p className="fs-1 title">Jugalux Atelier</p>
+					<p className="fs-1 title">Atelier {nameWork}</p>
 					<p>
+						{articles.description}
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
 					</p>
@@ -77,5 +95,3 @@ function ProfilAtelier(){
 
 	);
 }
-
-export default ProfilAtelier;

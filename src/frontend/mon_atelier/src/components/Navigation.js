@@ -55,7 +55,9 @@ function Navigation(){
 						<li className="items pe-5"><a href="/#categories">Catégories</a></li>
 						<li className="items pe-5"><Link to="/articles">Articles</Link></li>
 						<li className="items pe-5"><a href="/#a_propos">A Propos</a></li>
+						<li className="items pe-5"><a href="/modeles">Modeles</a></li>
 						<li className="items pe-5"><a href="/#contact">Contact</a></li>
+
 					</div>
 				</ul>
 

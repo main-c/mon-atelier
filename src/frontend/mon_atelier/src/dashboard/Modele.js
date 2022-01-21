@@ -68,7 +68,7 @@ class AjoutModele extends React.Component{
 		handleSubmit = (e) =>{
 			e.preventDefault()
 			console.log(this.state)
-			axios.post("www.monatelier.comsas.club/api/v1/modeles/", this.state)
+			axios.post("modeles/", this.state)
 			.then(response => {
 			console.log(response)
 		})
@@ -90,13 +90,8 @@ class AjoutModele extends React.Component{
 								<input type="text" name="name" id="name" value={name} placeholder="Nom du modèle" onChange = {this.handleChange} className="text-violet border-violet3 p-2 w-100 inputCommand" required />
 							</div>
 							<div className="col-lg-5 my-2">
-								<p className="text-violet">Modèles liés</p>
-
-								<select name="category" id="category" value={[category]} onChange = {this.handleChange} className="text-violet border-violet3 px-3 py-2 px-4 w-100 inputCommand" >
-									{category.map((item) => {
-										return (<option key={item.id} value={item.id}>{item.name}</option>)
-									})}
-								</select>
+								<p className="text-violet">Catégorie</p>
+								<input type="number" name="category" id="category" value={category} placeholder="Id de la catégorie" onChange = {this.handleChange} className="text-violet border-violet3 p-2 w-100 inputCommand" required />
 							</div>		
 						</div>
 						<div className="row justify-content-around">

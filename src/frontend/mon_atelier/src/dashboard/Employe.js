@@ -10,7 +10,7 @@ function Employe(){
 	const [employes, setEmployes] = useState([])
 
 	useEffect(() => {
-		axios.get("www.monatelier.comsas.club/api/v1/workers/")
+		axios.get("workers/")
 		.then((response) => {
 			setEmployes(response.data.results);
 		})
@@ -96,7 +96,7 @@ class AjoutEmploye extends React.Component{
 		handleSubmit = (e) =>{
 			e.preventDefault()
 			console.log(this.state)
-			axios.post("www.monatelier.comsas.club/api/v1/workers/", this.state)
+			axios.post("workers/", this.state)
 			.then(response => {
 			console.log(response)
 		})
@@ -167,17 +167,18 @@ class AjoutEmploye extends React.Component{
 								className="text-violet border-violet3 mx-auto ps-3 mt-2 py-2 inputCommand" 
 								required/>
 						</div>
+						{/*
 						<div className="pt-5">
 							<p className="text-dark fs-5 mb-0">CV</p>
 							<input 
 								type="file" 
 								name="cv" 
-								value={cv}
+								value={cv.url}
 								onChange = {this.handleChange}
 								id="cv" 
-								className="text-violet border-violet3 mx-auto ps-3 mt-2 py-2 inputCommand" 
-								required/>
+								className="text-violet border-violet3 mx-auto ps-3 mt-2 py-2 inputCommand"/>
 						</div>
+						*/}
 						<div className="pt-5">
 							<p className="text-dark fs-5 mb-0">Date du jour</p>
 							<input 
@@ -189,7 +190,6 @@ class AjoutEmploye extends React.Component{
 								className="text-violet border-violet3 mx-auto ps-3 mt-2 py-2 inputCommand" 
 								required/>
 						</div>
-						{/*
 						<div className="pt-5">
 							<p className="text-dark fs-5 mb-0">Atelier</p>
 							<input 
@@ -197,11 +197,10 @@ class AjoutEmploye extends React.Component{
 								name="workshop" 
 								value={workshop}
 								onChange = {this.handleChange}
-								id="workshop" placeholder="Entrez la date du jour" 
+								id="workshop" placeholder="Id de votre atelier" 
 								className="text-violet border-violet3 mx-auto ps-3 mt-2 py-2 inputCommand" 
 								required/>
 						</div>
-						*/}
 
 						<div class="text-end py-3">
 							<button className="my-3 border-0 bg-violet text-light p-2" type="submit">Ajouter l'employé</button>

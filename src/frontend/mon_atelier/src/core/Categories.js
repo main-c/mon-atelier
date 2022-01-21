@@ -14,7 +14,7 @@ export default class Categories extends React.Component{
   }
 
   componentDidMount(){
-    axios.get("www.monatelier.comsas.club/api/v1/categories/")
+    axios.get("categories/")
     .then(res => {
       const categories = res.data.results;
       this.setState({ categories });
