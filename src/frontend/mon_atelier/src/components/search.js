@@ -22,7 +22,7 @@ const handleSearch = (e) => {
 
 
 useEffect(() => 
-	{axios('https://api-mon-atelier.herokuapp.com/api/v1/articles/?format=json')
+	{axios('www.monatelier.comsas.club/api/v1/articles/?format=json')
 
 		.then((res)=>{
 
@@ -60,7 +60,7 @@ useEffect(() =>
 
 			</div>
 		</div>
-		<span className="d-flex w-100 border border-1 mx-auto bg-white ">
+		<span className="d-flex w-75 border border-1 mx-auto bg-white ">
 						<span className="border-0 fw-bold ps-2 pe-5 pt-4"   style={{color:"white", backgroundColor: '#443369'}} >Catégories</span>
 		        <span className=" border-0 w-100" ><Articles /></span>
 		        
@@ -110,7 +110,7 @@ class Articles extends React.Component{
   }
 
   componentDidMount(){
-    axios.get("https://api-mon-atelier.herokuapp.com/api/v1/categories/")
+    axios.get("www.monatelier.comsas.club/api/v1/categories/")
     .then(res => {
       const categories = res.data.results;
       this.setState({ categories });

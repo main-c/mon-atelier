@@ -1,37 +1,38 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 
 
+export default function Same() {
 
+	const [articles,setArticles]= useState([])
 
-export default class ArticleAll extends React.Component {
-
-	state = {
-		articles : []
-	}
-
-	componentDidMount(){
-		axios.get("www.monatelier.comsas.club/api/v1/articles/")
-		.then(response => {
-			const articles = response.data.results;
-			this.setState({articles});
+	const {nameCat} = useParams()
+	console.log({nameCat})
+	
+	useEffect(() => {
+		axios.get(`www.monatelier.comsas.club/api/v1/articles/?workshop__name=&mesure=&modele__name=&modele__category__name=Chemise`)
+		.then(res => {
+			console.log(res.data)
+			setArticles(res.data.results)
 		})
+		.catch(err => {
+			console.log(err)
+		})
+	}, [])
 
-		.then((response) => this.setState({articles: response.data.results}))
-		.catch((err) => console.log(err));
-	}
-
-
-render(){
 		return(
-		<div className="container-fluid px-0 pb-0">
+
+				<div className="container-fluid px-0 pb-lg-5">
 					<div className='fw-bold text-center mt-5 fs-3'>NOS ARTICLES</div>
 					<div className="mx-auto mb-5" style={{height:'4px', width:'100px', background:'#FF5566'}}></div>
 
-					<div className="row pt-3 mx-auto py-3">
-					
-					{ this.state.articles.map(article => {
+					<div className="row pt-3 mx-auto py-5">
+
+										
+					{articles.slice(0, 4).map(article => {
+
+						
 
 						return(
 							<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "19rem", maxHeight:'26rem'}}>
@@ -54,10 +55,12 @@ render(){
 
 							);
 					})}
+						
+
 
 					</div>
 				</div>
 
 	);
 }
-}
+

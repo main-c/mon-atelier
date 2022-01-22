@@ -3,6 +3,8 @@ import Layout from './Layout.js';
 import Article from '../components/Article';
 import axios from 'axios';
 
+import ArticleAll from '../components/articleAll'
+
 
 
 function Articles(){
@@ -11,7 +13,7 @@ function Articles(){
 
 		<div className="container-fluid">
 			<div className="mx-auto underline bg-white pt-2 w-50 rounded">
-				<h4 className="text-violet text-center">Jugalux Beauty</h4>
+				<h4 className="text-violet text-center">Jugalux Atelier</h4>
 			</div>
 
 				
@@ -21,7 +23,7 @@ function Articles(){
 
 			<div className="row">
 
-				<Article />
+				<ArticleAll />
 
 			</div>
 

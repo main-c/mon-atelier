@@ -11,7 +11,7 @@ export default function Article() {
 	console.log({nameCat})
 	
 	useEffect(() => {
-		axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/articles/?workshop__name=&mesure=&modele__name=&modele__category__name=Robe+en+pagne`)
+		axios.get(`www.monatelier.comsas.club/api/v1/articles/?workshop__name=&mesure=&modele__name=&modele__category__name=${nameCat}`)
 		.then(res => {
 			console.log(res.data)
 			setArticles(res.data.results)
@@ -32,14 +32,14 @@ export default function Article() {
 										
 					{articles.map(article => {
 
-						if(this.results.lenght >= 1){ 
+						
 
 						return(
 							<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "19rem", maxHeight:'26rem'}}>
 							<img src={article.result} className="card-img-top p-0" alt="..." style={{width:'auto', height:'6.4cm'}}  />
 							<div className="card-body ps-2">
 								<h5 className="card-title">
-									<Link to={`/articles/${article.id}`}>
+									<Link to={`/detail_article/${article.id}`}>
 						            	<p className="text-dark fs-4">{article.name}</p>
 						        	</Link>
 								</h5>
@@ -54,11 +54,6 @@ export default function Article() {
 						</div>
 
 							);
-						}
-						 if(this.results.lenght=0){
-						 	console.log(articles)
-							return(<h1>No articles yet</h1>)
-						}
 					})}
 						
 

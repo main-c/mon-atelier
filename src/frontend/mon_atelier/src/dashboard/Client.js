@@ -24,7 +24,7 @@ function Client(){
 		<div className="container-fluid px-0">
 
 			<div className="mx-auto underline bg-white pt-2 w-50 rounded">
-				<h4 className="text-violet text-center">Jugalux Beauty</h4>
+				<h4 className="text-violet text-center">Jugalux Atelier</h4>
 			</div>
 
 				
