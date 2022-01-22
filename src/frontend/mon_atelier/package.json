@@ -2,7 +2,7 @@
   "name": "mon_atelier",
   "version": "0.1.0",
   "private": true,
-  "proxy": "www.monatelier.comsas.club/api/v1/",
+  "proxy": "http://www.monatelier.comsas.club/api/v1/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
