@@ -90,7 +90,7 @@ class Home extends React.Component{
 
 					<div className="row pt-3 mx-auto py-3">
 					
-					{ this.state.articles.slice(0, 4).map(article => {
+					{articles.slice(0, 4).map(article => {
 
 						return(
 							<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "19rem", maxHeight:'26rem'}}>
