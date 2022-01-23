@@ -22,7 +22,7 @@ const handleSearch = (e) => {
 
 
 useEffect(() => 
-	{axios('https://api-mon-atelier.herokuapp.com/api/v1/articles/?format=json')
+	{axios('http://www.monatelier.comsas.club/api/v1/articles/?format=json')
 
 		.then((res)=>{
 
@@ -110,7 +110,7 @@ class Articles extends React.Component{
   }
 
   componentDidMount(){
-    axios.get("https://api-mon-atelier.herokuapp.com/api/v1/categories/")
+    axios.get("http://www.monatelier.comsas.club/api/v1/categories/")
     .then(res => {
       const categories = res.data.results;
       this.setState({ categories });

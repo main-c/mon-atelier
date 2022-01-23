@@ -3,6 +3,8 @@ import Layout from './Layout.js';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 
+import ArticleAll from '../components/articleAll'
+
 
 function DetailCommand(){
 
@@ -10,7 +12,7 @@ function DetailCommand(){
   const [info, setInfo] = React.useState([]);
 
   React.useEffect(() => {
-    axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/orders/${nameCommand}/`)
+    axios.get(`http://www.monatelier.comsas.club/api/v1/orders/${nameCommand}/`)
     .then((response) => {
       setInfo(response.data);
     });
@@ -23,7 +25,7 @@ function DetailCommand(){
 
 			<div className="d-flex justify-content-center mb-5">
 				<div className="underline bg-white pt-2 w-50 rounded">
-					<h4 className="text-violet text-center">Jugalux Beauty</h4>
+					<h4 className="text-violet text-center">Jugalux Atelier</h4>
 				</div>
 			</div>
 
@@ -44,9 +46,9 @@ function DetailCommand(){
 				<div className="col-lg-6 d-grid justify-content-end">
 
 					<i>
-						<div className="d-flex text-secondary">
-							<p className="me-1 my-auto">Commandé le</p>
-							<span className="my-auto">{info.delivery_date}</span>
+						<div className="d-flex">
+							<p className="me-1 my-auto">Date buttoire :</p>
+							<span className="my-auto text-danger">{info.delivery_date}</span>
 						</div>
 					</i>
 				</div>
@@ -57,6 +59,12 @@ function DetailCommand(){
 
 			<div className="underline mt-5">
 				<h4 className="text-violet">Articles</h4>
+			</div>
+
+			<div className="row">
+
+				<ArticleAll />
+
 			</div>
 
 		</div>

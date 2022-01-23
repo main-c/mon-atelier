@@ -6,8 +6,6 @@ import './dashboard.css';
 import './Account.css'
 
 
-const baseURL = "www.monatelier.comsas.club/api/v1/workshops/";
-
 function Account(){
 
 	const [toggleState, setToggleState] = useState(1);
@@ -52,7 +50,7 @@ function Account(){
 
 	function handleSubmit(e){
 		e.preventDefault()
-		axios.post(`www.monatelier.comsas.club/api/v1/workshops/?format=json`, {
+		axios.post(`http://www.monatelier.comsas.club/api/v1/workshops/?format=json`, {
 			manager: {
 			  last_name,
 			  password,
@@ -139,15 +137,15 @@ function Account(){
 						{/* <h4>General box</h4> */}
 						<div className="generail-box">
 							<div className="bloc-tabs">
-								<button className={toggleState === 1 ? "tabs active-tabs" : "tabs"} onClick={() => toggleTab(1)}><span className="text-violet">Account Setting</span></button>
-								<button className={toggleState === 2 ? "tabs active-tabs" : "tabs"}onClick={() => toggleTab(2)}><span className="text-violet">Compagny Setting</span></button>
-								<button className={toggleState === 3 ? "tabs active-tabs" : "tabs"} onClick={() => toggleTab(3)}><span className="text-violet">Notifications</span></button>
+								<button className={toggleState === 1 ? "tabs active-tabs" : "tabs"} onClick={() => toggleTab(1)}><span className="text-violet"><i className="fa fa-gear me-2"></i>Paramètres</span></button>
+								<button className={toggleState === 2 ? "tabs active-tabs" : "tabs"}onClick={() => toggleTab(2)}><span className="text-violet">Notification</span></button>
+								<button className={toggleState === 3 ? "tabs active-tabs" : "tabs"} onClick={() => toggleTab(3)}><span className="text-violet">Rapport</span></button>
 							</div>
 							<div className="content-tabs">
 								<div className={toggleState === 1 ? "content  active-content" : "content"}>
 									<form action="" onSubmit={handleSubmit}>
 										<div>
-											<div className="row">
+											<div className="row mt-4">
 												<div className="col">
 													<label htmlFor="Fname" className="form-label text-violet">Name</label>
                                                     <input type="text"className="bordure text-violet subject" id="Fname" placeholder="..." value={name} onChange={(e)=>{setName(e.target.value)}} />
@@ -181,27 +179,18 @@ function Account(){
 									</form>
 								</div>
 								<div className={toggleState === 2 ? "content  active-content" : "content"}>
-									<h2>Content 2</h2>
+									<h3 className="mt-3">mes notifications</h3>
 									<hr />
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos sed
-										nostrum rerum laudantium totam unde adipisci incidunt modi alias!
-										Accusamus in quia odit aspernatur provident et ad vel distinctio
-										recusandae totam quidem repudiandae omnis veritatis nostrum
-										laboriosam architecto optio rem, dignissimos voluptatum beatae
-										aperiam voluptatem atque. Beatae rerum dolores sunt.
+									<p className="mt-5 text-danger">
+										- Un nouveau message 
 									</p>
 								</div>
 								<div className={toggleState === 3 ? "content  active-content" : "content"}>
-									<h2>Content 3</h2>
+									<h3 className="mt-3">Mes notes</h3>
 									<hr />
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos sed
-										nostrum rerum laudantium totam unde adipisci incidunt modi alias!
-										Accusamus in quia odit aspernatur provident et ad vel distinctio
-										recusandae totam quidem repudiandae omnis veritatis nostrum
-										laboriosam architecto optio rem, dignissimos voluptatum beatae
-										aperiam voluptatem atque. Beatae rerum dolores sunt.
+									<p className="mt-5">
+										- Je dois aller livrer la robe de madame Fouda demain matin<br/><br/>
+										- Les rubans bleu sont en manque
 									</p>
 								</div>
 							</div>

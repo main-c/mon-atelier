@@ -10,7 +10,7 @@ function DetailEmploye(){
   const [info, setInfo] = React.useState([]);
 
   React.useEffect(() => {
-    axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/workers/${nameEmploye}/`)
+    axios.get(`http://www.monatelier.comsas.club/api/v1/workers/${nameEmploye}/`)
     .then((response) => {
       setInfo(response.data);
     });
@@ -22,7 +22,7 @@ function DetailEmploye(){
 		<div className="container-fluid">
 
 			<div className="mx-auto underline bg-white pt-2 w-50 rounded">
-				<h4 className="text-violet text-center">Jugalux Beauty</h4>
+				<h4 className="text-violet text-center">Jugalux Atelier</h4>
 			</div>
 			
 			<div className="row command_information border mt-5 pt-lg-5 pt-4 px-lg-5 py-lg-4 p-2">

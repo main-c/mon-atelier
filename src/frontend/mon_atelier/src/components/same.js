@@ -11,7 +11,7 @@ export default function Same() {
 	console.log({nameCat})
 	
 	useEffect(() => {
-		axios.get(`https://api-mon-atelier.herokuapp.com/api/v1/articles/?workshop__name=&mesure=&modele__name=&modele__category__name=Chemise`)
+		axios.get(`http://www.monatelier.comsas.club/api/v1/articles/?workshop__name=&mesure=&modele__name=&modele__category__name=Chemise`)
 		.then(res => {
 			console.log(res.data)
 			setArticles(res.data.results)
@@ -39,7 +39,7 @@ export default function Same() {
 							<img src={article.result} className="card-img-top p-0" alt="..." style={{width:'auto', height:'6.4cm'}}  />
 							<div className="card-body ps-2">
 								<h5 className="card-title">
-									<Link to={`/articles/${article.id}`}>
+									<Link to={`/detail_article/${article.id}`}>
 						            	<p className="text-dark fs-4">{article.name}</p>
 						        	</Link>
 								</h5>

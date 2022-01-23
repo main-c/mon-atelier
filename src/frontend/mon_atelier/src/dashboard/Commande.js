@@ -25,7 +25,7 @@ function Commande(){
 
 			<div className="d-flex justify-content-center">
 				<div className="underline bg-white pt-2 w-50 rounded">
-					<h4 className="text-violet text-center">Jugalux Beauty</h4>
+					<h4 className="text-violet text-center">Jugalux Atelier</h4>
 				</div>
 			</div>
 
