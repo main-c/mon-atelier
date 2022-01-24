@@ -1,31 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import {Link, useParams} from 'react-router-dom';
 import Slide, {CarouselItem} from '../components/slide'
-import axios from 'axios'
 
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import ArticleAll from '../components/articleAll'
 import './Home.css'
 
-class Home extends React.Component{
+export default function Home() {
 
-		state = {
-		articles : []
-	}
+	const [articles,setArticles]= useState([])
 
-	componentDidMount(){
-		axios.get("articles/")
-		.then(response => {
-			const articles = response.data.results;
-			this.setState({articles});
+	const {nameCat} = useParams()
+	console.log({nameCat})
+	
+	useEffect(() => {
+		axios.get(`http://www.monatelier.comsas.club/api/v1/articles/`)
+		.then(res => {
+			console.log(res.data)
+			setArticles(res.data.results)
 		})
-
-		.then((response) => this.setState({articles: response.data.results}))
-		.catch((err) => console.log(err));
-	}
-
-	render(){
+		.catch(err => {
+			console.log(err)
+		})
+	}, [])
 		return(
 			
 			<div className="Integration">
@@ -88,7 +87,7 @@ class Home extends React.Component{
 
 					<div className="row pt-3 mx-auto py-3">
 					
-					{this.state.articles.slice(0, 4).map(article => {
+					{articles.slice(0, 4).map(article => {
 
 						return(
 							<div className="col-lg-3 card p-0 mt-3 mx-auto border-0" style={{width: "19rem", maxHeight:'26rem'}}>
@@ -218,7 +217,3 @@ class Home extends React.Component{
 
 		);
 	}
-
-}
-
-export default Home;
