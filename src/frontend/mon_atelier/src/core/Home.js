@@ -5,7 +5,6 @@ import axios from 'axios'
 
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import Categories from '../components/categories'
 import ArticleAll from '../components/articleAll'
 import './Home.css'
 
@@ -77,7 +76,7 @@ class Home extends React.Component{
 
 				</Slide>
 				
-				<Categories />
+				
 
 					<div className="me-5 mt-3" style={{textAlign:'right'}}>
 						<Link to="/categories" className="border-0 rounded-1 text-light fs-5 pt-2 mt-lg-1 mt-5 pb-2 ps-3 pe-3 more">voir plus</Link>
