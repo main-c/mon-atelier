@@ -9,13 +9,17 @@ import Same from '../components/same'
 
 export default function DetailArticle(){
 
-	const {nameArt} = useParams()
+  const {nameArt} = useParams()
+  console.log({nameArt})
   const [postWorkshop, setPostWorkshop] = React.useState(null);
   const [post, setPost] = React.useState(null);
   const[same, setSame]=React.useState(null);
+
+  const {idWork} = useParams()
+  console.log({idWork})
   
   const request1 = axios.get(`http://www.monatelier.comsas.club/api/v1/articles/${nameArt}/`);
-  const request2 = axios.get(`http://www.monatelier.comsas.club/api/v1/workshops/48/`);
+  const request2 = axios.get(`http://www.monatelier.comsas.club/api/v1/workshops/1/`);
   const request3 = axios.get("http://www.monatelier.comsas.club/api/v1/articles/?workshop__name=&mesure=&modele__name=&modele__category__name=Chemise");
 
 	  React.useEffect(() => {
