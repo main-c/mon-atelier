@@ -1,0 +1,54 @@
+Classe Animal
+{
+    
+    +nom_animal
+    -famille
+    +classe(vertébré ou invertébré)
+    +mode_de_deplacement
+    +mode_de_nutrition
+    -mode_de_reproduction
+    +millieu_de_vie
+    -taille
+    +couleur
+    +genre(masculin ou féminin)
+    -poids
+    +couleur_des_yeux
+    -espérence_de_vie
+    
+}
+
+Classe Mamifère ( Animal)
+{
+    +classe = vertébré
+    +squelette
+    -famille
+    +nombre_de_pattes
+    -mode_de_gestation
+    -mode_de_vie
+
+}
+
+Classe felin(mamifère)
+{
+    +machoire
+    +griffe
+    +fourrure
+    -vitesse
+
+}
+
+Classe primate(mammifère)
+{
+    famille = Euthériens
+    +pilosité
+
+}
+
+Classe Homme(primate)
+{
+    -nom
+    -Age
+    +race
+    +type_cheveux
+    -origine
+}
